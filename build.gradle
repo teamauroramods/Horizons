@@ -1,0 +1,68 @@
+plugins {
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "0.11.0-SNAPSHOT" apply false
+    id "io.github.juuxel.loom-quiltflower" version "1.7.1" apply false
+}
+
+architectury {
+    minecraft = rootProject.minecraftVersion
+}
+
+subprojects {
+    apply plugin: "dev.architectury.loom"
+    apply plugin: "io.github.juuxel.loom-quiltflower"
+
+    loom {
+        silentMojangMappingsLicense()
+    }
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraftVersion}"
+        mappings loom.layered() {
+            officialMojangMappings()
+//            parchment("org.parchmentmc.data:parchment-${rootProject.minecraftVersion}:${rootProject.parchmentVersion}")
+        }
+    }
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+    apply plugin: "maven-publish"
+
+    archivesBaseName = rootProject.name
+    version = "${rootProject.minecraftVersion}-${rootProject.modVersion}"
+    group = rootProject.mavenGroup
+
+    repositories {
+        mavenLocal()
+        maven { url "https://jitpack.io" }
+        maven { url "https://repo.moonflower.gg/releases" }
+        maven { url "https://maven.parchmentmc.org" }
+        maven { url "https://maven.shedaniel.me/" }
+        maven { // JustEnoughItems
+            name = "Progwml6 maven"
+            url = "https://dvs1.progwml6.com/files/maven/"
+        }
+        maven { // JustEnoughItems fallback
+            name = "ModMaven"
+            url = "https://modmaven.dev"
+        }
+        maven {
+            url "https://www.cursemaven.com"
+            content {
+                includeGroup "curse.maven"
+            }
+        }
+        maven { url "https://maven.bai.lol" }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release.set(17)
+    }
+
+    java {
+        withSourcesJar()
+    }
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "version": "${version}",
+  "name": "${name}",
+  "description": "A mod focused on adding biomes with realism and the core Minecraft experience in mind.",
+  "authors": [ "Team Aurora" ],
+  "contributors": [  ],
+  "contact": {
+    "homepage": "https://discord.gg/VzXSCFp",
+    "issues": "https://github.com/teamauroramods/BayouBlues/issues",
+    "sources": "https://github.com/teamauroramods/BayouBlues/"
+  },
+  "license": "GPLv3",
+  "icon": "icon.png",
+  "environment": "*",
+  "accessWidener" : "${id}.accesswidener",
+  "mixins": [
+    "${id}-common.mixins.json",
+    "${id}.mixins.json"
+  ],
+  "entrypoints": {
+    "main": [
+      "com.teamaurora.bayou_blues.core.fabric.HorizonsFabric"
+    ],
+    "terrablender": [
+      "com.teamaurora.bayou_blues.core.fabric.HorizonsFabric"
+    ]
+  },
+  "depends": {
+    "fabric": "*",
+    "minecraft": "1.18.2",
+    "pollen": ">=1.4.9 <2.0.0",
+    "terrablender": ">=1.1.0.101"
+  }
+}

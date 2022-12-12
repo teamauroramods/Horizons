@@ -1,0 +1,138 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.0.0"
+}
+
+archivesBaseName = "${rootProject.archivesBaseName}-${project.name}"
+
+architectury {
+    platformSetupLoomIde()
+    fabric()
+}
+
+def generatedResources = project(":fabric").file("src/generated/resources/")
+def accessWidenerFile  = project(":common").file("src/main/resources/${project.modId}.accesswidener")
+
+loom {
+    mixin {
+        defaultRefmapName = "${project.modId}-refmap.json"
+    }
+
+    runConfigs.configureEach {
+        if (name == "client")
+            runDir = "../run"
+        else if (name == "server")
+            runDir = "../run/server-fabric"
+    }
+
+    runs {
+        datagen {
+            client()
+
+            name "Minecraft Data"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${generatedResources.absolutePath}"
+            vmArg "-Dfabric-api.datagen.modid=${project.modId}"
+        }
+    }
+    accessWidenerPath.set(accessWidenerFile)
+}
+
+sourceSets.main.resources {
+    srcDir generatedResources
+}
+
+configurations {
+    common
+    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
+}
+
+
+repositories {
+    maven { // ModMenu
+        name = "TerraformersMC"
+        url "https://maven.terraformersmc.com/"
+    }
+    maven { // AppleSkin
+        url "https://maven.ryanliptak.com/"
+    }
+}
+
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabricLoaderVersion}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabricApiVersion}"
+    modApi "gg.moonflower:pollen-fabric:${rootProject.pollenVersion}+${rootProject.minecraftVersion}"
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+}
+
+task copyAccessWidener(type: Copy) {
+    from(accessWidenerFile)
+    into(generatedResources)
+}
+
+processResources {
+    dependsOn(copyAccessWidener)
+    inputs.property "id", rootProject.modId
+    inputs.property "name", rootProject.modName
+    inputs.property "version", rootProject.modVersion
+    inputs.property "repo", rootProject.name
+
+    filesMatching("fabric.mod.json") {
+        expand "id": rootProject.modId,
+                "name": rootProject.modName,
+                "version": rootProject.modVersion,
+                "repo": rootProject.name
+    }
+
+    doLast {
+        fileTree(dir: outputs.files.asPath, include: "**/*.json").each {
+            File file -> file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+        }
+    }
+}
+
+shadowJar {
+    exclude "architectury.common.json"
+
+    configurations = [project.configurations.shadowCommon]
+    classifier "dev-shadow"
+}
+
+remapJar {
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+    classifier null
+}
+
+jar {
+    classifier "dev"
+}
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+    duplicatesStrategy(DuplicatesStrategy.INCLUDE)
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
+
+publishing {
+    publications {
+        mavenFabric(MavenPublication) {
+            artifactId = project.archivesBaseName
+            from components.java
+        }
+    }
+}

@@ -1,0 +1,119 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.0.0"
+}
+
+archivesBaseName = "${rootProject.archivesBaseName}-${project.name}"
+
+loom {
+    accessWidenerPath.set(project(":common").file("src/main/resources/${project.modId}.accesswidener"))
+
+    runConfigs.configureEach {
+        if (name == "client" || name == "data")
+            runDir = "../run"
+        else if (name == "server")
+            runDir = "../run/server-forge"
+    }
+
+    forge {
+        mixinConfig "${project.modId}-common.mixins.json"
+        mixinConfig "${project.modId}.mixins.json"
+
+        convertAccessWideners.set(true)
+        extraAccessWideners.add("${project.modId}.accesswidener")
+    }
+
+    mixin {
+        defaultRefmapName = "${project.modId}-refmap.json"
+    }
+}
+
+sourceSets.main.resources {
+    srcDir file("src/generated/resources/")
+}
+
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
+
+configurations {
+    common
+    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentForge.extendsFrom common
+}
+
+repositories {
+}
+
+dependencies {
+    forge "net.minecraftforge:forge:${rootProject.minecraftVersion}-${rootProject.forgeVersion}"
+    modApi "gg.moonflower:pollen-forge:${rootProject.pollenVersion}+${rootProject.minecraftVersion}"
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+}
+
+processResources {
+    inputs.property "id", rootProject.modId
+    inputs.property "name", rootProject.modName
+    inputs.property "version", rootProject.modVersion
+    inputs.property "repo", rootProject.name
+
+    filesMatching(["META-INF/mods.toml", "pack.mcmeta"]) {
+        expand "id": rootProject.modId,
+                "name": rootProject.modName,
+                "version": rootProject.modVersion,
+                "repo": rootProject.name
+    }
+
+    doLast {
+        fileTree(dir: outputs.files.asPath, include: "**/*.json").each {
+            File file -> file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+        }
+    }
+}
+
+shadowJar {
+    exclude "fabric.mod.json"
+    exclude "architectury.common.json"
+
+    configurations = [project.configurations.shadowCommon]
+    classifier "dev-shadow"
+}
+
+remapJar {
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+    classifier null
+}
+
+jar {
+    classifier "dev"
+}
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+    duplicatesStrategy(DuplicatesStrategy.INCLUDE)
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
+
+publishing {
+    publications {
+        mavenForge(MavenPublication) {
+            artifactId = project.archivesBaseName
+            from components.java
+        }
+    }
+}
