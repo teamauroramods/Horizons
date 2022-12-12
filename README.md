@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/teamauroramods/BayouBlues/1.18.x/forge/src/main/resources/logo.png" width=60%></p>
+<p align="center"><img src="https://raw.githubusercontent.com/teamauroramods/horizons/1.18.x/forge/src/main/resources/logo.png" width=60%></p>
 <h3 align="center">Bayou Blues</h3>
 <p align="center">
   1.18 and above requires Pollen
