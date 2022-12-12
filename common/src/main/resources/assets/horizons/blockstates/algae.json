@@ -2,7 +2,7 @@
   "variants": {
     "": [
       {
-        "model": "bayou_blues:block/algae"
+        "model": "horizons:block/algae"
       }
     ]
   }
