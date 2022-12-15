@@ -1,4 +1,4 @@
-package com.teamaurora.bayou_blues.core;
+package com.teamaurora.horizons.core;
 
 import gg.moonflower.pollen.api.platform.Platform;
 

@@ -1,4 +1,4 @@
-package com.teamaurora.bayou_blues.core.registry.util;
+package com.teamaurora.horizons.core.registry.util;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

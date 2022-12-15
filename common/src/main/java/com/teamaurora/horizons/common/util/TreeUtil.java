@@ -1,4 +1,4 @@
-package com.teamaurora.bayou_blues.common.util;
+package com.teamaurora.horizons.common.util;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
