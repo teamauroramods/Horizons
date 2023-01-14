@@ -6,14 +6,14 @@
   ],
   "key": {
     "#": {
-      "item": "bayou_blues:gooseberry_jam"
+      "item": "horizons:gooseberry_jam"
     },
     "X": {
       "item": "minecraft:wheat"
     }
   },
   "result": {
-    "item": "bayou_blues:gooseberry_jam_cookie",
+    "item": "horizons:gooseberry_jam_cookie",
     "count": 8
   }
 }

@@ -3,7 +3,7 @@
   "textures": {
     "particle": "minecraft:block/lily_pad",
     "pad": "minecraft:block/lily_pad",
-    "root": "bayou_blues:block/lily_root",
+    "root": "horizons:block/lily_root",
     "flower": "#flower"
   },
   "elements": [

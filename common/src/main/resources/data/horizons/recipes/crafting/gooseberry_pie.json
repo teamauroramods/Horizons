@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bayou_blues:gooseberries"
+      "item": "horizons:gooseberries"
     },
     {
-      "tag": "forge:eggs"
+      "item": "minecraft:egg"
     },
     {
       "item": "minecraft:sugar"
     }
   ],
   "result": {
-    "item": "bayou_blues:gooseberry_pie"
+    "item": "horizons:gooseberry_pie"
   }
 }

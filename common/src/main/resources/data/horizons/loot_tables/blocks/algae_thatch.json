@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bayou_blues:algae_thatch"
+          "name": "horizons:algae_thatch"
         }
       ],
       "conditions": [

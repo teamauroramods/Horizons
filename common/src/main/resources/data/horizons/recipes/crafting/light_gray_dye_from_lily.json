@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bayou_blues:light_gray_lily"
+      "item": "horizons:light_gray_lily"
     }
   ],
   "result": {

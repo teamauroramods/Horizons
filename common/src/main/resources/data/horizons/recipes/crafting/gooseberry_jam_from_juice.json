@@ -5,17 +5,17 @@
       "item": "minecraft:honey_bottle"
     },
     {
-      "item": "bayou_blues:gooseberry_juice"
+      "item": "horizons:gooseberry_juice"
     },
     {
-      "item": "bayou_blues:gooseberry_juice"
+      "item": "horizons:gooseberry_juice"
     },
     {
-      "item": "bayou_blues:gooseberry_juice"
+      "item": "horizons:gooseberry_juice"
     }
   ],
   "result": {
-    "item": "bayou_blues:gooseberry_jam",
+    "item": "horizons:gooseberry_jam",
     "count": 3
   }
 }

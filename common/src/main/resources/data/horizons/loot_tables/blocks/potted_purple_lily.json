@@ -20,7 +20,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bayou_blues:purple_lily"
+          "name": "horizons:purple_lily"
         }
       ],
       "conditions": [

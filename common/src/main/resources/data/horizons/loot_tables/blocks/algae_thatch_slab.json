@@ -12,7 +12,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "bayou_blues:algae_thatch_slab",
+                  "block": "horizons:algae_thatch_slab",
                   "properties": {
                     "type": "double"
                   }
@@ -24,7 +24,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "bayou_blues:algae_thatch_slab"
+          "name": "horizons:algae_thatch_slab"
         }
       ]
     }

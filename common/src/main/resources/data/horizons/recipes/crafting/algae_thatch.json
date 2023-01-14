@@ -6,11 +6,11 @@
   ],
   "key": {
     "#": {
-      "item": "bayou_blues:algae"
+      "item": "horizons:algae"
     }
   },
   "result": {
-    "item": "bayou_blues:algae_thatch",
+    "item": "horizons:algae_thatch",
     "count": 4
   }
 }

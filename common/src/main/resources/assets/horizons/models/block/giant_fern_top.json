@@ -1,9 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "bayou_blues:block/giant_fern_middle",
-    "cross": "bayou_blues:block/giant_fern_middle",
-    "top": "bayou_blues:block/giant_fern_top"
+    "particle": "horizons:block/giant_fern_middle",
+    "cross": "horizons:block/giant_fern_middle",
+    "top": "horizons:block/giant_fern_top"
   },
   "elements": [
     {   "from": [ 0.8, 0, 8 ],

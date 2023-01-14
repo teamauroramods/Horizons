@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bayou_blues:gooseberries"
+      "item": "horizons:gooseberries"
     },
     {
       "item": "minecraft:honey_bottle"
     }
   ],
   "result": {
-    "item": "bayou_blues:honey_glazed_gooseberries"
+    "item": "horizons:honey_glazed_gooseberries"
   }
 }

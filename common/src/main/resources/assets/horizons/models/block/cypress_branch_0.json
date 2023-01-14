@@ -1,6 +1,6 @@
 {
-  "parent": "bayou_blues:block/branch",
+  "parent": "horizons:block/branch",
   "textures": {
-    "branch": "bayou_blues:block/cypress_branch_0"
+    "branch": "horizons:block/cypress_branch_0"
   }
 }

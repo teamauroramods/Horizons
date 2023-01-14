@@ -1,1 +1,1 @@
-{"parent": "block/slab", "textures": {"bottom": "bayou_blues:block/cypress_planks", "top": "bayou_blues:block/cypress_planks", "side": "bayou_blues:block/cypress_planks"}}
+{"parent": "block/slab", "textures": {"bottom": "horizons:block/cypress_planks", "top": "horizons:block/cypress_planks", "side": "horizons:block/cypress_planks"}}

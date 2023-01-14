@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "bayou_blues:block/potted_magenta_lily"
+      "model": "horizons:block/potted_magenta_lily"
     }
   }
 }

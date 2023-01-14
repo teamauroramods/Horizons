@@ -8,30 +8,27 @@ plugins {
 archivesBaseName = "${rootProject.archivesBaseName}-${project.name}"
 
 loom {
-    accessWidenerPath.set(project(":common").file("src/main/resources/${project.modId}.accesswidener"))
-
-    runConfigs.configureEach {
-        if (name == "client" || name == "data")
-            runDir = "../run"
-        else if (name == "server")
-            runDir = "../run/server-forge"
-    }
+//    accessWidenerPath.set(project(":common").file("src/main/resources/${project.mod_id}.accesswidener"))
 
     forge {
-        mixinConfig "${project.modId}-common.mixins.json"
-        mixinConfig "${project.modId}.mixins.json"
+        mixinConfig "${project.mod_id}-common.mixins.json"
+        mixinConfig "${project.mod_id}.mixins.json"
 
-        convertAccessWideners.set(true)
-        extraAccessWideners.add("${project.modId}.accesswidener")
+//        convertAccessWideners.set(true)
+//        extraAccessWideners.add("${project.mod_id}.accesswidener")
+
+//        dataGen {
+//            mod project.mod_id
+//        }
     }
-
     mixin {
-        defaultRefmapName = "${project.modId}-refmap.json"
+        defaultRefmapName = "${project.mod_id}-refmap.json"
     }
-}
-
-sourceSets.main.resources {
-    srcDir file("src/generated/resources/")
+//    launches {
+//        data {
+//            arg "--existing", file("src/main/resources").absolutePath
+//        }
+//    }
 }
 
 architectury {
@@ -47,27 +44,28 @@ configurations {
     developmentForge.extendsFrom common
 }
 
-repositories {
-}
 
 dependencies {
-    forge "net.minecraftforge:forge:${rootProject.minecraftVersion}-${rootProject.forgeVersion}"
-    modApi "gg.moonflower:pollen-forge:${rootProject.pollenVersion}+${rootProject.minecraftVersion}"
+    forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
+
+    modApi("gg.moonflower:pollen-forge:${rootProject.pollen_version}") { transitive = false }
+
+    modRuntimeOnly "me.djtheredstoner:DevAuth-forge-latest:${rootProject.devauth_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 }
 
 processResources {
-    inputs.property "id", rootProject.modId
-    inputs.property "name", rootProject.modName
-    inputs.property "version", rootProject.modVersion
+    inputs.property "id", rootProject.mod_id
+    inputs.property "name", rootProject.mod_name
+    inputs.property "version", rootProject.mod_version
     inputs.property "repo", rootProject.name
 
     filesMatching(["META-INF/mods.toml", "pack.mcmeta"]) {
-        expand "id": rootProject.modId,
-                "name": rootProject.modName,
-                "version": rootProject.modVersion,
+        expand "id": rootProject.mod_id,
+                "name": rootProject.mod_name,
+                "version": rootProject.mod_version,
                 "repo": rootProject.name
     }
 
@@ -80,7 +78,7 @@ processResources {
 
 shadowJar {
     exclude "fabric.mod.json"
-    exclude "architectury.common.json"
+    exclude "archiectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
     classifier "dev-shadow"
@@ -100,7 +98,6 @@ sourcesJar {
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources
     from commonSources.archiveFile.map { zipTree(it) }
-    duplicatesStrategy(DuplicatesStrategy.INCLUDE)
 }
 
 components.java {

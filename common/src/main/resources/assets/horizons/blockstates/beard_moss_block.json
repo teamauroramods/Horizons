@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "bayou_blues:block/beard_moss_block"
+      "model": "horizons:block/beard_moss_block"
     }
   }
 }

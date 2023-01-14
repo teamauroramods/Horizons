@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bayou_blues:gooseberries"
+      "item": "horizons:gooseberries"
     },
     {
       "item": "minecraft:glass_bottle"
@@ -15,7 +15,7 @@
     }
   ],
   "result": {
-    "item": "bayou_blues:gooseberry_juice",
+    "item": "horizons:gooseberry_juice",
     "count": 3
   }
 }

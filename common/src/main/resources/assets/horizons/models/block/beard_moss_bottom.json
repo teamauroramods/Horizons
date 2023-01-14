@@ -1,6 +1,6 @@
 {
-  "parent": "bayou_blues:block/cross_ao",
+  "parent": "horizons:block/cross_ao",
   "textures": {
-    "cross": "bayou_blues:block/beard_moss_bottom"
+    "cross": "horizons:block/beard_moss_bottom"
   }
 }

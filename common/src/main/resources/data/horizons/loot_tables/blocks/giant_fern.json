@@ -23,7 +23,7 @@
                   }
                 }
               ],
-              "name": "bayou_blues:giant_fern"
+              "name": "horizons:giant_fern"
             },
             {
               "type": "minecraft:item",
@@ -33,7 +33,7 @@
                 },
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "bayou_blues:giant_fern",
+                  "block": "horizons:giant_fern",
                   "properties": {
                     "half": "lower"
                   }

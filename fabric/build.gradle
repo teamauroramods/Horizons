@@ -12,36 +12,23 @@ architectury {
     fabric()
 }
 
-def generatedResources = project(":fabric").file("src/generated/resources/")
-def accessWidenerFile  = project(":common").file("src/main/resources/${project.modId}.accesswidener")
-
 loom {
     mixin {
-        defaultRefmapName = "${project.modId}-refmap.json"
+        defaultRefmapName = "${project.mod_id}-refmap.json"
     }
-
-    runConfigs.configureEach {
-        if (name == "client")
-            runDir = "../run"
-        else if (name == "server")
-            runDir = "../run/server-fabric"
-    }
+//    accessWidenerPath.set(project(":common").file("src/main/resources/${project.mod_id}.accesswidener"))
 
     runs {
         datagen {
-            client()
+            server()
 
-            name "Minecraft Data"
+            name "Data Generation"
             vmArg "-Dfabric-api.datagen"
-            vmArg "-Dfabric-api.datagen.output-dir=${generatedResources.absolutePath}"
-            vmArg "-Dfabric-api.datagen.modid=${project.modId}"
+            vmArg "-Dfabric-api.datagen.output-dir=${project(":common").file("src/generated/resources").absolutePath}"
+
+            runDir "build/datagen"
         }
     }
-    accessWidenerPath.set(accessWidenerFile)
-}
-
-sourceSets.main.resources {
-    srcDir generatedResources
 }
 
 configurations {
@@ -54,40 +41,31 @@ configurations {
 
 
 repositories {
-    maven { // ModMenu
-        name = "TerraformersMC"
-        url "https://maven.terraformersmc.com/"
-    }
-    maven { // AppleSkin
-        url "https://maven.ryanliptak.com/"
-    }
+    maven { url "https://maven.terraformersmc.com/" }
 }
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabricLoaderVersion}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabricApiVersion}"
-    modApi "gg.moonflower:pollen-fabric:${rootProject.pollenVersion}+${rootProject.minecraftVersion}"
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    modApi("gg.moonflower:pollen-fabric:${rootProject.pollen_version}") { transitive = false }
+
+    modRuntimeOnly "com.terraformersmc:modmenu:${rootProject.mod_menu_version}"
+    modRuntimeOnly "me.djtheredstoner:DevAuth-fabric:${rootProject.devauth_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 }
 
-task copyAccessWidener(type: Copy) {
-    from(accessWidenerFile)
-    into(generatedResources)
-}
-
 processResources {
-    dependsOn(copyAccessWidener)
-    inputs.property "id", rootProject.modId
-    inputs.property "name", rootProject.modName
-    inputs.property "version", rootProject.modVersion
+    inputs.property "id", rootProject.mod_id
+    inputs.property "name", rootProject.mod_name
+    inputs.property "version", rootProject.mod_version
     inputs.property "repo", rootProject.name
 
     filesMatching("fabric.mod.json") {
-        expand "id": rootProject.modId,
-                "name": rootProject.modName,
-                "version": rootProject.modVersion,
+        expand "id": rootProject.mod_id,
+                "name": rootProject.mod_name,
+                "version": rootProject.mod_version,
                 "repo": rootProject.name
     }
 
@@ -99,7 +77,7 @@ processResources {
 }
 
 shadowJar {
-    exclude "architectury.common.json"
+    exclude "archiectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
     classifier "dev-shadow"
@@ -119,7 +97,6 @@ sourcesJar {
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources
     from commonSources.archiveFile.map { zipTree(it) }
-    duplicatesStrategy(DuplicatesStrategy.INCLUDE)
 }
 
 components.java {

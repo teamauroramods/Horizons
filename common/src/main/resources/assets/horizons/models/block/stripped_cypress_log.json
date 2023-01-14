@@ -1,1 +1,1 @@
-{"parent": "block/cube_column", "textures": {"end": "bayou_blues:block/stripped_cypress_log_top", "side": "bayou_blues:block/stripped_cypress_log"}}
+{"parent": "block/cube_column", "textures": {"end": "horizons:block/stripped_cypress_log_top", "side": "horizons:block/stripped_cypress_log"}}

@@ -1,13 +1,13 @@
 {
   "replace": false,
   "values": [
-    "bayou_blues:light_gray_lily",
-    "bayou_blues:white_lily",
-    "bayou_blues:blue_lily",
-    "bayou_blues:cyan_lily",
-    "bayou_blues:light_blue_lily",
-    "bayou_blues:magenta_lily",
-    "bayou_blues:pink_lily",
-    "bayou_blues:purple_lily"
+    "horizons:light_gray_lily",
+    "horizons:white_lily",
+    "horizons:blue_lily",
+    "horizons:cyan_lily",
+    "horizons:light_blue_lily",
+    "horizons:magenta_lily",
+    "horizons:pink_lily",
+    "horizons:purple_lily"
   ]
 }

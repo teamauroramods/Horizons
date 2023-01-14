@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/flower_pot_cross",
   "textures": {
-    "plant": "bayou_blues:block/cypress_sapling"
+    "plant": "horizons:block/cypress_sapling"
   }
 }
