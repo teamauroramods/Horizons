@@ -14,17 +14,16 @@
   "license": "GPLv3",
   "icon": "icon.png",
   "environment": "*",
-  "accessWidener" : "${id}.accesswidener",
   "mixins": [
     "${id}-common.mixins.json",
     "${id}.mixins.json"
   ],
   "entrypoints": {
     "main": [
-      "com.teamaurora.bayou_blues.core.fabric.HorizonsFabric"
+      "com.teamaurora.horizons.core.fabric.HorizonsFabric"
     ],
-    "terrablender": [
-      "com.teamaurora.bayou_blues.core.fabric.HorizonsFabric"
+    "fabric-datagen": [
+      "com.teamaurora.horizons.core.fabric.HorizonsFabricData"
     ]
   },
   "depends": {

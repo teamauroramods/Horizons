@@ -1,6 +1,6 @@
 package com.teamaurora.horizons.common.block;
 
-import com.teamaurora.bayou_blues.core.registry.BayouBluesBlocks;
+import com.teamaurora.horizons.core.registry.HorizonBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -22,11 +22,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Random;
 
-/**
- * @author JustinPlayzz
- * @author Steven
- * @author ebo2022
- */
 @SuppressWarnings("deprecation")
 public class BeardMossBlock extends Block implements BonemealableBlock {
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
@@ -55,7 +50,7 @@ public class BeardMossBlock extends Block implements BonemealableBlock {
     @Override
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
         BlockState stateUp = worldIn.getBlockState(pos.above());
-        return stateUp.getBlock() == BayouBluesBlocks.BEARD_MOSS_BLOCK ||stateUp.canOcclude() || stateUp.getBlock() == this || stateUp.is(BlockTags.LEAVES);
+        return stateUp.getBlock() == HorizonBlocks.BEARD_MOSS_BLOCK.get() || stateUp.canOcclude() || stateUp.getBlock() == this || stateUp.is(BlockTags.LEAVES);
     }
 
     @Override

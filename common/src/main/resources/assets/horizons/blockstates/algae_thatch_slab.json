@@ -1,7 +1,0 @@
-{
-  "variants": {
-    "type=bottom": { "model": "horizons:block/algae_thatch_slab" },
-    "type=top": { "model": "horizons:block/algae_thatch_slab_top" },
-    "type=double": { "model": "horizons:block/algae_thatch" }
-  }
-}

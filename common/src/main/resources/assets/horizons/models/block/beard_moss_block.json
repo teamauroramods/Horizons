@@ -1,6 +1,0 @@
-{
-  "parent": "block/leaves",
-  "textures": {
-    "all": "horizons:block/beard_moss_block"
-  }
-}
