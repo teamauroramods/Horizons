@@ -2,9 +2,9 @@
   "parent": "block/block",
   "credit": "Made with Blockbench by SmellyModder (Luke Tonon)",
   "textures": {
-    "extrudes": "bayou_blues:block/algae_thatch_extrudes",
-    "thatch": "bayou_blues:block/algae_thatch",
-    "particle": "bayou_blues:block/algae_thatch_extrudes"
+    "extrudes": "horizons:block/algae_thatch_extrudes",
+    "thatch": "horizons:block/algae_thatch",
+    "particle": "horizons:block/algae_thatch_extrudes"
   },
   "elements": [
     {

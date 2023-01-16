@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "bayou_blues:block/algae",
-    "texture": "bayou_blues:block/algae"
+    "particle": "horizons:block/algae",
+    "texture": "horizons:block/algae"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

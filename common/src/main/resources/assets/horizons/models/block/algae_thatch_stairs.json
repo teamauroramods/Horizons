@@ -2,9 +2,9 @@
   "credit": "Made with Blockbench",
   "parent": "block/block",
   "textures": {
-    "extrudes": "bayou_blues:block/algae_thatch_extrudes",
-    "particle": "bayou_blues:block/algae_thatch",
-    "side": "bayou_blues:block/algae_thatch"
+    "extrudes": "horizons:block/algae_thatch_extrudes",
+    "particle": "horizons:block/algae_thatch",
+    "side": "horizons:block/algae_thatch"
   },
   "elements": [
     {

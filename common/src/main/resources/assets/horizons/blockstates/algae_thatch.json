@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "bayou_blues:block/algae_thatch" }
+    "": { "model": "horizons:block/algae_thatch" }
   }
 }
