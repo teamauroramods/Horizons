@@ -1,3 +1,6 @@
 {
-  "parent": "horizons:block/pink_lily"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "horizons:block/pink_lily"
+  }
 }
