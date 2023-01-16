@@ -24,6 +24,8 @@ public class Horizons {
 
     public static final String MOD_ID = "horizons";
     public static final Platform PLATFORM = Platform.builder(MOD_ID)
+            .clientInit(() -> Horizons::onClient)
+            .clientPostInit(() -> Horizons::onClientPost)
             .commonInit(Horizons::onCommon)
             .dataInit(Horizons::onData)
             .build();

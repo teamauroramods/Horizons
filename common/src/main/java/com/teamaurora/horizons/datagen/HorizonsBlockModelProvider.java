@@ -4,11 +4,14 @@ import com.google.gson.JsonElement;
 import com.teamaurora.horizons.core.registry.HorizonBlocks;
 import gg.moonflower.pollen.api.datagen.provider.model.PollinatedBlockModelGenerator;
 import net.minecraft.data.models.BlockModelGenerators;
-import net.minecraft.data.models.blockstates.BlockStateGenerator;
+import net.minecraft.data.models.blockstates.*;
 import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.data.models.model.TexturedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -33,7 +36,12 @@ public class HorizonsBlockModelProvider extends PollinatedBlockModelGenerator {
                 .button(HorizonBlocks.CYPRESS_BUTTON.get())
                 .fence(HorizonBlocks.CYPRESS_FENCE.get())
                 .fenceGate(HorizonBlocks.CYPRESS_FENCE_GATE.get());
-
+        this.createDoor(HorizonBlocks.CYPRESS_DOOR.get());
+        this.createOrientableTrapdoor(HorizonBlocks.CYPRESS_TRAPDOOR.get());
+        this.createDoublePlant(HorizonBlocks.GIANT_FERN.get(), BlockModelGenerators.TintState.TINTED);
+        this.createDoublePlant(HorizonBlocks.BEARD_MOSS.get(), BlockModelGenerators.TintState.NOT_TINTED);
+        this.createTrivialBlock(HorizonBlocks.CYPRESS_LEAVES.get(), TexturedModel.LEAVES);
+        this.createPlant(HorizonBlocks.CYPRESS_SAPLING.get(), HorizonBlocks.POTTED_CYPRESS_SAPLING.get(), BlockModelGenerators.TintState.NOT_TINTED);
         this.createFlowerWithoutBlockModel(HorizonBlocks.BLUE_LILY.get(), HorizonBlocks.POTTED_BLUE_LILY.get());
         this.createFlowerWithoutBlockModel(HorizonBlocks.LIGHT_GRAY_LILY.get(), HorizonBlocks.POTTED_LIGHT_GRAY_LILY.get());
         this.createFlowerWithoutBlockModel(HorizonBlocks.CYAN_LILY.get(), HorizonBlocks.POTTED_CYAN_LILY.get());
@@ -42,7 +50,6 @@ public class HorizonsBlockModelProvider extends PollinatedBlockModelGenerator {
         this.createFlowerWithoutBlockModel(HorizonBlocks.PURPLE_LILY.get(), HorizonBlocks.POTTED_PURPLE_LILY.get());
         this.createFlowerWithoutBlockModel(HorizonBlocks.PINK_LILY.get(), HorizonBlocks.POTTED_PINK_LILY.get());
         this.createFlowerWithoutBlockModel(HorizonBlocks.WHITE_LILY.get(), HorizonBlocks.POTTED_WHITE_LILY.get());
-
     }
 
     private void createFlowerWithoutBlockModel(Block flower, Block pottedPlantBlock) {
@@ -50,5 +57,16 @@ public class HorizonsBlockModelProvider extends PollinatedBlockModelGenerator {
         TextureMapping textureMapping = TextureMapping.plant(flower);
         ResourceLocation resourceLocation = BlockModelGenerators.TintState.NOT_TINTED.getCrossPot().create(pottedPlantBlock, textureMapping, this.getModelOutput());
         this.getBlockStateOutput().accept(createSimpleBlock(pottedPlantBlock, resourceLocation));
+    }
+
+    private void createDoublePlant(Block block, BlockModelGenerators.TintState tintState) {
+        this.createSimpleFlatItemModel(block, "_top");
+        ResourceLocation resourceLocation = this.createSuffixedVariant(block, "_top", tintState.getCross(), TextureMapping::cross);
+        ResourceLocation resourceLocation2 = this.createSuffixedVariant(block, "_bottom", tintState.getCross(), TextureMapping::cross);
+        this.createDoubleBlock(block, resourceLocation, resourceLocation2);
+    }
+
+    private void createDoubleBlock(Block block, ResourceLocation resourceLocation, ResourceLocation resourceLocation2) {
+        this.getBlockStateOutput().accept(MultiVariantGenerator.multiVariant(block).with(PropertyDispatch.property(BlockStateProperties.DOUBLE_BLOCK_HALF).select(DoubleBlockHalf.LOWER, Variant.variant().with(VariantProperties.MODEL, resourceLocation2)).select(DoubleBlockHalf.UPPER, Variant.variant().with(VariantProperties.MODEL, resourceLocation))));
     }
 }
