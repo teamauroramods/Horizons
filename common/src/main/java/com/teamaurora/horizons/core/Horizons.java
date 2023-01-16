@@ -4,6 +4,7 @@ import com.teamaurora.horizons.core.registry.HorizonBlocks;
 import com.teamaurora.horizons.core.registry.HorizonBoatTypes;
 import com.teamaurora.horizons.core.registry.HorizonItems;
 import com.teamaurora.horizons.datagen.HorizonsBlockModelProvider;
+import com.teamaurora.horizons.datagen.HorizonsItemModelProvider;
 import gg.moonflower.pollen.api.datagen.provider.loot_table.PollinatedLootTableProvider;
 import gg.moonflower.pollen.api.datagen.provider.model.PollinatedModelProvider;
 import gg.moonflower.pollen.api.platform.Platform;
@@ -34,6 +35,7 @@ public class Horizons {
         PollinatedModContainer container = ctx.getMod();
         PollinatedModelProvider modelProvider = new PollinatedModelProvider(generator, container);
         modelProvider.addGenerator(HorizonsBlockModelProvider::new);
+        modelProvider.addGenerator(HorizonsItemModelProvider::new);
         generator.addProvider(modelProvider);
     }
 
