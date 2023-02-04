@@ -40,7 +40,12 @@ public class HorizonsBlockModelProvider extends PollinatedBlockModelGenerator {
         this.createOrientableTrapdoor(HorizonBlocks.CYPRESS_TRAPDOOR.get());
         this.createDoublePlant(HorizonBlocks.GIANT_FERN.get(), BlockModelGenerators.TintState.TINTED);
         this.createDoublePlant(HorizonBlocks.BEARD_MOSS.get(), BlockModelGenerators.TintState.NOT_TINTED);
+        this.createDoublePlant(HorizonBlocks.LARGE_CYPRESS_KNEE.get(), BlockModelGenerators.TintState.NOT_TINTED);
+        this.createCrossBlockWithDefaultItem(HorizonBlocks.CYPRESS_KNEE.get(), BlockModelGenerators.TintState.NOT_TINTED);
         this.createTrivialBlock(HorizonBlocks.CYPRESS_LEAVES.get(), TexturedModel.LEAVES);
+        this.createTrivialBlock(HorizonBlocks.BEARD_MOSS_BLOCK.get(), TexturedModel.LEAVES);
+        this.createSimpleFlatItemModel(HorizonBlocks.ALGAE.get());
+        this.createSimpleFlatItemModel(HorizonBlocks.CYPRESS_BRANCH.get(), "_0");
         this.createPlant(HorizonBlocks.CYPRESS_SAPLING.get(), HorizonBlocks.POTTED_CYPRESS_SAPLING.get(), BlockModelGenerators.TintState.NOT_TINTED);
         this.createFlowerWithoutBlockModel(HorizonBlocks.BLUE_LILY.get(), HorizonBlocks.POTTED_BLUE_LILY.get());
         this.createFlowerWithoutBlockModel(HorizonBlocks.LIGHT_GRAY_LILY.get(), HorizonBlocks.POTTED_LIGHT_GRAY_LILY.get());
@@ -50,6 +55,7 @@ public class HorizonsBlockModelProvider extends PollinatedBlockModelGenerator {
         this.createFlowerWithoutBlockModel(HorizonBlocks.PURPLE_LILY.get(), HorizonBlocks.POTTED_PURPLE_LILY.get());
         this.createFlowerWithoutBlockModel(HorizonBlocks.PINK_LILY.get(), HorizonBlocks.POTTED_PINK_LILY.get());
         this.createFlowerWithoutBlockModel(HorizonBlocks.WHITE_LILY.get(), HorizonBlocks.POTTED_WHITE_LILY.get());
+        this.createSimpleFlatItemModel(HorizonBlocks.HANGING_CYPRESS_LEAVES.get());
     }
 
     private void createFlowerWithoutBlockModel(Block flower, Block pottedPlantBlock) {

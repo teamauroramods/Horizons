@@ -30,9 +30,6 @@ import java.util.function.Supplier;
 
 public class HorizonBlocks {
 
-    public static final DeferredSoundType ALGAE_SOUND_TYPE = new DeferredSoundType(1F, 2.0F, () -> SoundEvents.LILY_PAD_PLACE, () -> SoundEvents.MOSS_CARPET_STEP, () -> SoundEvents.LILY_PAD_PLACE, () -> SoundEvents.MOSS_CARPET_HIT, () -> SoundEvents.MOSS_CARPET_FALL);
-    public static final DeferredSoundType ALGAE_THATCH_SOUND_TYPE = new DeferredSoundType(1.0F, 0.7F, () -> SoundEvents.ROOTS_BREAK, () -> SoundEvents.ROOTS_STEP, () -> SoundEvents.ROOTS_PLACE, () -> SoundEvents.GRASS_HIT, () -> SoundEvents.ROOTS_FALL);
-
     public static final PollinatedBlockRegistry BLOCKS = PollinatedRegistry.createBlock(HorizonItems.ITEMS);
 
     private static final Woodset CYPRESS = new Woodset(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_GREEN);
@@ -96,14 +93,20 @@ public class HorizonBlocks {
     public static final class Properties {
         public static final BlockBehaviour.Properties CYPRESS_LEAVES = BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES);
         public static final BlockBehaviour.Properties CYPRESS_SAPLING = BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING);
-        public static final BlockBehaviour.Properties CYPRESS_KNEE = BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD).noOcclusion();
-        public static final BlockBehaviour.Properties CYPRESS_BRANCH = BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().sound(SoundType.BAMBOO_SAPLING);
+        public static final BlockBehaviour.Properties CYPRESS_KNEE = BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F).sound(SoundTypes.THIN_WOOD).noOcclusion().dynamicShape();
+        public static final BlockBehaviour.Properties CYPRESS_BRANCH = BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().sound(SoundTypes.THIN_WOOD);
         public static final BlockBehaviour.Properties LILY = BlockBehaviour.Properties.copy(Blocks.LILY_PAD);
         public static final BlockBehaviour.Properties POTTED_PLANT = BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM);
-        public static final BlockBehaviour.Properties ALGAE = BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(ALGAE_SOUND_TYPE).noOcclusion().noCollission();
-        public static final BlockBehaviour.Properties ALGAE_THATCH = BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.COLOR_LIGHT_GREEN).strength(0.5F).sound(ALGAE_THATCH_SOUND_TYPE).noOcclusion();
+        public static final BlockBehaviour.Properties ALGAE = BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundTypes.ALGAE).noOcclusion().noCollission();
+        public static final BlockBehaviour.Properties ALGAE_THATCH = BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.COLOR_LIGHT_GREEN).strength(0.5F).sound(SoundTypes.ALGAE_THATCH).noOcclusion();
         public static final BlockBehaviour.Properties BEARD_MOSS_BLOCK = BlockBehaviour.Properties.of(Material.PLANT).strength(0.1F).sound(SoundType.MOSS);
         public static final BlockBehaviour.Properties BEARD_MOSS = BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundType.MOSS).noOcclusion().noCollission().randomTicks();
         public static final BlockBehaviour.Properties DOUBLE_PLANT = BlockBehaviour.Properties.copy(Blocks.TALL_GRASS);
+    }
+
+    public static final class SoundTypes {
+        public static final DeferredSoundType ALGAE = new DeferredSoundType(1F, 2.0F, () -> SoundEvents.LILY_PAD_PLACE, () -> SoundEvents.MOSS_CARPET_STEP, () -> SoundEvents.LILY_PAD_PLACE, () -> SoundEvents.MOSS_CARPET_HIT, () -> SoundEvents.MOSS_CARPET_FALL);
+        public static final DeferredSoundType ALGAE_THATCH = new DeferredSoundType(1.0F, 0.7F, () -> SoundEvents.ROOTS_BREAK, () -> SoundEvents.ROOTS_STEP, () -> SoundEvents.ROOTS_PLACE, () -> SoundEvents.GRASS_HIT, () -> SoundEvents.ROOTS_FALL);
+        public static final DeferredSoundType THIN_WOOD = new DeferredSoundType(1.0F, 1.5F, () -> SoundEvents.WOOD_BREAK, () -> SoundEvents.WOOD_STEP, () -> SoundEvents.WOOD_PLACE,() ->  SoundEvents.WOOD_HIT, () -> SoundEvents.WOOD_FALL);
     }
 }

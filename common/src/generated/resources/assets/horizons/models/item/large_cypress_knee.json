@@ -1,3 +1,6 @@
 {
-  "parent": "horizons:block/large_cypress_knee"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "horizons:block/large_cypress_knee_top"
+  }
 }
