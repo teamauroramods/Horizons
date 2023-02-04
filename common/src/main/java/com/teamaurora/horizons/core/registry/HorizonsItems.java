@@ -13,11 +13,11 @@ import net.minecraft.world.item.Item;
 
 import java.util.function.Supplier;
 
-public class HorizonItems {
+public class HorizonsItems {
 
     public static final PollinatedRegistry<Item> ITEMS = PollinatedRegistry.create(Registry.ITEM, Horizons.MOD_ID);
 
-    public static final Supplier<Item> CYPRESS_BOAT = ITEMS.register("cypress_boat", () -> new PollinatedBoatItem(HorizonBoatTypes.CYPRESS, new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
+    public static final Supplier<Item> CYPRESS_BOAT = ITEMS.register("cypress_boat", () -> new PollinatedBoatItem(HorizonsBoatTypes.CYPRESS, new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TRANSPORTATION)));
     public static final Supplier<Item> GOOSEBERRIES = ITEMS.register("gooseberries", () -> new Item(new Item.Properties().food(Foods.GOOSEBERRIES).tab(CreativeModeTab.TAB_FOOD)));
     public static final Supplier<Item> GOOSEBERRY_JUICE = ITEMS.register("gooseberry_juice", () -> new DrinkItem(new Item.Properties().food(Foods.GOOSEBERRY_JUICE).stacksTo(16).tab(CreativeModeTab.TAB_FOOD)));
     public static final Supplier<Item> GOOSEBERRY_PIE = ITEMS.register("gooseberry_pie", () -> new Item(new Item.Properties().food(Foods.GOOSEBERRY_PIE).tab(CreativeModeTab.TAB_FOOD)));

@@ -9,7 +9,6 @@ import com.teamaurora.horizons.common.block.thatch.ThatchStairBlock;
 import com.teamaurora.horizons.common.item.AlgaeItem;
 import com.teamaurora.horizons.common.item.ItemTabPlacements;
 import com.teamaurora.horizons.common.item.LilyItem;
-import com.teamaurora.horizons.common.item.TabInsertBlockItem;
 import com.teamaurora.horizons.core.registry.util.DeferredSoundType;
 import com.teamaurora.horizons.core.registry.util.Woodset;
 import gg.moonflower.pollen.api.block.PollinatedStandingSignBlock;
@@ -25,12 +24,11 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 
-import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class HorizonBlocks {
+public class HorizonsBlocks {
 
-    public static final PollinatedBlockRegistry BLOCKS = PollinatedRegistry.createBlock(HorizonItems.ITEMS);
+    public static final PollinatedBlockRegistry BLOCKS = PollinatedRegistry.createBlock(HorizonsItems.ITEMS);
 
     private static final Woodset CYPRESS = new Woodset(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_GREEN);
 
@@ -87,7 +85,7 @@ public class HorizonBlocks {
     public static final Supplier<Block> GIANT_FERN = BLOCKS.registerWithItem("giant_fern", () -> new DoublePlantBlock(Properties.DOUBLE_PLANT), ItemTabPlacements.GIANT_FERN);
 
     private static Supplier<Block> createFlowerPot(Supplier<Block> block) {
-        return () -> new FlowerPotBlock(block.get(), HorizonBlocks.Properties.POTTED_PLANT);
+        return () -> new FlowerPotBlock(block.get(), HorizonsBlocks.Properties.POTTED_PLANT);
     }
 
     public static final class Properties {

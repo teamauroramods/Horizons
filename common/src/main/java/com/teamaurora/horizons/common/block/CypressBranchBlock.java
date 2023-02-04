@@ -1,7 +1,7 @@
 package com.teamaurora.horizons.common.block;
 
-import com.teamaurora.horizons.core.registry.HorizonBlocks;
-import com.teamaurora.horizons.core.registry.HorizonItems;
+import com.teamaurora.horizons.core.registry.HorizonsBlocks;
+import com.teamaurora.horizons.core.registry.HorizonsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -96,7 +96,7 @@ public class CypressBranchBlock extends Block implements BonemealableBlock {
         if (!flag && player.getItemInHand(handIn).getItem() == Items.BONE_MEAL) {
             return InteractionResult.PASS;
         } else if (i > 1) {
-            popResource(worldIn, pos, new ItemStack(HorizonItems.GOOSEBERRIES.get(), 1));
+            popResource(worldIn, pos, new ItemStack(HorizonsItems.GOOSEBERRIES.get(), 1));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, 0), 2);
             return InteractionResult.sidedSuccess(worldIn.isClientSide);
@@ -108,7 +108,7 @@ public class CypressBranchBlock extends Block implements BonemealableBlock {
     @Override
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
         Block block = worldIn.getBlockState(pos.offset(state.getValue(FACING).getNormal())).getBlock();
-        return block == HorizonBlocks.CYPRESS_LOG.get() || block == HorizonBlocks.CYPRESS_WOOD.get();
+        return block == HorizonsBlocks.CYPRESS_LOG.get() || block == HorizonsBlocks.CYPRESS_WOOD.get();
     }
 
     @Override

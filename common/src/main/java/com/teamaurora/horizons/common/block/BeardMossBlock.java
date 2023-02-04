@@ -1,6 +1,6 @@
 package com.teamaurora.horizons.common.block;
 
-import com.teamaurora.horizons.core.registry.HorizonBlocks;
+import com.teamaurora.horizons.core.registry.HorizonsBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -50,7 +50,7 @@ public class BeardMossBlock extends Block implements BonemealableBlock {
     @Override
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
         BlockState stateUp = worldIn.getBlockState(pos.above());
-        return stateUp.getBlock() == HorizonBlocks.BEARD_MOSS_BLOCK.get() || stateUp.canOcclude() || stateUp.getBlock() == this || stateUp.is(BlockTags.LEAVES);
+        return stateUp.getBlock() == HorizonsBlocks.BEARD_MOSS_BLOCK.get() || stateUp.canOcclude() || stateUp.getBlock() == this || stateUp.is(BlockTags.LEAVES);
     }
 
     @Override
