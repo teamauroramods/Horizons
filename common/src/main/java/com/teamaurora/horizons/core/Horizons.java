@@ -3,10 +3,8 @@ package com.teamaurora.horizons.core;
 import com.teamaurora.horizons.core.registry.HorizonsBlocks;
 import com.teamaurora.horizons.core.registry.HorizonsBoatTypes;
 import com.teamaurora.horizons.core.registry.HorizonsItems;
-import com.teamaurora.horizons.datagen.HorizonsBlockModelProvider;
-import com.teamaurora.horizons.datagen.HorizonsBlockTagProvider;
-import com.teamaurora.horizons.datagen.HorizonsItemModelProvider;
-import com.teamaurora.horizons.datagen.HorizonsItemTagProvider;
+import com.teamaurora.horizons.datagen.*;
+import gg.moonflower.pollen.api.datagen.provider.loot_table.PollinatedLootTableProvider;
 import gg.moonflower.pollen.api.datagen.provider.model.PollinatedModelProvider;
 import gg.moonflower.pollen.api.datagen.provider.tags.PollinatedBlockTagsProvider;
 import gg.moonflower.pollen.api.platform.Platform;
@@ -20,6 +18,7 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 /**
  * @author ebo2022
@@ -85,6 +84,8 @@ public class Horizons {
         PollinatedBlockTagsProvider blockTagsProvider = new HorizonsBlockTagProvider(generator, container);
         generator.addProvider(blockTagsProvider);
         generator.addProvider(new HorizonsItemTagProvider(generator, container, blockTagsProvider));
+        generator.addProvider(new PollinatedLootTableProvider(generator)
+                .add(LootContextParamSets.BLOCK, new HorizonsBlockLootProvider(container)));
         PollinatedModelProvider modelProvider = new PollinatedModelProvider(generator, container);
         modelProvider.addGenerator(HorizonsBlockModelProvider::new);
         modelProvider.addGenerator(HorizonsItemModelProvider::new);
