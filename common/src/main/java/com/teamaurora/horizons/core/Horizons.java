@@ -8,8 +8,12 @@ import gg.moonflower.pollen.api.datagen.provider.loot_table.PollinatedLootTableP
 import gg.moonflower.pollen.api.datagen.provider.model.PollinatedModelProvider;
 import gg.moonflower.pollen.api.datagen.provider.tags.PollinatedBlockTagsProvider;
 import gg.moonflower.pollen.api.platform.Platform;
+import gg.moonflower.pollen.api.registry.StrippingRegistry;
 import gg.moonflower.pollen.api.registry.client.ColorRegistry;
 import gg.moonflower.pollen.api.registry.client.RenderTypeRegistry;
+import gg.moonflower.pollen.api.registry.content.CompostablesRegistry;
+import gg.moonflower.pollen.api.registry.content.FlammabilityRegistry;
+import gg.moonflower.pollen.api.registry.content.FurnaceFuelRegistry;
 import gg.moonflower.pollen.api.util.PollinatedModContainer;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
@@ -76,6 +80,47 @@ public class Horizons {
         HorizonsBlocks.BLOCKS.register(PLATFORM);
         HorizonsItems.ITEMS.register(PLATFORM);
         HorizonsBoatTypes.BOAT_TYPES.register(PLATFORM);
+    }
+
+    private static void onCommonPost(Platform.ModSetupContext ctx) {
+        StrippingRegistry.register(HorizonsBlocks.CYPRESS_LOG.get(), HorizonsBlocks.STRIPPED_CYPRESS_LOG.get());
+        StrippingRegistry.register(HorizonsBlocks.CYPRESS_WOOD.get(), HorizonsBlocks.STRIPPED_CYPRESS_WOOD.get());
+        CompostablesRegistry.register(HorizonsBlocks.CYPRESS_LEAVES.get(), 0.3F);
+        CompostablesRegistry.register(HorizonsBlocks.CYPRESS_SAPLING.get(), 0.3F);
+        CompostablesRegistry.register(HorizonsItems.GOOSEBERRIES.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.ALGAE.get(), 0.15F);
+        CompostablesRegistry.register(HorizonsBlocks.ALGAE_THATCH.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.ALGAE_THATCH_SLAB.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.ALGAE_THATCH_STAIRS.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.BEARD_MOSS.get(), 0.3F);
+        CompostablesRegistry.register(HorizonsBlocks.BEARD_MOSS_BLOCK.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.BLUE_LILY.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.LIGHT_BLUE_LILY.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.CYAN_LILY.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.LIGHT_GRAY_LILY.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.WHITE_LILY.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.MAGENTA_LILY.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.PINK_LILY.get(), 0.65F);
+        CompostablesRegistry.register(HorizonsBlocks.PURPLE_LILY.get(), 0.65F);
+        FlammabilityRegistry.register(HorizonsBlocks.CYPRESS_LEAVES.get(), 30, 60);
+        FlammabilityRegistry.register(HorizonsBlocks.HANGING_CYPRESS_LEAVES.get(), 30, 60);
+        FlammabilityRegistry.register(HorizonsBlocks.CYPRESS_LOG.get(), 5, 5);
+        FlammabilityRegistry.register(HorizonsBlocks.CYPRESS_WOOD.get(), 5, 5);
+        FlammabilityRegistry.register(HorizonsBlocks.STRIPPED_CYPRESS_LOG.get(), 5, 5);
+        FlammabilityRegistry.register(HorizonsBlocks.STRIPPED_CYPRESS_WOOD.get(), 5, 5);
+        FlammabilityRegistry.register(HorizonsBlocks.CYPRESS_PLANKS.get(), 5, 20);
+        FlammabilityRegistry.register(HorizonsBlocks.CYPRESS_SLAB.get(), 5, 20);
+        FlammabilityRegistry.register(HorizonsBlocks.CYPRESS_STAIRS.get(), 5, 20);
+        FlammabilityRegistry.register(HorizonsBlocks.CYPRESS_FENCE.get(), 5, 20);
+        FlammabilityRegistry.register(HorizonsBlocks.CYPRESS_FENCE_GATE.get(), 5, 20);
+        FlammabilityRegistry.register(HorizonsBlocks.CYPRESS_BRANCH.get(), 60, 100);
+        FlammabilityRegistry.register(HorizonsBlocks.BEARD_MOSS.get(), 15, 100);
+        FlammabilityRegistry.register(HorizonsBlocks.BEARD_MOSS_BLOCK.get(), 15, 100);
+        FlammabilityRegistry.register(HorizonsBlocks.ALGAE_THATCH.get(), 60, 20);
+        FlammabilityRegistry.register(HorizonsBlocks.ALGAE_THATCH_SLAB.get(), 60, 20);
+        FlammabilityRegistry.register(HorizonsBlocks.ALGAE_THATCH_STAIRS.get(), 60, 20);
+        FurnaceFuelRegistry.register(HorizonsBlocks.BEARD_MOSS.get(), 800);
+        FurnaceFuelRegistry.register(HorizonsBlocks.BEARD_MOSS_BLOCK.get(), 800);
     }
 
     private static void onData(Platform.DataSetupContext ctx) {
