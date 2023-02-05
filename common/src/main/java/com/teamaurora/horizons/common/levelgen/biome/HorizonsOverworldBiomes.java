@@ -19,56 +19,31 @@ public class HorizonsOverworldBiomes {
     @Nullable
     private static final Music NORMAL_MUSIC = null;
 
-    public static Biome tropicalRiver() {
-        MobSpawnSettings.Builder builder = (new MobSpawnSettings.Builder()).addSpawn(MobCategory.WATER_CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SQUID, 2, 1, 4)).addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.SALMON, 5, 1, 5));
-        BiomeDefaultFeatures.commonSpawns(builder);
-        builder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.DROWNED, 100, 1, 1));
-        BiomeGenerationSettings.Builder builder2 = new BiomeGenerationSettings.Builder();
-        globalOverworldGeneration(builder2);
-        BiomeDefaultFeatures.addDefaultOres(builder2);
-        BiomeDefaultFeatures.addDefaultSoftDisks(builder2);
-        BiomeDefaultFeatures.addWaterTrees(builder2);
-        BiomeDefaultFeatures.addDefaultFlowers(builder2);
-        BiomeDefaultFeatures.addDefaultGrass(builder2);
-        builder2.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_WATERLILY);
-        BiomeDefaultFeatures.addDefaultMushrooms(builder2);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(builder2);
-        builder2.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_RIVER);
-        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.RIVER, 0.8F, 0.5F, 4445678, 270131, builder, builder2, NORMAL_MUSIC);
-    }
+    public static Biome bayou() {
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 1, 1, 1));
 
-    public static Biome sandyRiver() {
-        MobSpawnSettings.Builder builder = (new MobSpawnSettings.Builder()).addSpawn(MobCategory.WATER_CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SQUID, 2, 1, 4)).addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.SALMON, 5, 1, 5));
-        BiomeDefaultFeatures.commonSpawns(builder);
-        builder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.DROWNED, 100, 1, 1));
-        BiomeGenerationSettings.Builder builder2 = new BiomeGenerationSettings.Builder();
-        globalOverworldGeneration(builder2);
-        BiomeDefaultFeatures.addDefaultOres(builder2);
-        BiomeDefaultFeatures.addDefaultSoftDisks(builder2);
-        BiomeDefaultFeatures.addWaterTrees(builder2);
-        BiomeDefaultFeatures.addDefaultFlowers(builder2);
-        BiomeDefaultFeatures.addDefaultGrass(builder2);
-        BiomeDefaultFeatures.addDefaultMushrooms(builder2);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(builder2);
-        builder2.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_RIVER);
-        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.RIVER, 2.0F, 0.0F, 4566514, 267827, builder, builder2, NORMAL_MUSIC);
-    }
+        BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addFerns(biomeBuilder);
+        BiomeDefaultFeatures.addPlainGrass(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addSwampClayDisk(biomeBuilder);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.FLOWER_SWAMP);
 
-    public static Biome coldRiver() {
-        MobSpawnSettings.Builder builder = (new MobSpawnSettings.Builder()).addSpawn(MobCategory.WATER_CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SQUID, 2, 1, 4)).addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.SALMON, 5, 1, 5));
-        BiomeDefaultFeatures.commonSpawns(builder);
-        builder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.DROWNED, 100, 1, 1));
-        BiomeGenerationSettings.Builder builder2 = new BiomeGenerationSettings.Builder();
-        globalOverworldGeneration(builder2);
-        BiomeDefaultFeatures.addDefaultOres(builder2);
-        BiomeDefaultFeatures.addDefaultSoftDisks(builder2);
-        BiomeDefaultFeatures.addWaterTrees(builder2);
-        BiomeDefaultFeatures.addDefaultFlowers(builder2);
-        BiomeDefaultFeatures.addDefaultGrass(builder2);
-        BiomeDefaultFeatures.addDefaultMushrooms(builder2);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(builder2);
-        builder2.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_RIVER);
-        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.RIVER, 0.3F, 0.8F, 4020182, 329011, builder, builder2, NORMAL_MUSIC);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA_2);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_PLAIN);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.BROWN_MUSHROOM_SWAMP);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.RED_MUSHROOM_SWAMP);
+
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        BiomeDefaultFeatures.addSwampExtraVegetation(biomeBuilder);
+
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
+        return biome(Biome.Precipitation.RAIN, Biome.BiomeCategory.SWAMP, 0.75F, 1.0F, 0x87C0C6, 0x3D5156, 0xA0E2E5, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
     private static void globalOverworldGeneration(BiomeGenerationSettings.Builder builder) {
@@ -92,5 +67,9 @@ public class HorizonsOverworldBiomes {
         float g = f / 3.0F;
         g = Mth.clamp(g, -1.0F, 1.0F);
         return Mth.hsvToRgb(0.62222224F - g * 0.05F, 0.5F + g * 0.1F, 1.0F);
+    }
+
+    private static Biome biome(Biome.Precipitation precipitation, Biome.BiomeCategory category, float temperature, float downfall, int waterColor, int waterFogColor, int fogColor ,MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, @Nullable Music music) {
+        return (new Biome.BiomeBuilder()).precipitation(precipitation).biomeCategory(category).temperature(temperature).downfall(downfall).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).waterFogColor(waterFogColor).fogColor(fogColor).skyColor(calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 }

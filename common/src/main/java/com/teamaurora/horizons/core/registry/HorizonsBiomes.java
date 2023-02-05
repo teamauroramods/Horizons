@@ -1,5 +1,6 @@
 package com.teamaurora.horizons.core.registry;
 
+import com.teamaurora.horizons.common.levelgen.biome.HorizonsOverworldBiomes;
 import com.teamaurora.horizons.core.Horizons;
 import gg.moonflower.pollen.api.registry.PollinatedRegistry;
 import net.minecraft.core.Registry;
@@ -13,6 +14,8 @@ import java.util.function.Supplier;
 public class HorizonsBiomes {
 
     public static final PollinatedRegistry<Biome> BIOMES = PollinatedRegistry.create(BuiltinRegistries.BIOME, Horizons.MOD_ID);
+
+    public static final ResourceKey<Biome> BAYOU = register("bayou", HorizonsOverworldBiomes::bayou);
 
     public static ResourceKey<Biome> register(String name, Supplier<Biome> biomeSupplier) {
         ResourceLocation id = Horizons.location(name);
