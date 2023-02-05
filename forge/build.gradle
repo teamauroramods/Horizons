@@ -49,6 +49,8 @@ dependencies {
     forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
 
     modApi("gg.moonflower:pollen-forge:${rootProject.pollen_version}") { transitive = false }
+    modImplementation("com.github.glitchfiend:TerraBlender-forge:${rootProject.minecraft_version}-${rootProject.terrablender_version}")
+
 
     modRuntimeOnly "me.djtheredstoner:DevAuth-forge-latest:${rootProject.devauth_version}"
 

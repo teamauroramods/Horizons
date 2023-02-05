@@ -1,5 +1,6 @@
 package com.teamaurora.horizons.core;
 
+import com.teamaurora.horizons.core.registry.HorizonsBiomes;
 import com.teamaurora.horizons.core.registry.HorizonsBlocks;
 import com.teamaurora.horizons.core.registry.HorizonsBoatTypes;
 import com.teamaurora.horizons.core.registry.HorizonsItems;
@@ -80,6 +81,7 @@ public class Horizons {
         HorizonsBlocks.BLOCKS.register(PLATFORM);
         HorizonsItems.ITEMS.register(PLATFORM);
         HorizonsBoatTypes.BOAT_TYPES.register(PLATFORM);
+        HorizonsBiomes.BIOMES.register(PLATFORM);
     }
 
     private static void onCommonPost(Platform.ModSetupContext ctx) {

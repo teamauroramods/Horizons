@@ -22,6 +22,9 @@
     "main": [
       "com.teamaurora.horizons.core.fabric.HorizonsFabric"
     ],
+    "terrablender": [
+      "com.teamaurora.horizons.core.fabric.HorizonsFabric"
+    ],
     "fabric-datagen": [
       "com.teamaurora.horizons.core.fabric.HorizonsFabricData"
     ]
@@ -29,6 +32,7 @@
   "depends": {
     "fabric": "*",
     "minecraft": "1.18.2",
-    "pollen": ">=1.4.9 <2.0.0"
+    "pollen": ">=1.4.9 <2.0.0",
+    "terrablender": ">=1.1.0.101"
   }
 }
