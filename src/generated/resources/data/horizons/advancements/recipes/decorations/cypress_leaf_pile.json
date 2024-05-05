@@ -1,0 +1,47 @@
+{
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_cypress_leaves": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "horizons:cypress_leaves"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          },
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "horizons:cypress_leaf_pile"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+          }
+        },
+        "requirements": [
+          [
+            "has_cypress_leaves",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "horizons:cypress_leaf_pile"
+          ]
+        },
+        "sends_telemetry_event": false
+      },
+      "conditions": [
+        {
+          "type": "woodworks:config",
+          "value": "leaf_piles"
+        }
+      ]
+    }
+  ]
+}

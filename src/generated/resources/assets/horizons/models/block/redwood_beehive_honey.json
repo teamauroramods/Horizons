@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "horizons:block/redwood_beehive_end",
+    "front": "horizons:block/redwood_beehive_front_honey",
+    "particle": "horizons:block/redwood_beehive_side",
+    "side": "horizons:block/redwood_beehive_side",
+    "top": "horizons:block/redwood_beehive_end"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "boatload"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "group": "large_boat",
+        "key": {
+          "#": {
+            "item": "horizons:redwood_planks"
+          },
+          "B": {
+            "item": "horizons:redwood_boat"
+          }
+        },
+        "pattern": [
+          "#B#",
+          "###"
+        ],
+        "result": {
+          "item": "horizons:large_redwood_boat"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

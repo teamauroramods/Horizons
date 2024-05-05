@@ -1,0 +1,6 @@
+{
+  "parent": "horizons:block/cross_leaves",
+  "textures": {
+    "cross": "horizons:block/hanging_cypress_leaves"
+  }
+}

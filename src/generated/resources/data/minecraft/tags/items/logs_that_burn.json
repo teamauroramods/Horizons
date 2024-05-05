@@ -1,0 +1,7 @@
+{
+  "values": [
+    "#horizons:cypress_logs",
+    "#horizons:jacaranda_logs",
+    "#horizons:redwood_logs"
+  ]
+}

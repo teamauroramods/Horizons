@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "___",
+    "D D",
+    "___"
+  ],
+  "key": {
+    "_": {
+      "item": "horizons:redwood_slab"
+    },
+    "D": {
+      "item": "horizons:redwood_trapdoor"
+    }
+  },
+  "result": {
+    "item": "horizons:redwood_cabinet"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

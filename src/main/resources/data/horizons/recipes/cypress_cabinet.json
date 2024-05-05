@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "___",
+    "D D",
+    "___"
+  ],
+  "key": {
+    "_": {
+      "item": "horizons:cypress_slab"
+    },
+    "D": {
+      "item": "horizons:cypress_trapdoor"
+    }
+  },
+  "result": {
+    "item": "horizons:cypress_cabinet"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

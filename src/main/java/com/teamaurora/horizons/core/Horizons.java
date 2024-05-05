@@ -1,6 +1,18 @@
 package com.teamaurora.horizons.core;
 
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
+import com.teamaurora.horizons.core.data.client.HorizonsBlockStateProvider;
+import com.teamaurora.horizons.core.data.client.HorizonsItemModelProvider;
+import com.teamaurora.horizons.core.data.server.HorizonsDatapackBuiltinEntriesProvider;
+import com.teamaurora.horizons.core.data.server.HorizonsLootTableProvider;
+import com.teamaurora.horizons.core.data.server.HorizonsRecipeProvider;
+import com.teamaurora.horizons.core.data.server.tags.HorizonsBlockTagsProvider;
+import com.teamaurora.horizons.core.data.server.tags.HorizonsItemTagsProvider;
+import com.teamaurora.horizons.core.other.HorizonsClientCompat;
+import com.teamaurora.horizons.core.other.HorizonsCompat;
+import com.teamaurora.horizons.core.registry.HorizonsBlocks;
+import com.teamaurora.horizons.core.registry.HorizonsFeatures;
+import com.teamaurora.horizons.core.registry.HorizonsItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -33,22 +45,28 @@ public class Horizons
         MinecraftForge.EVENT_BUS.register(this);
 
         REGISTRY_HELPER.register(bus);
+        HorizonsFeatures.FEATURES.register(bus);
 
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         bus.addListener(this::dataSetup);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
+            HorizonsBlocks.setupTabEditors();
+            HorizonsItems.setupTabEditors();
         });
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
+            HorizonsCompat.registerCompat();
         });
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            HorizonsClientCompat.registerRenderLayers();
+            HorizonsClientCompat.registerBlockColors();
         });
     }
 
@@ -60,6 +78,18 @@ public class Horizons
 
         boolean includeServer = event.includeServer();
 
+        HorizonsDatapackBuiltinEntriesProvider datapackEntries = new HorizonsDatapackBuiltinEntriesProvider(output, provider);
+        generator.addProvider(includeServer, datapackEntries);
+        provider = datapackEntries.getRegistryProvider();
+
+        HorizonsBlockTagsProvider blockTags = new HorizonsBlockTagsProvider(output, provider, helper);
+        generator.addProvider(includeServer, blockTags);
+        generator.addProvider(includeServer, new HorizonsItemTagsProvider(output, provider, blockTags.contentsGetter(), helper));
+        generator.addProvider(includeServer, new HorizonsRecipeProvider(output));
+        generator.addProvider(includeServer, new HorizonsLootTableProvider(output));
+
         boolean includeClient = event.includeClient();
+        generator.addProvider(includeClient, new HorizonsBlockStateProvider(output, helper));
+        generator.addProvider(includeClient, new HorizonsItemModelProvider(output, helper));
     }
 }

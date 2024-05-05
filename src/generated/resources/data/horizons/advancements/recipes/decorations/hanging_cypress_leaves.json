@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cypress_leaves": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "horizons:cypress_leaves"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "horizons:hanging_cypress_leaves"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cypress_leaves",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "horizons:hanging_cypress_leaves"
+    ]
+  },
+  "sends_telemetry_event": false
+}

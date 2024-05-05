@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/ladder",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "horizons:block/jacaranda_ladder",
+    "texture": "horizons:block/jacaranda_ladder"
+  }
+}

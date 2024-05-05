@@ -1,0 +1,7 @@
+{
+  "values": [
+    "horizons:cypress_boards",
+    "horizons:jacaranda_boards",
+    "horizons:redwood_boards"
+  ]
+}

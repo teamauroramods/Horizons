@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "___",
+    "D D",
+    "___"
+  ],
+  "key": {
+    "_": {
+      "item": "horizons:jacaranda_slab"
+    },
+    "D": {
+      "item": "horizons:jacaranda_trapdoor"
+    }
+  },
+  "result": {
+    "item": "horizons:jacaranda_cabinet"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}
