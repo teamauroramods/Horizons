@@ -3,6 +3,13 @@
   "config": {
     "decorators": [
       {
+        "type": "horizons:cypress_branch",
+        "probability": 1.0
+      },
+      {
+        "type": "horizons:hanging_cypress_leaves"
+      },
+      {
         "type": "minecraft:beehive",
         "probability": 0.002
       }

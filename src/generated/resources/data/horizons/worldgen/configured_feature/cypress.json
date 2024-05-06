@@ -1,7 +1,15 @@
 {
   "type": "horizons:cypress_tree",
   "config": {
-    "decorators": [],
+    "decorators": [
+      {
+        "type": "horizons:cypress_branch",
+        "probability": 1.0
+      },
+      {
+        "type": "horizons:hanging_cypress_leaves"
+      }
+    ],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

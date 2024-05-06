@@ -46,6 +46,7 @@ public class Horizons
 
         REGISTRY_HELPER.register(bus);
         HorizonsFeatures.FEATURES.register(bus);
+        HorizonsFeatures.TREE_DECORATORS.register(bus);
 
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
