@@ -11,6 +11,12 @@ public class HorizonsCompat {
     }
 
     public static void registerCompostables() {
+        DataUtil.registerCompostable(HorizonsBlocks.ALGAE.get(), 0.65f);
+
+        DataUtil.registerCompostable(HorizonsBlocks.ALGAE_THATCH.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.ALGAE_THATCH_SLAB.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.ALGAE_THATCH_STAIRS.get(), 0.65f);
+
         DataUtil.registerCompostable(HorizonsBlocks.CYPRESS_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.JACARANDA_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.REDWOOD_LEAVES.get(), 0.3f);
@@ -21,6 +27,11 @@ public class HorizonsCompat {
     }
 
     public static void registerFlammables() {
+        // Thatch
+        DataUtil.registerFlammable(HorizonsBlocks.ALGAE_THATCH.get(), 60, 20);
+        DataUtil.registerFlammable(HorizonsBlocks.ALGAE_THATCH_SLAB.get(), 60, 20);
+        DataUtil.registerFlammable(HorizonsBlocks.ALGAE_THATCH_STAIRS.get(), 60, 20);
+
         // Cypress woodset
         DataUtil.registerFlammable(HorizonsBlocks.CYPRESS_LOG.get(), 5, 5);
         DataUtil.registerFlammable(HorizonsBlocks.CYPRESS_WOOD.get(), 5, 5);

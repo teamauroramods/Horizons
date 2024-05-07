@@ -56,6 +56,14 @@ public class HorizonsLootTableProvider extends LootTableProvider {
 
         @Override
         public void generate() {
+            this.dropSelf(ALGAE_THATCH.get());
+            this.dropSelf(ALGAE_THATCH_STAIRS.get());
+            this.add(ALGAE_THATCH_SLAB.get(), this::createSlabItemTable);
+
+            this.add(ALGAE.get(), BlockLootSubProvider::createShearsOnlyDrop);
+
+            this.dropSelf(GOOSEBERRY_BASKET.get());
+
             this.dropSelf(CYPRESS_PLANKS.get());
             this.dropSelf(CYPRESS_LOG.get());
             this.dropSelf(CYPRESS_WOOD.get());
@@ -91,7 +99,6 @@ public class HorizonsLootTableProvider extends LootTableProvider {
             this.add(CYPRESS_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(block, Items.BOOK, ConstantValue.exactly(3.0f)));
             this.dropWhenSilkTouch(CHISELED_CYPRESS_BOOKSHELF.get());
             this.add(CYPRESS_CABINET.get(), this::createNameableBlockEntityTable);
-
 
             this.dropSelf(JACARANDA_PLANKS.get());
             this.dropSelf(JACARANDA_LOG.get());

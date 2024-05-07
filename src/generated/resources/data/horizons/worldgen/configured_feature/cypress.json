@@ -4,7 +4,7 @@
     "decorators": [
       {
         "type": "horizons:cypress_branch",
-        "probability": 1.0
+        "probability": 0.02
       },
       {
         "type": "horizons:hanging_cypress_leaves"

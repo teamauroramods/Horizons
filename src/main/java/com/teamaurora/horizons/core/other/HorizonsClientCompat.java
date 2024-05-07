@@ -14,6 +14,12 @@ import net.minecraft.world.level.block.state.BlockState;
 public class HorizonsClientCompat {
 
     public static void registerRenderLayers() {
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.ALGAE.get(), RenderType.cutout());
+
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.ALGAE_THATCH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.ALGAE_THATCH_SLAB.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.ALGAE_THATCH_STAIRS.get(), RenderType.cutout());
+
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.JACARANDA_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.JACARANDA_TRAPDOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.REDWOOD_DOOR.get(), RenderType.cutout());

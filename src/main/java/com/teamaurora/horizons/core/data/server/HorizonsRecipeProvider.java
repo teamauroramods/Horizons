@@ -1,29 +1,35 @@
 package com.teamaurora.horizons.core.data.server;
 
+import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import com.teamabnormals.boatload.core.data.server.BoatloadRecipeProvider;
 import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import com.teamaurora.horizons.core.Horizons;
 import com.teamaurora.horizons.core.other.HorizonsBlockFamilies;
 import com.teamaurora.horizons.core.other.tags.HorizonsItemTags;
+import com.teamaurora.horizons.core.registry.HorizonsItems;
 import com.teamaurora.horizons.integration.boatload.HorizonsBoatTypes;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 
 import java.util.function.Consumer;
 
 import static com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider.leafPileRecipes;
 import static com.teamaurora.horizons.core.registry.HorizonsBlocks.*;
 
-public class HorizonsRecipeProvider extends RecipeProvider {
+public class HorizonsRecipeProvider extends BlueprintRecipeProvider {
     public HorizonsRecipeProvider(PackOutput packOutput) {
-        super(packOutput);
+        super(Horizons.MOD_ID, packOutput);
     }
 
     @Override
     public void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ALGAE_THATCH.get(), 4).define('#', ALGAE.get()).pattern("##").pattern("##").unlockedBy(getHasName(ALGAE.get()), has(ALGAE.get())).save(consumer);
+        generateRecipes(consumer, HorizonsBlockFamilies.ALGAE_THATCH_FAMILY);
+
         generateRecipes(consumer, HorizonsBlockFamilies.CYPRESS_PLANKS_FAMILY);
         planksFromLogs(consumer, CYPRESS_PLANKS.get(), HorizonsItemTags.CYPRESS_LOGS, 4);
         woodFromLogs(consumer, CYPRESS_WOOD.get(), CYPRESS_LOG.get());
@@ -57,5 +63,7 @@ public class HorizonsRecipeProvider extends RecipeProvider {
         BoatloadRecipeProvider.boatRecipes(consumer, HorizonsBoatTypes.REDWOOD);
         WoodworksRecipeProvider.baseRecipes(consumer, REDWOOD_PLANKS.get(), REDWOOD_SLAB.get(), REDWOOD_BOARDS.get(), REDWOOD_BOOKSHELF.get(), CHISELED_REDWOOD_BOOKSHELF.get(), REDWOOD_LADDER.get(), REDWOOD_BEEHIVE.get(), REDWOOD_CHEST.get(), TRAPPED_REDWOOD_CHEST.get(), Horizons.MOD_ID);
         WoodworksRecipeProvider.sawmillRecipes(consumer, HorizonsBlockFamilies.REDWOOD_PLANKS_FAMILY, HorizonsItemTags.REDWOOD_LOGS, REDWOOD_BOARDS.get(), REDWOOD_LADDER.get(), Horizons.MOD_ID);
+
+        conditionalStorageRecipes(consumer, new ModLoadedCondition("berry_good"), RecipeCategory.FOOD, HorizonsItems.GOOSEBERRIES.get(), RecipeCategory.BUILDING_BLOCKS, GOOSEBERRY_BASKET.get());
     }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "blueprint:block/template_thatch_stairs_outer",
+  "textures": {
+    "thatch": "horizons:block/algae_thatch",
+    "extrudes": "horizons:block/algae_thatch_extrudes"
+  }
+}

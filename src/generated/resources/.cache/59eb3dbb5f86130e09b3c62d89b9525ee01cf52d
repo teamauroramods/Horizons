@@ -1,4 +1,8 @@
-// 1.20.1	2024-05-05T16:09:48.729442239	Loot Tables
+// 1.20.1	2024-05-06T18:20:19.819704907	Loot Tables
+92f29273765b61f834c261bf1beca3830f4cd99d data/horizons/loot_tables/blocks/algae.json
+263400012c1fea1d69c31842b736ab4c317ee461 data/horizons/loot_tables/blocks/algae_thatch.json
+114fb94fd0b1da6525a40c445bea75e09a2bd669 data/horizons/loot_tables/blocks/algae_thatch_slab.json
+a55c8d0ee0c1188111de642041a3487132d128c2 data/horizons/loot_tables/blocks/algae_thatch_stairs.json
 374b3eaf0f2ad519b330dcb4e44abfbe6116fa25 data/horizons/loot_tables/blocks/chiseled_cypress_bookshelf.json
 e11f750c788d211df95f64f1b042acbe94034f6c data/horizons/loot_tables/blocks/chiseled_jacaranda_bookshelf.json
 64fd273af6ccced51ceadc8a7ec8dfff74d6b929 data/horizons/loot_tables/blocks/chiseled_redwood_bookshelf.json

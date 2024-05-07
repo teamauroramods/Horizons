@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "cookie",
+  "pattern": [
+    "X#X"
+  ],
+  "key": {
+    "#": {
+      "item": "horizons:gooseberry_jam"
+    },
+    "X": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "result": {
+    "item": "horizons:gooseberry_cookie",
+    "count": 8
+  }
+}

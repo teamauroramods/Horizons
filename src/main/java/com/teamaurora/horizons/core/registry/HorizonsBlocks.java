@@ -2,6 +2,7 @@ package com.teamaurora.horizons.core.registry;
 
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.blueprint.common.block.BlueprintBeehiveBlock;
+import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.common.block.LeafPileBlock;
 import com.teamabnormals.blueprint.common.block.LogBlock;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
@@ -10,12 +11,16 @@ import com.teamabnormals.blueprint.common.block.sign.BlueprintCeilingHangingSign
 import com.teamabnormals.blueprint.common.block.sign.BlueprintStandingSignBlock;
 import com.teamabnormals.blueprint.common.block.sign.BlueprintWallHangingSignBlock;
 import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
+import com.teamabnormals.blueprint.common.block.thatch.ThatchBlock;
+import com.teamabnormals.blueprint.common.block.thatch.ThatchSlabBlock;
+import com.teamabnormals.blueprint.common.block.thatch.ThatchStairBlock;
 import com.teamabnormals.blueprint.core.api.BlockSetTypeRegistryHelper;
 import com.teamabnormals.blueprint.core.api.WoodTypeRegistryHelper;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
+import com.teamaurora.horizons.common.block.AlgaeBlock;
 import com.teamaurora.horizons.common.block.CypressBranchBlock;
 import com.teamaurora.horizons.common.block.HangingLeavesBlock;
 import com.teamaurora.horizons.common.block.grower.CypressTreeGrower;
@@ -30,6 +35,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.OakTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.fml.common.Mod;
@@ -49,7 +55,7 @@ public class HorizonsBlocks {
     //                            BAYOU                            //
     //=============================================================//
 
-    // Cypress Trees
+    // Cypress //
     public static final RegistryObject<Block> STRIPPED_CYPRESS_LOG = HELPER.createBlock("stripped_cypress_log", ()->new RotatedPillarBlock(HorizonsProperties.CYPRESS.log()));
     public static final RegistryObject<Block> STRIPPED_CYPRESS_WOOD = HELPER.createBlock("stripped_cypress_wood", ()->new RotatedPillarBlock(HorizonsProperties.CYPRESS.log()));
     public static final RegistryObject<Block> CYPRESS_LOG = HELPER.createBlock("cypress_log", ()->new LogBlock(STRIPPED_CYPRESS_LOG, HorizonsProperties.CYPRESS.log()));
@@ -81,8 +87,15 @@ public class HorizonsBlocks {
     public static final RegistryObject<Block> CYPRESS_LEAF_PILE = HELPER.createBlock("cypress_leaf_pile", ()->new LeafPileBlock(HorizonsProperties.CYPRESS.leafPile()));
     public static final RegistryObject<Block> HANGING_CYPRESS_LEAVES = HELPER.createBlock("hanging_cypress_leaves", ()->new HangingLeavesBlock(HorizonsProperties.CYPRESS.leaves().noCollission()));
 
+    // Gooseberries //
     public static final RegistryObject<Block> CYPRESS_BRANCH = HELPER.createBlock("cypress_branch", ()->new CypressBranchBlock(HorizonsProperties.CYPRESS_BRANCH));
+    public static final RegistryObject<Block> GOOSEBERRY_BASKET = HELPER.createBlock("gooseberry_basket", ()->new BlueprintDirectionalBlock(HorizonsProperties.GOOSEBERRY_BASKET));
 
+    // Algae //
+    public static final RegistryObject<Block> ALGAE = HELPER.createBlockNoItem("algae", ()->new AlgaeBlock(HorizonsProperties.ALGAE));
+    public static final RegistryObject<Block> ALGAE_THATCH = HELPER.createBlock("algae_thatch", ()->new ThatchBlock(HorizonsProperties.ALGAE_THATCH));
+    public static final RegistryObject<Block> ALGAE_THATCH_SLAB = HELPER.createBlock("algae_thatch_slab", ()->new ThatchSlabBlock(HorizonsProperties.ALGAE_THATCH));
+    public static final RegistryObject<Block> ALGAE_THATCH_STAIRS = HELPER.createBlock("algae_thatch_stairs", ()->new ThatchStairBlock(ALGAE_THATCH.get().defaultBlockState(), HorizonsProperties.ALGAE_THATCH));
 
     //=============================================================//
     //                      JACARANDA FOREST                       //
@@ -165,6 +178,7 @@ public class HorizonsBlocks {
                 .addItemsBefore(of(Blocks.BAMBOO_BLOCK), REDWOOD_LOG, REDWOOD_WOOD, STRIPPED_REDWOOD_LOG, STRIPPED_REDWOOD_WOOD, REDWOOD_PLANKS)
                 .addItemsBefore(modLoaded(Blocks.BAMBOO_BLOCK, "woodworks"), REDWOOD_BOARDS)
                 .addItemsBefore(of(Blocks.BAMBOO_BLOCK), REDWOOD_STAIRS, REDWOOD_SLAB, REDWOOD_FENCE, REDWOOD_FENCE_GATE, REDWOOD_DOOR, REDWOOD_TRAPDOOR, REDWOOD_PRESSURE_PLATE, REDWOOD_BUTTON)
+                .addItemsBefore(of(Blocks.SANDSTONE), ALGAE_THATCH, ALGAE_THATCH_STAIRS, ALGAE_THATCH_SLAB)
                 .tab(NATURAL_BLOCKS)
                 .addItemsBefore(of(Blocks.MUSHROOM_STEM), CYPRESS_LOG, JACARANDA_LOG, REDWOOD_LOG)
                 .addItemsBefore(of(Blocks.AZALEA_LEAVES), CYPRESS_LEAVES)
@@ -176,6 +190,7 @@ public class HorizonsBlocks {
                 .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, "woodworks"), REDWOOD_LEAF_PILE)
                 .addItemsBefore(of(Blocks.AZALEA), CYPRESS_SAPLING, JACARANDA_SAPLING, REDWOOD_SAPLING)
                 .addItemsBefore(of(Items.GLOW_BERRIES), CYPRESS_BRANCH)
+                .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, "berry_good"), GOOSEBERRY_BASKET)
                 .tab(FUNCTIONAL_BLOCKS)
                 .addItemsBefore(of(Blocks.BAMBOO_SIGN), CYPRESS_SIGNS.getFirst(), CYPRESS_HANGING_SIGNS.getFirst(), JACARANDA_SIGNS.getFirst(), JACARANDA_HANGING_SIGNS.getFirst(), REDWOOD_SIGNS.getFirst(), REDWOOD_HANGING_SIGNS.getFirst());
 
@@ -222,5 +237,9 @@ public class HorizonsBlocks {
         public static final PropertyUtil.WoodSetProperties REDWOOD = PropertyUtil.WoodSetProperties.builder(MapColor.COLOR_RED).build();
 
         public static final BlockBehaviour.Properties CYPRESS_BRANCH = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollission().sound(SoundType.BAMBOO_SAPLING);
+        public static final BlockBehaviour.Properties GOOSEBERRY_BASKET = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
+
+        public static final BlockBehaviour.Properties ALGAE = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.0F).noCollission().sound(SoundType.LILY_PAD);
+        public static final BlockBehaviour.Properties ALGAE_THATCH = PropertyUtil.thatch(MapColor.COLOR_LIGHT_GREEN, SoundType.GRASS);
     }
 }

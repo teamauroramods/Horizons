@@ -56,6 +56,8 @@ public class HorizonsBlockStateProvider extends BlueprintBlockStateProvider {
         this.cabinet(CYPRESS_CABINET.get());
         this.cabinet(JACARANDA_CABINET.get());
         this.cabinet(REDWOOD_CABINET.get());
+
+        this.directionalBlock(GOOSEBERRY_BASKET);
     }
 
     private void cabinet(Block cabinet) {

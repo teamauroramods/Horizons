@@ -46,4 +46,9 @@ public class HorizonsBlockFamilies {
             .recipeGroupPrefix("wooden")
             .recipeUnlockedBy("has_planks")
             .getFamily();
+
+    public static final BlockFamily ALGAE_THATCH_FAMILY = new BlockFamily.Builder(ALGAE_THATCH.get())
+            .slab(ALGAE_THATCH_SLAB.get())
+            .stairs(ALGAE_THATCH_STAIRS.get())
+            .getFamily();
 }
