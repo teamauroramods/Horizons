@@ -4,12 +4,12 @@
       "advancement": {
         "parent": "minecraft:recipes/root",
         "criteria": {
-          "has_jacaranda_leaf_pile": {
+          "has_gooseberries": {
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "horizons:jacaranda_leaf_pile"
+                    "horizons:gooseberries"
                   ]
                 }
               ]
@@ -18,28 +18,28 @@
           },
           "has_the_recipe": {
             "conditions": {
-              "recipe": "woodworks:jacaranda_leaves_from_leaf_piles"
+              "recipe": "horizons:gooseberry_basket"
             },
             "trigger": "minecraft:recipe_unlocked"
           }
         },
         "requirements": [
           [
-            "has_jacaranda_leaf_pile",
+            "has_gooseberries",
             "has_the_recipe"
           ]
         ],
         "rewards": {
           "recipes": [
-            "woodworks:jacaranda_leaves_from_leaf_piles"
+            "horizons:gooseberry_basket"
           ]
         },
         "sends_telemetry_event": false
       },
       "conditions": [
         {
-          "type": "woodworks:config",
-          "value": "leaf_piles"
+          "type": "forge:mod_loaded",
+          "modid": "berry_good"
         }
       ]
     }

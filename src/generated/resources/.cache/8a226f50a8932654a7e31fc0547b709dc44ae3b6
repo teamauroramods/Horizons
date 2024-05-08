@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-04T18:48:31.273479536	Block States: horizons
+// 1.20.1	2024-05-07T19:26:13.896319925	Block States: horizons
 7a787e4bd9788fb766aa68f9b8ade5655cf81e8b assets/horizons/blockstates/cypress_beehive.json
 f2c8c5f132602f0ddae160032069fe07fc335aef assets/horizons/blockstates/cypress_boards.json
 4e3154e4c932a26ccf3f4246913d3f784eabbff1 assets/horizons/blockstates/cypress_bookshelf.json
@@ -24,6 +24,7 @@ ddb2ae541125d22907db865e9c940ce39a704b6b assets/horizons/blockstates/cypress_tra
 7a0be48985d8b24394fdd8d63b3a8a8433e9c5a0 assets/horizons/blockstates/cypress_wall_hanging_sign.json
 1cdca9a04a49afb1fbc8951f41d4fae4a1310209 assets/horizons/blockstates/cypress_wall_sign.json
 3f3cddb0650aa6d62315f55b1e75a8e7de93b4aa assets/horizons/blockstates/cypress_wood.json
+fffb6ca1e0955837a869f270643c3a06f9926a24 assets/horizons/blockstates/gooseberry_basket.json
 10cdd715c884f90dbbda5988bf590f8a9e8c97cd assets/horizons/blockstates/jacaranda_beehive.json
 86cab37208af76000a768c404a294410b85b7278 assets/horizons/blockstates/jacaranda_boards.json
 af2b31ba0ef763a57ec94949268a5940c924d5c9 assets/horizons/blockstates/jacaranda_bookshelf.json
@@ -130,6 +131,7 @@ e548c7430533c329de37748cd096c697a28bfc29 assets/horizons/models/block/cypress_sl
 f9d33b0edaae2a00404788263d1ed2dad71c2527 assets/horizons/models/block/cypress_trapdoor_top.json
 5ad1ddf53fe7a6578235fa53f6b8b6f1e62fe6ff assets/horizons/models/block/cypress_wood.json
 d929921426f89f0a5ecf23d1e530234cfa92c63f assets/horizons/models/block/cypress_wood_horizontal.json
+ccb3ef870cdae88bcf508c3971e6c843af5ada5d assets/horizons/models/block/gooseberry_basket.json
 cf83a8253d3282ac6661e486e7bb7d9e785f0edb assets/horizons/models/block/jacaranda_beehive.json
 8dc45d99bd946a89c3f3f00d0588f019afba168a assets/horizons/models/block/jacaranda_beehive_honey.json
 c8efb55e4069eae029887d036c94db4122c32641 assets/horizons/models/block/jacaranda_boards.json
@@ -262,6 +264,7 @@ a6e8535fd1d72980a9febe2cc71ffc8d0c298e42 assets/horizons/models/item/cypress_sta
 4f29be2241bf6f925894351827b4ab13c3e17833 assets/horizons/models/item/cypress_trapdoor.json
 1328d429bf988f88b70675244eb6be38d5954153 assets/horizons/models/item/cypress_trapped_chest.json
 f5b8c159f27b9d8e6c45e40ac73110164805b9e6 assets/horizons/models/item/cypress_wood.json
+9a283902b3c68264125a37af7b6797c8191081da assets/horizons/models/item/gooseberry_basket.json
 3362abb1ef250da66bd2a0e2ff203545922bbff4 assets/horizons/models/item/jacaranda_beehive.json
 e1e7d85d5d7b1159c4ddfbc0022073225714a387 assets/horizons/models/item/jacaranda_boards.json
 d3ebc51521cf4461042d97f0cc67a6f742ab2a5e assets/horizons/models/item/jacaranda_bookshelf.json

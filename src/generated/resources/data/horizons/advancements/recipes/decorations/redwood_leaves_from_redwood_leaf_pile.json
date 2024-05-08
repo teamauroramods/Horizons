@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cypress_leaves": {
+    "has_redwood_leaf_pile": {
       "conditions": {
         "items": [
           {
             "items": [
-              "horizons:cypress_leaves"
+              "horizons:redwood_leaf_pile"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "horizons:cypress_leaf_pile"
+        "recipe": "horizons:redwood_leaves_from_redwood_leaf_pile"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_cypress_leaves",
+      "has_redwood_leaf_pile",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "horizons:cypress_leaf_pile"
+      "horizons:redwood_leaves_from_redwood_leaf_pile"
     ]
   },
   "sends_telemetry_event": false

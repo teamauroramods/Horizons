@@ -1,6 +1,7 @@
 package com.teamaurora.horizons.core.registry;
 
 import com.teamaurora.horizons.common.levelgen.feature.CypressTreeFeature;
+import com.teamaurora.horizons.common.levelgen.treedecorators.BeardMossDecorator;
 import com.teamaurora.horizons.common.levelgen.treedecorators.CypressBranchDecorator;
 import com.teamaurora.horizons.common.levelgen.treedecorators.HangingCypressDecorator;
 import com.teamaurora.horizons.core.Horizons;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSi
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
+import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
@@ -38,16 +40,23 @@ public class HorizonsFeatures {
 
     public static final RegistryObject<TreeDecoratorType<?>> HANGING_CYPRESS_LEAVES = TREE_DECORATORS.register("hanging_cypress_leaves", ()->new TreeDecoratorType<>(HangingCypressDecorator.CODEC));
     public static final RegistryObject<TreeDecoratorType<?>> CYPRESS_BRANCH = TREE_DECORATORS.register("cypress_branch", ()->new TreeDecoratorType<>(CypressBranchDecorator.CODEC));
+    public static final RegistryObject<TreeDecoratorType<?>> BEARD_MOSS = TREE_DECORATORS.register("beard_moss", ()->new TreeDecoratorType<>(BeardMossDecorator.CODEC));
 
     public static final class Configs {
         private static final BeehiveDecorator BEEHIVE_0002 = new BeehiveDecorator(0.002F);
         private static final BeehiveDecorator BEEHIVE_005 = new BeehiveDecorator(0.05F);
-        private static final HangingCypressDecorator HANGING_CYPRESS_LEAVES =  new HangingCypressDecorator();
+        private static final HangingCypressDecorator HANGING_CYPRESS_LEAVES = new HangingCypressDecorator();
+        private static final BeardMossDecorator BEARD_MOSS = new BeardMossDecorator();
         private static final CypressBranchDecorator CYPRESS_BRANCH = new CypressBranchDecorator(0.02F);
+        private static final LeaveVineDecorator LEAVE_VINE_025 = new LeaveVineDecorator(0.25F);
 
-        public static final TreeConfiguration CYPRESS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES)).build();
-        public static final TreeConfiguration CYPRESS_BEES_0002 = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, BEEHIVE_0002)).build();
-        public static final TreeConfiguration CYPRESS_BEES_005 = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, BEEHIVE_005)).build();
+        public static final TreeConfiguration CYPRESS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025)).build();
+        public static final TreeConfiguration CYPRESS_BEES_0002 = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEEHIVE_0002)).build();
+        public static final TreeConfiguration CYPRESS_BEES_005 = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEEHIVE_005)).build();
+
+        public static final TreeConfiguration CYPRESS_MOSS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, BEARD_MOSS, LEAVE_VINE_025)).build();
+        public static final TreeConfiguration CYPRESS_BEES_0002_MOSS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEARD_MOSS, BEEHIVE_0002)).build();
+        public static final TreeConfiguration CYPRESS_BEES_005_MOSS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEARD_MOSS, BEEHIVE_005)).build();
 
         private static TreeConfiguration.TreeConfigurationBuilder createCypress() {
             return new TreeConfiguration.TreeConfigurationBuilder(
@@ -65,12 +74,19 @@ public class HorizonsFeatures {
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BEES_0002 = createKey("cypress_bees_0002");
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BEES_005 = createKey("cypress_bees_005");
 
+        public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_MOSS = createKey("cypress_moss");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BEES_0002_MOSS = createKey("cypress_bees_0002_moss");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BEES_005_MOSS = createKey("cypress_bees_005_moss");
+
         public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
             HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 
             register(context, CYPRESS, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS);
             register(context, CYPRESS_BEES_0002, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS_BEES_0002);
             register(context, CYPRESS_BEES_005, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS_BEES_005);
+            register(context, CYPRESS_MOSS, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS_MOSS);
+            register(context, CYPRESS_BEES_0002_MOSS, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS_BEES_0002_MOSS);
+            register(context, CYPRESS_BEES_005_MOSS, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS_BEES_005_MOSS);
         }
 
         public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {

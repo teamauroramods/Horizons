@@ -2,6 +2,7 @@ package com.teamaurora.horizons.core.other;
 
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import com.teamaurora.horizons.core.registry.HorizonsBlocks;
+import com.teamaurora.horizons.core.registry.HorizonsItems;
 
 public class HorizonsCompat {
 
@@ -17,6 +18,11 @@ public class HorizonsCompat {
         DataUtil.registerCompostable(HorizonsBlocks.ALGAE_THATCH_SLAB.get(), 0.65f);
         DataUtil.registerCompostable(HorizonsBlocks.ALGAE_THATCH_STAIRS.get(), 0.65f);
 
+        DataUtil.registerCompostable(HorizonsItems.GOOSEBERRIES.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.GOOSEBERRY_BASKET.get(), 1.0f);
+
+        DataUtil.registerCompostable(HorizonsBlocks.BEARD_MOSS.get(), 0.3f);
+
         DataUtil.registerCompostable(HorizonsBlocks.CYPRESS_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.JACARANDA_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.REDWOOD_LEAVES.get(), 0.3f);
@@ -31,6 +37,13 @@ public class HorizonsCompat {
         DataUtil.registerFlammable(HorizonsBlocks.ALGAE_THATCH.get(), 60, 20);
         DataUtil.registerFlammable(HorizonsBlocks.ALGAE_THATCH_SLAB.get(), 60, 20);
         DataUtil.registerFlammable(HorizonsBlocks.ALGAE_THATCH_STAIRS.get(), 60, 20);
+
+        // Gooseberry stuff
+        DataUtil.registerFlammable(HorizonsBlocks.CYPRESS_BRANCH.get(), 60, 100);
+        DataUtil.registerFlammable(HorizonsBlocks.GOOSEBERRY_BASKET.get(), 60, 20);
+
+        // Beard moss
+        DataUtil.registerFlammable(HorizonsBlocks.BEARD_MOSS.get(), 15, 100);
 
         // Cypress woodset
         DataUtil.registerFlammable(HorizonsBlocks.CYPRESS_LOG.get(), 5, 5);

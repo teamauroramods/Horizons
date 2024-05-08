@@ -28,7 +28,6 @@ public class HorizonsItems {
     public static final RegistryObject<Item> GOOSEBERRY_JUICE = HELPER.createItem("gooseberry_juice", ()->new DrinkableItem(new Item.Properties().food(Foods.GOOSEBERRY_JUICE).stacksTo(16)));
     public static final RegistryObject<Item> GOOSEBERRY_PIE = HELPER.createItem("gooseberry_pie", ()->new Item(new Item.Properties().food(Foods.GOOSEBERRY_PIE)));
     public static final RegistryObject<Item> GLAZED_GOOSEBERRIES = HELPER.createItem("glazed_gooseberries", ()->new Item(new Item.Properties().food(Foods.GLAZED_GOOSEBERRIES)));
-    public static final RegistryObject<Item> GOOSEBERRY_JAM = HELPER.createItem("gooseberry_jam", ()->new DrinkableItem(new Item.Properties().food(Foods.GOOSEBERRY_JAM).stacksTo(16)));
     public static final RegistryObject<Item> GOOSEBERRY_COOKIE = HELPER.createItem("gooseberry_cookie", ()->new Item(new Item.Properties().food(Foods.GOOSEBERRY_COOKIE)));
 
     public static final Pair<RegistryObject<Item>, RegistryObject<Item>> CYPRESS_BOAT = HELPER.createBoatAndChestBoatItem("cypress", HorizonsBlocks.CYPRESS_PLANKS);
@@ -55,7 +54,10 @@ public class HorizonsItems {
                 .addItemsBefore(of(Items.BAMBOO_RAFT), REDWOOD_BOAT.getFirst(), REDWOOD_BOAT.getSecond())
                 .addItemsBefore(modLoaded(Items.BAMBOO_RAFT, "boatload"), REDWOOD_FURNACE_BOAT, LARGE_REDWOOD_BOAT)
                 .tab(FOOD_AND_DRINKS)
-                .addItemsAfter(of(Items.MELON_SLICE), GOOSEBERRIES);
+                .addItemsAfter(of(Items.GLOW_BERRIES), GOOSEBERRIES, GLAZED_GOOSEBERRIES)
+                .addItemsAfter(of(Items.PUMPKIN_PIE), GOOSEBERRY_PIE)
+                .addItemsAfter(of(Items.COOKIE), GOOSEBERRY_COOKIE)
+                .addItemsAfter(of(Items.HONEY_BOTTLE), GOOSEBERRY_JUICE);
     }
 
     public static class Foods {
@@ -63,7 +65,6 @@ public class HorizonsItems {
         public static final FoodProperties GOOSEBERRY_JUICE = new FoodProperties.Builder().nutrition(1).saturationMod(0.1F).build();
         public static final FoodProperties GOOSEBERRY_PIE = new FoodProperties.Builder().nutrition(6).saturationMod(0.5F).build();
         public static final FoodProperties GLAZED_GOOSEBERRIES = new FoodProperties.Builder().nutrition(7).saturationMod(0.3F).build();
-        public static final FoodProperties GOOSEBERRY_JAM = new FoodProperties.Builder().nutrition(2).saturationMod(0.25F).build();
         public static final FoodProperties GOOSEBERRY_COOKIE = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).fast().build();
     }
 }

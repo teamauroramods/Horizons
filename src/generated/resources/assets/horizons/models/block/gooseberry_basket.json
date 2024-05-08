@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "horizons:block/gooseberry_basket_bottom",
+    "side": "horizons:block/gooseberry_basket_side",
+    "top": "horizons:block/gooseberry_basket_top"
+  }
+}

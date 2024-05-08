@@ -4,12 +4,12 @@
       "advancement": {
         "parent": "minecraft:recipes/root",
         "criteria": {
-          "has_redwood_leaf_pile": {
+          "has_gooseberry_basket": {
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "horizons:redwood_leaf_pile"
+                    "horizons:gooseberry_basket"
                   ]
                 }
               ]
@@ -18,28 +18,28 @@
           },
           "has_the_recipe": {
             "conditions": {
-              "recipe": "woodworks:redwood_leaves_from_leaf_piles"
+              "recipe": "horizons:gooseberries"
             },
             "trigger": "minecraft:recipe_unlocked"
           }
         },
         "requirements": [
           [
-            "has_redwood_leaf_pile",
+            "has_gooseberry_basket",
             "has_the_recipe"
           ]
         ],
         "rewards": {
           "recipes": [
-            "woodworks:redwood_leaves_from_leaf_piles"
+            "horizons:gooseberries"
           ]
         },
         "sends_telemetry_event": false
       },
       "conditions": [
         {
-          "type": "woodworks:config",
-          "value": "leaf_piles"
+          "type": "forge:mod_loaded",
+          "modid": "berry_good"
         }
       ]
     }

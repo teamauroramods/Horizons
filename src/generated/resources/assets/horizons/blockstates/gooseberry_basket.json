@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "horizons:block/gooseberry_basket",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "horizons:block/gooseberry_basket",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "horizons:block/gooseberry_basket",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "horizons:block/gooseberry_basket",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "horizons:block/gooseberry_basket"
+    },
+    "facing=west": {
+      "model": "horizons:block/gooseberry_basket",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

@@ -20,9 +20,7 @@ import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
-import com.teamaurora.horizons.common.block.AlgaeBlock;
-import com.teamaurora.horizons.common.block.CypressBranchBlock;
-import com.teamaurora.horizons.common.block.HangingLeavesBlock;
+import com.teamaurora.horizons.common.block.*;
 import com.teamaurora.horizons.common.block.grower.CypressTreeGrower;
 import com.teamaurora.horizons.core.Horizons;
 import com.teamaurora.horizons.core.other.HorizonsConstants;
@@ -90,6 +88,9 @@ public class HorizonsBlocks {
     // Gooseberries //
     public static final RegistryObject<Block> CYPRESS_BRANCH = HELPER.createBlock("cypress_branch", ()->new CypressBranchBlock(HorizonsProperties.CYPRESS_BRANCH));
     public static final RegistryObject<Block> GOOSEBERRY_BASKET = HELPER.createBlock("gooseberry_basket", ()->new BlueprintDirectionalBlock(HorizonsProperties.GOOSEBERRY_BASKET));
+
+    // Beard Moss //
+    public static final RegistryObject<Block> BEARD_MOSS = HELPER.createBlock("beard_moss", ()->new BeardMossBlock(HorizonsProperties.BEARD_MOSS));
 
     // Algae //
     public static final RegistryObject<Block> ALGAE = HELPER.createBlockNoItem("algae", ()->new AlgaeBlock(HorizonsProperties.ALGAE));
@@ -191,6 +192,7 @@ public class HorizonsBlocks {
                 .addItemsBefore(of(Blocks.AZALEA), CYPRESS_SAPLING, JACARANDA_SAPLING, REDWOOD_SAPLING)
                 .addItemsBefore(of(Items.GLOW_BERRIES), CYPRESS_BRANCH)
                 .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, "berry_good"), GOOSEBERRY_BASKET)
+                .addItemsAfter(of(Items.VINE), BEARD_MOSS)
                 .tab(FUNCTIONAL_BLOCKS)
                 .addItemsBefore(of(Blocks.BAMBOO_SIGN), CYPRESS_SIGNS.getFirst(), CYPRESS_HANGING_SIGNS.getFirst(), JACARANDA_SIGNS.getFirst(), JACARANDA_HANGING_SIGNS.getFirst(), REDWOOD_SIGNS.getFirst(), REDWOOD_HANGING_SIGNS.getFirst());
 
@@ -241,5 +243,7 @@ public class HorizonsBlocks {
 
         public static final BlockBehaviour.Properties ALGAE = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.0F).noCollission().sound(SoundType.LILY_PAD);
         public static final BlockBehaviour.Properties ALGAE_THATCH = PropertyUtil.thatch(MapColor.COLOR_LIGHT_GREEN, SoundType.GRASS);
+
+        public static final BlockBehaviour.Properties BEARD_MOSS = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().sound(SoundType.MOSS).noOcclusion().noCollission().randomTicks();
     }
 }

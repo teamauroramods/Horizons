@@ -1,4 +1,7 @@
-// 1.20.1	2024-05-06T18:20:19.820800833	Registries
-a37a2be1dbe77377c4c2de4b7c3cef2aaf57a99f data/horizons/worldgen/configured_feature/cypress.json
-bfc3df4dad0a3e3919ece0945de7e07faac9c9ea data/horizons/worldgen/configured_feature/cypress_bees_0002.json
-19e79c11d9d8ae6693198414ec894f89e9f63a31 data/horizons/worldgen/configured_feature/cypress_bees_005.json
+// 1.20.1	2024-05-07T21:01:44.802220809	Registries
+55edd1a7970265261a6865c24e5c7e940e4480d4 data/horizons/worldgen/configured_feature/cypress.json
+732491645488f589efea526fe06fefcfa2a30473 data/horizons/worldgen/configured_feature/cypress_bees_0002.json
+62538c537a3bb31a04909a83f565517460cf01e3 data/horizons/worldgen/configured_feature/cypress_bees_0002_moss.json
+3dd7fb744a6b0fa152b223191b4477d392ee2398 data/horizons/worldgen/configured_feature/cypress_bees_005.json
+215e4c89a82d6874cd4d5db37fa935d0379f8fe4 data/horizons/worldgen/configured_feature/cypress_bees_005_moss.json
+c35b63fb05220e48d093520a191e2655ae72030f data/horizons/worldgen/configured_feature/cypress_moss.json

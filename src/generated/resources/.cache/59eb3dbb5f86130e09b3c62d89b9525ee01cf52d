@@ -1,8 +1,9 @@
-// 1.20.1	2024-05-06T18:20:19.819704907	Loot Tables
+// 1.20.1	2024-05-07T20:58:53.669965012	Loot Tables
 92f29273765b61f834c261bf1beca3830f4cd99d data/horizons/loot_tables/blocks/algae.json
 263400012c1fea1d69c31842b736ab4c317ee461 data/horizons/loot_tables/blocks/algae_thatch.json
 114fb94fd0b1da6525a40c445bea75e09a2bd669 data/horizons/loot_tables/blocks/algae_thatch_slab.json
 a55c8d0ee0c1188111de642041a3487132d128c2 data/horizons/loot_tables/blocks/algae_thatch_stairs.json
+07988c6c11fd9501332e3712c7bd50bf7300f72b data/horizons/loot_tables/blocks/beard_moss.json
 374b3eaf0f2ad519b330dcb4e44abfbe6116fa25 data/horizons/loot_tables/blocks/chiseled_cypress_bookshelf.json
 e11f750c788d211df95f64f1b042acbe94034f6c data/horizons/loot_tables/blocks/chiseled_jacaranda_bookshelf.json
 64fd273af6ccced51ceadc8a7ec8dfff74d6b929 data/horizons/loot_tables/blocks/chiseled_redwood_bookshelf.json
@@ -30,6 +31,7 @@ bc36140cddb5ba8b2b3c3da1a33556ad2f8b7e02 data/horizons/loot_tables/blocks/cypres
 b293d7b56917e5201290606b83e2f73e87286100 data/horizons/loot_tables/blocks/cypress_trapdoor.json
 70df06d70c754ec41341b71bb81bd40a4786ebd9 data/horizons/loot_tables/blocks/cypress_trapped_chest.json
 57f4fcfec215e42d583d78f4911c5561fcd1743c data/horizons/loot_tables/blocks/cypress_wood.json
+e68c295e2a9126b8707078fc721e46ecae227176 data/horizons/loot_tables/blocks/gooseberry_basket.json
 b146530399f21ec60a280e89a943995576efd663 data/horizons/loot_tables/blocks/hanging_cypress_leaves.json
 2a070fc948cd7f55f4b92ab8773ed7fb2ab94b0e data/horizons/loot_tables/blocks/jacaranda_beehive.json
 eab1769640d462e4b34091e4732eb3ece5e7da27 data/horizons/loot_tables/blocks/jacaranda_boards.json

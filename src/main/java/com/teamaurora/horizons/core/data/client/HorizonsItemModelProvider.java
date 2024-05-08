@@ -15,7 +15,7 @@ public class HorizonsItemModelProvider extends BlueprintItemModelProvider {
 
     @Override
     protected void registerModels() {
-        this.generatedItem(GOOSEBERRIES, GLAZED_GOOSEBERRIES, GOOSEBERRY_COOKIE, GOOSEBERRY_PIE, GOOSEBERRY_JUICE, GOOSEBERRY_JAM);
+        this.generatedItem(GOOSEBERRIES, GLAZED_GOOSEBERRIES, GOOSEBERRY_COOKIE, GOOSEBERRY_PIE, GOOSEBERRY_JUICE);
         this.generatedItem(CYPRESS_BOAT.getFirst(), CYPRESS_BOAT.getSecond(), CYPRESS_FURNACE_BOAT, LARGE_CYPRESS_BOAT);
         this.generatedItem(JACARANDA_BOAT.getFirst(), JACARANDA_BOAT.getSecond(), JACARANDA_FURNACE_BOAT, LARGE_JACARANDA_BOAT);
         this.generatedItem(REDWOOD_BOAT.getFirst(), REDWOOD_BOAT.getSecond(), REDWOOD_FURNACE_BOAT, LARGE_REDWOOD_BOAT);

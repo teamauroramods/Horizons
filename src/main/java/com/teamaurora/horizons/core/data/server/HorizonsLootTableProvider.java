@@ -64,6 +64,8 @@ public class HorizonsLootTableProvider extends LootTableProvider {
 
             this.dropSelf(GOOSEBERRY_BASKET.get());
 
+            this.add(BEARD_MOSS.get(), BlockLootSubProvider::createShearsOnlyDrop);
+
             this.dropSelf(CYPRESS_PLANKS.get());
             this.dropSelf(CYPRESS_LOG.get());
             this.dropSelf(CYPRESS_WOOD.get());

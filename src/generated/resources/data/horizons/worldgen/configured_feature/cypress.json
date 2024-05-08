@@ -8,6 +8,10 @@
       },
       {
         "type": "horizons:hanging_cypress_leaves"
+      },
+      {
+        "type": "minecraft:leave_vine",
+        "probability": 0.25
       }
     ],
     "dirt_provider": {

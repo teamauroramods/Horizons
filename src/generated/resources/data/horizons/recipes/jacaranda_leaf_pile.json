@@ -1,27 +1,14 @@
 {
-  "type": "forge:conditional",
-  "recipes": [
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "leaf_pile",
+  "ingredients": [
     {
-      "conditions": [
-        {
-          "type": "woodworks:config",
-          "value": "leaf_piles"
-        }
-      ],
-      "recipe": {
-        "type": "minecraft:crafting_shapeless",
-        "category": "misc",
-        "group": "leaf_pile",
-        "ingredients": [
-          {
-            "item": "horizons:jacaranda_leaves"
-          }
-        ],
-        "result": {
-          "count": 4,
-          "item": "horizons:jacaranda_leaf_pile"
-        }
-      }
+      "item": "horizons:jacaranda_leaves"
     }
-  ]
+  ],
+  "result": {
+    "count": 4,
+    "item": "horizons:jacaranda_leaf_pile"
+  }
 }

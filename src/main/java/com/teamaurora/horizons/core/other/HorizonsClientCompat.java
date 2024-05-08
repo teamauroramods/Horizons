@@ -35,6 +35,8 @@ public class HorizonsClientCompat {
 
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.HANGING_CYPRESS_LEAVES.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.CYPRESS_BRANCH.get(), RenderType.cutout());
+
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.BEARD_MOSS.get(), RenderType.cutout());
     }
 
     public static void registerBlockColors() {

@@ -14,8 +14,11 @@
         "probability": 0.25
       },
       {
+        "type": "horizons:beard_moss"
+      },
+      {
         "type": "minecraft:beehive",
-        "probability": 0.002
+        "probability": 0.05
       }
     ],
     "dirt_provider": {

@@ -1,17 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "group": "cookie",
-  "pattern": [
-    "X#X"
-  ],
-  "key": {
-    "#": {
-      "item": "horizons:gooseberry_jam"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "horizons:gooseberries"
     },
-    "X": {
+    {
+      "item": "minecraft:wheat"
+    },
+    {
       "item": "minecraft:wheat"
     }
-  },
+  ],
   "result": {
     "item": "horizons:gooseberry_cookie",
     "count": 8

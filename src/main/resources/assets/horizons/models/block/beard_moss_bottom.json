@@ -1,0 +1,6 @@
+{
+  "parent": "horizons:block/cross_ao",
+  "textures": {
+    "cross": "horizons:block/beard_moss_bottom"
+  }
+}

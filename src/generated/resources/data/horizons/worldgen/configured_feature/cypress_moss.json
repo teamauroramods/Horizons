@@ -10,12 +10,11 @@
         "type": "horizons:hanging_cypress_leaves"
       },
       {
-        "type": "minecraft:leave_vine",
-        "probability": 0.25
+        "type": "horizons:beard_moss"
       },
       {
-        "type": "minecraft:beehive",
-        "probability": 0.002
+        "type": "minecraft:leave_vine",
+        "probability": 0.25
       }
     ],
     "dirt_provider": {
