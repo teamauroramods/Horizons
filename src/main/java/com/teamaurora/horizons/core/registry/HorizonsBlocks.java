@@ -98,6 +98,19 @@ public class HorizonsBlocks {
     public static final RegistryObject<Block> ALGAE_THATCH_SLAB = HELPER.createBlock("algae_thatch_slab", ()->new ThatchSlabBlock(HorizonsProperties.ALGAE_THATCH));
     public static final RegistryObject<Block> ALGAE_THATCH_STAIRS = HELPER.createBlock("algae_thatch_stairs", ()->new ThatchStairBlock(ALGAE_THATCH.get().defaultBlockState(), HorizonsProperties.ALGAE_THATCH));
 
+    // Lily Flowers //
+    public static final RegistryObject<Block> BLUE_WATER_LILY = HELPER.createBlockNoItem("blue_water_lily", ()->new WaterLilyBlock(HorizonsProperties.LILY));
+    public static final RegistryObject<Block> CYAN_WATER_LILY = HELPER.createBlockNoItem("cyan_water_lily", ()->new WaterLilyBlock(HorizonsProperties.LILY));
+    public static final RegistryObject<Block> PINK_WATER_LILY = HELPER.createBlockNoItem("pink_water_lily", ()->new WaterLilyBlock(HorizonsProperties.LILY));
+    public static final RegistryObject<Block> PURPLE_WATER_LILY = HELPER.createBlockNoItem("purple_water_lily", ()->new WaterLilyBlock(HorizonsProperties.LILY));
+    public static final RegistryObject<Block> WHITE_WATER_LILY = HELPER.createBlockNoItem("white_water_lily", ()->new WaterLilyBlock(HorizonsProperties.LILY));
+
+    public static final RegistryObject<Block> POTTED_BLUE_WATER_LILY = HELPER.createBlockNoItem("potted_blue_water_lily", ()->new FlowerPotBlock(BLUE_WATER_LILY.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_CYAN_WATER_LILY = HELPER.createBlockNoItem("potted_cyan_water_lily", ()->new FlowerPotBlock(CYAN_WATER_LILY.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_PINK_WATER_LILY = HELPER.createBlockNoItem("potted_pink_water_lily", ()->new FlowerPotBlock(PINK_WATER_LILY.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_PURPLE_WATER_LILY = HELPER.createBlockNoItem("potted_purple_water_lily", ()->new FlowerPotBlock(PURPLE_WATER_LILY.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_WHITE_WATER_LILY = HELPER.createBlockNoItem("potted_white_water_lily", ()->new FlowerPotBlock(WHITE_WATER_LILY.get(), PropertyUtil.flowerPot()));
+
     //=============================================================//
     //                      JACARANDA FOREST                       //
     //=============================================================//
@@ -193,6 +206,7 @@ public class HorizonsBlocks {
                 .addItemsBefore(of(Items.GLOW_BERRIES), CYPRESS_BRANCH)
                 .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, "berry_good"), GOOSEBERRY_BASKET)
                 .addItemsAfter(of(Items.VINE), BEARD_MOSS)
+                .addItemsAfter(of(Items.LILY_PAD), BLUE_WATER_LILY, CYAN_WATER_LILY, PINK_WATER_LILY, PURPLE_WATER_LILY, WHITE_WATER_LILY)
                 .tab(FUNCTIONAL_BLOCKS)
                 .addItemsBefore(of(Blocks.BAMBOO_SIGN), CYPRESS_SIGNS.getFirst(), CYPRESS_HANGING_SIGNS.getFirst(), JACARANDA_SIGNS.getFirst(), JACARANDA_HANGING_SIGNS.getFirst(), REDWOOD_SIGNS.getFirst(), REDWOOD_HANGING_SIGNS.getFirst());
 
@@ -245,5 +259,7 @@ public class HorizonsBlocks {
         public static final BlockBehaviour.Properties ALGAE_THATCH = PropertyUtil.thatch(MapColor.COLOR_LIGHT_GREEN, SoundType.GRASS);
 
         public static final BlockBehaviour.Properties BEARD_MOSS = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().sound(SoundType.MOSS).noOcclusion().noCollission().randomTicks();
+
+        public static final BlockBehaviour.Properties LILY = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().sound(SoundType.LILY_PAD).noOcclusion();
     }
 }

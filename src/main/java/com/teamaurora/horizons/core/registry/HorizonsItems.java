@@ -3,6 +3,7 @@ package com.teamaurora.horizons.core.registry;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
+import com.teamaurora.horizons.common.item.WaterLilyItem;
 import com.teamaurora.horizons.core.Horizons;
 import com.teamaurora.horizons.integration.boatload.HorizonsBoatTypes;
 import net.minecraft.world.food.FoodProperties;
@@ -23,6 +24,12 @@ public class HorizonsItems {
     public static final ItemSubRegistryHelper HELPER = Horizons.REGISTRY_HELPER.getItemSubHelper();
 
     public static final RegistryObject<Item> ALGAE = HELPER.createItem("algae", ()->new PlaceOnWaterBlockItem(HorizonsBlocks.ALGAE.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> BLUE_WATER_LILY = HELPER.createItem("blue_water_lily", ()->new WaterLilyItem(HorizonsBlocks.BLUE_WATER_LILY.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CYAN_WATER_LILY = HELPER.createItem("cyan_water_lily", ()->new WaterLilyItem(HorizonsBlocks.CYAN_WATER_LILY.get(), new Item.Properties()));
+    public static final RegistryObject<Item> PINK_WATER_LILY = HELPER.createItem("pink_water_lily", ()->new WaterLilyItem(HorizonsBlocks.PINK_WATER_LILY.get(), new Item.Properties()));
+    public static final RegistryObject<Item> PURPLE_WATER_LILY = HELPER.createItem("purple_water_lily", ()->new WaterLilyItem(HorizonsBlocks.PURPLE_WATER_LILY.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_WATER_LILY = HELPER.createItem("white_water_lily", ()->new WaterLilyItem(HorizonsBlocks.WHITE_WATER_LILY.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> GOOSEBERRIES = HELPER.createItem("gooseberries", ()->new Item(new Item.Properties().food(Foods.GOOSEBERRIES)));
     public static final RegistryObject<Item> GOOSEBERRY_JUICE = HELPER.createItem("gooseberry_juice", ()->new DrinkableItem(new Item.Properties().food(Foods.GOOSEBERRY_JUICE).stacksTo(16)));

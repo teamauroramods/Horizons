@@ -23,6 +23,12 @@ public class HorizonsCompat {
 
         DataUtil.registerCompostable(HorizonsBlocks.BEARD_MOSS.get(), 0.3f);
 
+        DataUtil.registerCompostable(HorizonsBlocks.BLUE_WATER_LILY.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.CYAN_WATER_LILY.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.PINK_WATER_LILY.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.PURPLE_WATER_LILY.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.WHITE_WATER_LILY.get(), 0.65f);
+
         DataUtil.registerCompostable(HorizonsBlocks.CYPRESS_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.JACARANDA_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.REDWOOD_LEAVES.get(), 0.3f);

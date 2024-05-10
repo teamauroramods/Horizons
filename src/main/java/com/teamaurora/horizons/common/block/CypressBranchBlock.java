@@ -1,6 +1,7 @@
 package com.teamaurora.horizons.common.block;
 
 import com.teamaurora.horizons.core.registry.HorizonsBlocks;
+import com.teamaurora.horizons.core.registry.HorizonsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -10,6 +11,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -94,8 +96,7 @@ public class CypressBranchBlock extends Block implements BonemealableBlock {
         if (!flag && player.getItemInHand(handIn).getItem() == Items.BONE_MEAL) {
             return InteractionResult.PASS;
         } else if (i > 1) {
-            // TODO: add back when gooseberries added
-            //popResource(worldIn, pos, new ItemStack(BayouBluesItems.GOOSEBERRIES.get(), 1));
+            popResource(worldIn, pos, new ItemStack(HorizonsItems.GOOSEBERRIES.get(), 1));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, 0), 2);
             return InteractionResult.sidedSuccess(worldIn.isClientSide);

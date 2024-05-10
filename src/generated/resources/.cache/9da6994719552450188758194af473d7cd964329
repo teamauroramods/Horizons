@@ -1,11 +1,10 @@
-// 1.20.1	2024-05-07T19:26:13.899055926	Item Models: horizons
+// 1.20.1	2024-05-09T17:56:17.745989643	Item Models: horizons
 97daf14485b6c38cf3e2bcbd8d834b3c08513283 assets/horizons/models/item/cypress_boat.json
 6dd804e2e29e4c79f020d9f1edffe3f184763bce assets/horizons/models/item/cypress_chest_boat.json
 9bb56305cd9297d0e6de3ffd58742fda2f5a0f58 assets/horizons/models/item/cypress_furnace_boat.json
 088de092ea671b865a23f59c8230950417816974 assets/horizons/models/item/glazed_gooseberries.json
 189a48de124fa0d4270b5d86acfc0017f01abeea assets/horizons/models/item/gooseberries.json
 e9a4f0f93da9b2bbe172b42440fb51d87d8d8a0c assets/horizons/models/item/gooseberry_cookie.json
-4184dbdf8d99b315d5bf130eb683a139510ee8b5 assets/horizons/models/item/gooseberry_jam.json
 9764d5443f7861d9013489719acadc95b88221a8 assets/horizons/models/item/gooseberry_juice.json
 d13e5ec862c797c2e1498a89914419a268658d9a assets/horizons/models/item/gooseberry_pie.json
 b3af7d47f53072adfeceffe1896792a3e76ffd0c assets/horizons/models/item/jacaranda_boat.json

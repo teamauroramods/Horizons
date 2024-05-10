@@ -37,13 +37,36 @@ public class HorizonsClientCompat {
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.CYPRESS_BRANCH.get(), RenderType.cutout());
 
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.BEARD_MOSS.get(), RenderType.cutout());
+
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.BLUE_WATER_LILY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.CYAN_WATER_LILY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.PINK_WATER_LILY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.PURPLE_WATER_LILY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.WHITE_WATER_LILY.get(), RenderType.cutout());
+
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_BLUE_WATER_LILY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_CYAN_WATER_LILY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_PINK_WATER_LILY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_PURPLE_WATER_LILY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_WHITE_WATER_LILY.get(), RenderType.cutout());
     }
 
     public static void registerBlockColors() {
         BlockColors blockcolors = Minecraft.getInstance().getBlockColors();
         ItemColors itemcolors = Minecraft.getInstance().getItemColors();
 
-        blockcolors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(), HorizonsBlocks.CYPRESS_LEAVES.get(), HorizonsBlocks.CYPRESS_LEAF_PILE.get(), HorizonsBlocks.HANGING_CYPRESS_LEAVES.get());
+        blockcolors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                HorizonsBlocks.CYPRESS_LEAVES.get(),
+                HorizonsBlocks.CYPRESS_LEAF_PILE.get(),
+                HorizonsBlocks.HANGING_CYPRESS_LEAVES.get()
+        );
+        blockcolors.register((state, world, pos, tintIndex) -> world != null && pos != null ? 2129968 : 7455580,
+                HorizonsBlocks.BLUE_WATER_LILY.get(),
+                HorizonsBlocks.CYAN_WATER_LILY.get(),
+                HorizonsBlocks.PINK_WATER_LILY.get(),
+                HorizonsBlocks.PURPLE_WATER_LILY.get(),
+                HorizonsBlocks.WHITE_WATER_LILY.get()
+        );
 
         itemcolors.register((stack, tintIndex) -> {
             BlockState blockstate = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();

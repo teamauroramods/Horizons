@@ -66,6 +66,18 @@ public class HorizonsLootTableProvider extends LootTableProvider {
 
             this.add(BEARD_MOSS.get(), BlockLootSubProvider::createShearsOnlyDrop);
 
+            this.add(BLUE_WATER_LILY.get(), this::createLilyFlowerDrops);
+            this.add(CYAN_WATER_LILY.get(), this::createLilyFlowerDrops);
+            this.add(PINK_WATER_LILY.get(), this::createLilyFlowerDrops);
+            this.add(PURPLE_WATER_LILY.get(), this::createLilyFlowerDrops);
+            this.add(WHITE_WATER_LILY.get(), this::createLilyFlowerDrops);
+
+            this.dropPottedContents(POTTED_BLUE_WATER_LILY.get());
+            this.dropPottedContents(POTTED_CYAN_WATER_LILY.get());
+            this.dropPottedContents(POTTED_PINK_WATER_LILY.get());
+            this.dropPottedContents(POTTED_PURPLE_WATER_LILY.get());
+            this.dropPottedContents(POTTED_WHITE_WATER_LILY.get());
+
             this.dropSelf(CYPRESS_PLANKS.get());
             this.dropSelf(CYPRESS_LOG.get());
             this.dropSelf(CYPRESS_WOOD.get());
@@ -85,7 +97,7 @@ public class HorizonsLootTableProvider extends LootTableProvider {
             this.add(CYPRESS_BRANCH.get(), (block) -> applyExplosionDecay(block, LootTable.lootTable()
                     .withPool(LootPool.lootPool()
                             .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(CYPRESS_BRANCH.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CypressBranchBlock.AGE, 2)))
-                            .add(LootItem.lootTableItem(HorizonsItems.CYPRESS_BOAT.getFirst().get())))
+                            .add(LootItem.lootTableItem(HorizonsItems.GOOSEBERRIES.get())))
                     .withPool(LootPool.lootPool()
                             .when(HAS_SHEARS.or(HAS_SILK_TOUCH))
                             .add(LootItem.lootTableItem(block)
@@ -171,6 +183,12 @@ public class HorizonsLootTableProvider extends LootTableProvider {
 
         protected LootTable.Builder createLeafPileDrops(Block block) {
             return createMultifaceBlockDrops(block, MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.SHEARS)));
+        }
+
+        protected LootTable.Builder createLilyFlowerDrops(Block block) {
+            return LootTable.lootTable()
+                    .withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.LILY_PAD)))
+                    .withPool(LootPool.lootPool().add(LootItem.lootTableItem(block)));
         }
 
         @Override
