@@ -1,0 +1,6 @@
+{
+  "type": "horizons:algae",
+  "config": {
+    "probability": 0.5
+  }
+}

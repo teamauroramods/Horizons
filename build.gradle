@@ -23,7 +23,7 @@ minecraft {
 
     copyIdeResources = true
 
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
         // applies to all the run configs below
@@ -106,6 +106,7 @@ dependencies {
     //implementation fg.deobf("maven.modrinth:moonlight:forge_1.20-2.11.12")
 
     implementation(fg.deobf("maven.modrinth:farmers-delight:${minecraft_version}-${fd_version}"))
+    implementation(fg.deobf("maven.modrinth:cyanide:${cyanide_version}-forge"))
 
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 }

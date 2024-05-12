@@ -1,0 +1,81 @@
+{
+  "modifiers": [
+    {
+      "type": "criteria",
+      "config": {
+        "criteria": {
+          "horizons:glazed_gooseberries": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "horizons:glazed_gooseberries"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "horizons:gooseberries": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "horizons:gooseberries"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "horizons:gooseberry_cookie": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "horizons:gooseberry_cookie"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "horizons:gooseberry_juice": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "horizons:gooseberry_juice"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          },
+          "horizons:gooseberry_pie": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "horizons:gooseberry_pie"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          }
+        },
+        "requirements": [
+          [
+            "horizons:gooseberries"
+          ],
+          [
+            "horizons:gooseberry_juice"
+          ],
+          [
+            "horizons:gooseberry_pie"
+          ],
+          [
+            "horizons:glazed_gooseberries"
+          ],
+          [
+            "horizons:gooseberry_cookie"
+          ]
+        ],
+        "should_replace_requirements": false
+      }
+    }
+  ],
+  "priority": "normal",
+  "selector": "minecraft:husbandry/balanced_diet"
+}

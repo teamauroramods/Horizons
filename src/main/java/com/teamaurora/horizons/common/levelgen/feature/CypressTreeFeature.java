@@ -9,7 +9,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-import net.minecraftforge.common.IPlantable;
 import org.apache.commons.compress.utils.Lists;
 
 import java.util.ArrayList;
@@ -37,12 +36,9 @@ public class CypressTreeFeature extends BlueprintTreeFeature {
         for (Direction direction : Direction.Plane.HORIZONTAL)
         {
             BlockPos offsetPos = origin.relative(direction).below();
-            BlockState offsetBlockState = context.level().getBlockState(offsetPos);
-            if (HorizonsBlocks.CYPRESS_SAPLING.get().canSustainPlant(offsetBlockState, context.level(), offsetPos, Direction.UP, (IPlantable)HorizonsBlocks.CYPRESS_SAPLING.get())) {
-                int height = random.nextInt(5) + 1;
-                for (int y = 0; y < height; y++) {
-                    this.addLog(origin.relative(direction).above(y));
-                }
+            int height = random.nextInt(5) + 1;
+            for (int y = 0; y < height; y++) {
+                this.addLog(origin.relative(direction).above(y));
             }
         }
 

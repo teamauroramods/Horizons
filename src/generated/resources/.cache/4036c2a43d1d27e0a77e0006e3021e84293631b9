@@ -1,0 +1,4 @@
+// 1.20.1	2024-05-11T20:49:43.377428341	Tags for minecraft:worldgen/biome mod id horizons
+38708b98b79c8abc28d0d20ad376e49c1a7abc0e data/minecraft/tags/worldgen/biome/has_structure/mineshaft.json
+38708b98b79c8abc28d0d20ad376e49c1a7abc0e data/minecraft/tags/worldgen/biome/has_structure/ruined_portal_swamp.json
+38708b98b79c8abc28d0d20ad376e49c1a7abc0e data/minecraft/tags/worldgen/biome/is_overworld.json

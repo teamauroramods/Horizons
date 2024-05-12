@@ -6,6 +6,8 @@ import com.teamaurora.horizons.core.data.client.HorizonsItemModelProvider;
 import com.teamaurora.horizons.core.data.server.HorizonsDatapackBuiltinEntriesProvider;
 import com.teamaurora.horizons.core.data.server.HorizonsLootTableProvider;
 import com.teamaurora.horizons.core.data.server.HorizonsRecipeProvider;
+import com.teamaurora.horizons.core.data.server.modifiers.HorizonsAdvancementModifierProvider;
+import com.teamaurora.horizons.core.data.server.tags.HorizonsBiomeTagsProvider;
 import com.teamaurora.horizons.core.data.server.tags.HorizonsBlockTagsProvider;
 import com.teamaurora.horizons.core.data.server.tags.HorizonsItemTagsProvider;
 import com.teamaurora.horizons.core.other.HorizonsClientCompat;
@@ -86,8 +88,10 @@ public class Horizons
         HorizonsBlockTagsProvider blockTags = new HorizonsBlockTagsProvider(output, provider, helper);
         generator.addProvider(includeServer, blockTags);
         generator.addProvider(includeServer, new HorizonsItemTagsProvider(output, provider, blockTags.contentsGetter(), helper));
+        generator.addProvider(includeServer, new HorizonsBiomeTagsProvider(output, provider, helper));
         generator.addProvider(includeServer, new HorizonsRecipeProvider(output));
         generator.addProvider(includeServer, new HorizonsLootTableProvider(output));
+        generator.addProvider(includeServer, new HorizonsAdvancementModifierProvider(output, provider));
 
         boolean includeClient = event.includeClient();
         generator.addProvider(includeClient, new HorizonsBlockStateProvider(output, helper));
