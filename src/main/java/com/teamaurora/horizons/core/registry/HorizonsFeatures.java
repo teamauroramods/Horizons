@@ -11,6 +11,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.TreeFeatures;
+import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -161,9 +162,9 @@ public class HorizonsFeatures {
 
             register(context, BAYOU_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(
                     new WeightedPlacedFeature(placedFeatures.getOrThrow(Placed.CYPRESS_BUSH), 0.1f),
-                    new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(TreeFeatures.MANGROVE)), 0.2f),
-                    new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(Configured.CYPRESS_BEES_0002_MOSS)), 0.3f)
-            ), PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(Configured.CYPRESS_BEES_0002))));
+                    new WeightedPlacedFeature(placedFeatures.getOrThrow(Placed.MANGROVE), 0.2f),
+                    new WeightedPlacedFeature(placedFeatures.getOrThrow(Placed.CYPRESS_BEES_0002_MOSS), 0.3f)
+            ), placedFeatures.getOrThrow(Placed.CYPRESS_BEES_0002)));
             register(context, PATCH_GRASS_BAYOU, Feature.RANDOM_PATCH, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                     .add(Blocks.GRASS.defaultBlockState(), 1)
                     .add(Blocks.FERN.defaultBlockState(), 1)
@@ -189,7 +190,10 @@ public class HorizonsFeatures {
         public static final ResourceKey<PlacedFeature> DISK_MUD = createKey("disk_mud");
         public static final ResourceKey<PlacedFeature> DISK_PODZOL = createKey("disk_podzol");
 
+        public static final ResourceKey<PlacedFeature> CYPRESS_BEES_0002 = createKey("cypress_bees_0002");
+        public static final ResourceKey<PlacedFeature> CYPRESS_BEES_0002_MOSS = createKey("cypress_bees_0002_moss");
         public static final ResourceKey<PlacedFeature> CYPRESS_BUSH = createKey("cypress_bush");
+        public static final ResourceKey<PlacedFeature> MANGROVE = createKey("mangrove");
 
         public static final ResourceKey<PlacedFeature> BAYOU_VEGETATION = createKey("bayou_vegetation");
         public static final ResourceKey<PlacedFeature> ALGAE_BAYOU = createKey("algae_bayou");
@@ -200,7 +204,10 @@ public class HorizonsFeatures {
             register(context, DISK_MUD, Configured.DISK_MUD, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new Block[]{Blocks.GRASS_BLOCK, Blocks.DIRT})), BiomeFilter.biome()));
             register(context, DISK_PODZOL, Configured.DISK_PODZOL, List.of(CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new Block[]{Blocks.GRASS_BLOCK})), BiomeFilter.biome()));
 
+            register(context, CYPRESS_BEES_0002, Configured.CYPRESS_BEES_0002, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.MANGROVE_PROPAGULE)));
+            register(context, CYPRESS_BEES_0002_MOSS, Configured.CYPRESS_BEES_0002_MOSS, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.MANGROVE_PROPAGULE)));
             register(context, CYPRESS_BUSH, Configured.CYPRESS_BUSH, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
+            register(context, MANGROVE, TreeFeatures.MANGROVE, List.of(PlacementUtils.filteredByBlockSurvival(Blocks.MANGROVE_PROPAGULE)));
 
             register(context, BAYOU_VEGETATION, Configured.BAYOU_VEGETATION, List.of(PlacementUtils.countExtra(20, 0.1f, 1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(2), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome()));
             register(context, WATER_LILIES_BAYOU, Configured.WATER_LILIES, List.of(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(new Block[]{Blocks.WATER})), BiomeFilter.biome()));

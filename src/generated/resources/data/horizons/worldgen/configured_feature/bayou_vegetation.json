@@ -1,10 +1,7 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": {
-      "feature": "horizons:cypress_bees_0002",
-      "placement": []
-    },
+    "default": "horizons:cypress_bees_0002",
     "features": [
       {
         "chance": 0.1,
@@ -12,17 +9,11 @@
       },
       {
         "chance": 0.2,
-        "feature": {
-          "feature": "minecraft:mangrove",
-          "placement": []
-        }
+        "feature": "horizons:mangrove"
       },
       {
         "chance": 0.3,
-        "feature": {
-          "feature": "horizons:cypress_bees_0002_moss",
-          "placement": []
-        }
+        "feature": "horizons:cypress_bees_0002_moss"
       }
     ]
   }
