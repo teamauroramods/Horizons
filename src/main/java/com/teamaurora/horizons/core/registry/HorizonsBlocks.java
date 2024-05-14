@@ -22,6 +22,7 @@ import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import com.teamaurora.horizons.common.block.*;
 import com.teamaurora.horizons.common.block.grower.CypressTreeGrower;
+import com.teamaurora.horizons.common.block.grower.JacarandaTreeGrower;
 import com.teamaurora.horizons.core.Horizons;
 import com.teamaurora.horizons.core.other.HorizonsConstants;
 import com.teamaurora.horizons.integration.farmers_delight.HorizonsFDCompat;
@@ -140,9 +141,14 @@ public class HorizonsBlocks {
     public static final RegistryObject<Block> JACARANDA_CABINET = HELPER.createFuelBlock("jacaranda_cabinet", ItemSubRegistryHelper.areModsLoaded("farmersdelight") ? HorizonsFDCompat.CABINET_SUPPLIER : () -> new Block(BlockBehaviour.Properties.copy(Blocks.BARREL)), 300);
 
     public static final RegistryObject<Block> JACARANDA_LEAVES = HELPER.createBlock("jacaranda_leaves", ()->new LeavesBlock(HorizonsProperties.JACARANDA.leaves()));
-    public static final RegistryObject<Block> JACARANDA_SAPLING = HELPER.createBlock("jacaranda_sapling", ()->new SaplingBlock(new OakTreeGrower(), HorizonsProperties.JACARANDA.sapling()));
+    public static final RegistryObject<Block> JACARANDA_SAPLING = HELPER.createBlock("jacaranda_sapling", ()->new SaplingBlock(new JacarandaTreeGrower(false), HorizonsProperties.JACARANDA.sapling()));
     public static final RegistryObject<Block> POTTED_JACARANDA_SAPLING = HELPER.createBlockNoItem("potted_jacaranda_sapling", ()->new FlowerPotBlock(JACARANDA_SAPLING.get(), PropertyUtil.flowerPot()));
     public static final RegistryObject<Block> JACARANDA_LEAF_PILE = HELPER.createBlock("jacaranda_leaf_pile", ()->new LeafPileBlock(HorizonsProperties.JACARANDA.leafPile()));
+
+    public static final RegistryObject<Block> FLOWERING_JACARANDA_LEAVES = HELPER.createBlock("flowering_jacaranda_leaves", ()->new LeavesBlock(HorizonsProperties.JACARANDA.leaves()));
+    public static final RegistryObject<Block> FLOWERING_JACARANDA_SAPLING = HELPER.createBlock("flowering_jacaranda_sapling", ()->new SaplingBlock(new JacarandaTreeGrower(true), HorizonsProperties.JACARANDA.sapling()));
+    public static final RegistryObject<Block> POTTED_FLOWERING_JACARANDA_SAPLING = HELPER.createBlockNoItem("potted_flowering_jacaranda_sapling", ()->new FlowerPotBlock(FLOWERING_JACARANDA_SAPLING.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> FLOWERING_JACARANDA_LEAF_PILE = HELPER.createBlock("flowering_jacaranda_leaf_pile", ()->new LeafPileBlock(HorizonsProperties.JACARANDA.leafPile()));
 
 
     //=============================================================//
@@ -200,9 +206,11 @@ public class HorizonsBlocks {
                 .addItemsBefore(of(Blocks.AZALEA_LEAVES), HANGING_CYPRESS_LEAVES)
                 .addItemsBefore(of(Blocks.AZALEA_LEAVES), JACARANDA_LEAVES)
                 .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, "woodworks"), JACARANDA_LEAF_PILE)
+                .addItemsBefore(of(Blocks.AZALEA_LEAVES), FLOWERING_JACARANDA_LEAVES)
+                .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, "woodworks"), FLOWERING_JACARANDA_LEAF_PILE)
                 .addItemsBefore(of(Blocks.AZALEA_LEAVES), REDWOOD_LEAVES)
                 .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, "woodworks"), REDWOOD_LEAF_PILE)
-                .addItemsBefore(of(Blocks.AZALEA), CYPRESS_SAPLING, JACARANDA_SAPLING, REDWOOD_SAPLING)
+                .addItemsBefore(of(Blocks.AZALEA), CYPRESS_SAPLING, JACARANDA_SAPLING, FLOWERING_JACARANDA_SAPLING, REDWOOD_SAPLING)
                 .addItemsBefore(of(Items.GLOW_BERRIES), CYPRESS_BRANCH)
                 .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, "berry_good"), GOOSEBERRY_BASKET)
                 .addItemsAfter(of(Items.VINE), BEARD_MOSS)

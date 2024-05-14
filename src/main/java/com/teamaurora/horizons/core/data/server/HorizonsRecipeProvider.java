@@ -44,6 +44,7 @@ public class HorizonsRecipeProvider extends BlueprintRecipeProvider {
         woodFromLogs(consumer, STRIPPED_JACARANDA_WOOD.get(), STRIPPED_JACARANDA_LOG.get());
         hangingSign(consumer, JACARANDA_HANGING_SIGNS.getFirst().get(), STRIPPED_JACARANDA_LOG.get());
         leafPileRecipes(consumer, JACARANDA_LEAVES.get(), JACARANDA_LEAF_PILE.get());
+        leafPileRecipes(consumer, FLOWERING_JACARANDA_LEAVES.get(), FLOWERING_JACARANDA_LEAF_PILE.get());
 
         generateRecipes(consumer, HorizonsBlockFamilies.REDWOOD_PLANKS_FAMILY);
         planksFromLogs(consumer, REDWOOD_PLANKS.get(), HorizonsItemTags.REDWOOD_LOGS, 4);

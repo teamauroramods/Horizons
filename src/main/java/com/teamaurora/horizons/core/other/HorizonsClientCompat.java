@@ -27,10 +27,12 @@ public class HorizonsClientCompat {
 
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.CYPRESS_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.JACARANDA_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.FLOWERING_JACARANDA_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.REDWOOD_SAPLING.get(), RenderType.cutout());
 
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_CYPRESS_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_JACARANDA_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_FLOWERING_JACARANDA_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_REDWOOD_SAPLING.get(), RenderType.cutout());
 
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.HANGING_CYPRESS_LEAVES.get(), RenderType.cutoutMipped());

@@ -2,6 +2,7 @@ package com.teamaurora.horizons.core.registry;
 
 import com.teamaurora.horizons.common.levelgen.feature.AlgaePatchFeature;
 import com.teamaurora.horizons.common.levelgen.feature.CypressTreeFeature;
+import com.teamaurora.horizons.common.levelgen.feature.JacarandaTreeFeature;
 import com.teamaurora.horizons.common.levelgen.treedecorators.BeardMossDecorator;
 import com.teamaurora.horizons.common.levelgen.treedecorators.CypressBranchDecorator;
 import com.teamaurora.horizons.common.levelgen.treedecorators.HangingCypressDecorator;
@@ -50,6 +51,7 @@ public class HorizonsFeatures {
     public static final DeferredRegister<TreeDecoratorType<?>> TREE_DECORATORS = DeferredRegister.create(ForgeRegistries.TREE_DECORATOR_TYPES, Horizons.MOD_ID);
 
     public static final RegistryObject<Feature<TreeConfiguration>> CYPRESS_TREE = FEATURES.register("cypress_tree", ()->new CypressTreeFeature(TreeConfiguration.CODEC));
+    public static final RegistryObject<Feature<TreeConfiguration>> JACARANDA_TREE = FEATURES.register("jacaranda_tree", ()->new JacarandaTreeFeature(TreeConfiguration.CODEC));
 
     public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> ALGAE = FEATURES.register("algae", ()->new AlgaePatchFeature(ProbabilityFeatureConfiguration.CODEC));
 
@@ -68,12 +70,17 @@ public class HorizonsFeatures {
         public static final TreeConfiguration CYPRESS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025)).build();
         public static final TreeConfiguration CYPRESS_BEES_0002 = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEEHIVE_0002)).build();
         public static final TreeConfiguration CYPRESS_BEES_005 = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEEHIVE_005)).build();
-
         public static final TreeConfiguration CYPRESS_MOSS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, BEARD_MOSS, LEAVE_VINE_025)).build();
         public static final TreeConfiguration CYPRESS_BEES_0002_MOSS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEARD_MOSS, BEEHIVE_0002)).build();
         public static final TreeConfiguration CYPRESS_BEES_005_MOSS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEARD_MOSS, BEEHIVE_005)).build();
-
         public static final TreeConfiguration CYPRESS_BUSH = createBush(HorizonsBlocks.CYPRESS_LOG.get(), HorizonsBlocks.CYPRESS_LEAVES.get()).build();
+
+        public static final TreeConfiguration JACARANDA = createJacaranda(HorizonsBlocks.JACARANDA_LEAVES.get()).build();
+        public static final TreeConfiguration JACARANDA_BEES_0002 = createJacaranda(HorizonsBlocks.JACARANDA_LEAVES.get()).decorators(List.of(BEEHIVE_0002)).build();
+        public static final TreeConfiguration JACARANDA_BEES_005 = createJacaranda(HorizonsBlocks.JACARANDA_LEAVES.get()).decorators(List.of(BEEHIVE_005)).build();
+        public static final TreeConfiguration FLOWERING_JACARANDA = createJacaranda(HorizonsBlocks.FLOWERING_JACARANDA_LEAVES.get()).build();
+        public static final TreeConfiguration FLOWERING_JACARANDA_BEES_0002 = createJacaranda(HorizonsBlocks.FLOWERING_JACARANDA_LEAVES.get()).decorators(List.of(BEEHIVE_0002)).build();
+        public static final TreeConfiguration FLOWERING_JACARANDA_BEES_005 = createJacaranda(HorizonsBlocks.FLOWERING_JACARANDA_LEAVES.get()).decorators(List.of(BEEHIVE_005)).build();
 
         private static TreeConfiguration.TreeConfigurationBuilder createCypress() {
             return new TreeConfiguration.TreeConfigurationBuilder(
@@ -83,6 +90,16 @@ public class HorizonsFeatures {
                     new BlobFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), 0),
                     new TwoLayersFeatureSize(0, 0, 0)
             ).ignoreVines();
+        }
+
+        private static TreeConfiguration.TreeConfigurationBuilder createJacaranda(Block leafBlock) {
+            return new TreeConfiguration.TreeConfigurationBuilder(
+                    BlockStateProvider.simple(HorizonsBlocks.JACARANDA_LOG.get()),
+                    new StraightTrunkPlacer(4, 3, 0),
+                    BlockStateProvider.simple(leafBlock),
+                    new BlobFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), 0),
+                    new TwoLayersFeatureSize(0, 0, 0)
+            );
         }
 
         private static TreeConfiguration.TreeConfigurationBuilder createBush(Block logBlock, Block leafBlock) {
@@ -103,12 +120,17 @@ public class HorizonsFeatures {
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS = createKey("cypress");
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BEES_0002 = createKey("cypress_bees_0002");
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BEES_005 = createKey("cypress_bees_005");
-
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_MOSS = createKey("cypress_moss");
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BEES_0002_MOSS = createKey("cypress_bees_0002_moss");
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BEES_005_MOSS = createKey("cypress_bees_005_moss");
-
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BUSH = createKey("cypress_bush");
+
+        public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA = createKey("jacaranda");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_BEES_0002 = createKey("jacaranda_bees_0002");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_BEES_005 = createKey("jacaranda_bees_005");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_JACARANDA = createKey("flowering_jacaranda");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_JACARANDA_BEES_0002 = createKey("flowering_jacaranda_bees_0002");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_JACARANDA_BEES_005 = createKey("flowering_jacaranda_bees_005");
 
         // Bayou //
 
@@ -147,6 +169,13 @@ public class HorizonsFeatures {
             register(context, CYPRESS_BEES_0002_MOSS, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS_BEES_0002_MOSS);
             register(context, CYPRESS_BEES_005_MOSS, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS_BEES_005_MOSS);
             register(context, CYPRESS_BUSH, Feature.TREE, Configs.CYPRESS_BUSH);
+
+            register(context, JACARANDA, HorizonsFeatures.JACARANDA_TREE.get(), Configs.JACARANDA);
+            register(context, JACARANDA_BEES_0002, HorizonsFeatures.JACARANDA_TREE.get(), Configs.JACARANDA_BEES_0002);
+            register(context, JACARANDA_BEES_005, HorizonsFeatures.JACARANDA_TREE.get(), Configs.JACARANDA_BEES_005);
+            register(context, FLOWERING_JACARANDA, HorizonsFeatures.JACARANDA_TREE.get(), Configs.FLOWERING_JACARANDA);
+            register(context, FLOWERING_JACARANDA_BEES_0002, HorizonsFeatures.JACARANDA_TREE.get(), Configs.FLOWERING_JACARANDA_BEES_0002);
+            register(context, FLOWERING_JACARANDA_BEES_005, HorizonsFeatures.JACARANDA_TREE.get(), Configs.FLOWERING_JACARANDA_BEES_005);
 
             // Bayou //
             register(context, ALGAE, HorizonsFeatures.ALGAE.get(), new ProbabilityFeatureConfiguration(0.5F));

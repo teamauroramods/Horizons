@@ -31,10 +31,12 @@ public class HorizonsCompat {
 
         DataUtil.registerCompostable(HorizonsBlocks.CYPRESS_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.JACARANDA_LEAVES.get(), 0.3f);
+        DataUtil.registerCompostable(HorizonsBlocks.FLOWERING_JACARANDA_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.REDWOOD_LEAVES.get(), 0.3f);
 
         DataUtil.registerCompostable(HorizonsBlocks.CYPRESS_SAPLING.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.JACARANDA_SAPLING.get(), 0.3f);
+        DataUtil.registerCompostable(HorizonsBlocks.FLOWERING_JACARANDA_SAPLING.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.REDWOOD_SAPLING.get(), 0.3f);
     }
 
@@ -79,6 +81,8 @@ public class HorizonsCompat {
         DataUtil.registerFlammable(HorizonsBlocks.JACARANDA_FENCE_GATE.get(), 5, 20);
         DataUtil.registerFlammable(HorizonsBlocks.JACARANDA_LEAVES.get(), 30, 60);
         DataUtil.registerFlammable(HorizonsBlocks.JACARANDA_LEAF_PILE.get(), 30, 60);
+        DataUtil.registerFlammable(HorizonsBlocks.FLOWERING_JACARANDA_LEAVES.get(), 30, 60);
+        DataUtil.registerFlammable(HorizonsBlocks.FLOWERING_JACARANDA_LEAF_PILE.get(), 30, 60);
         DataUtil.registerFlammable(HorizonsBlocks.JACARANDA_BEEHIVE.get(), 5, 20);
         DataUtil.registerFlammable(HorizonsBlocks.JACARANDA_BOARDS.get(), 5, 20);
         DataUtil.registerFlammable(HorizonsBlocks.JACARANDA_BOOKSHELF.get(), 30, 20);

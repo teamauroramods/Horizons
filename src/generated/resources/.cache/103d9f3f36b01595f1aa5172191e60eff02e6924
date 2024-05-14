@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-12T18:53:30.716113099	Registries
+// 1.20.1	2024-05-14T17:09:24.252031274	Registries
 eb41ee5dd5df8855c0ba9d0774acd6a7b5f4b0da data/horizons/blueprint/modded_biome_slices/horizons.json
 6395fd2d4165afc5d43d5efe8de2701bd41ac014 data/horizons/worldgen/biome/bayou.json
 9a50f687be632f8ca5e2f57438ce751d353a8463 data/horizons/worldgen/configured_feature/algae.json
@@ -12,6 +12,12 @@ eb41ee5dd5df8855c0ba9d0774acd6a7b5f4b0da data/horizons/blueprint/modded_biome_sl
 c35b63fb05220e48d093520a191e2655ae72030f data/horizons/worldgen/configured_feature/cypress_moss.json
 3480c76beac54189ab7c8ec5d717c86b553d3202 data/horizons/worldgen/configured_feature/disk_mud.json
 545368d01b3661198c9d1b2c64f307a4bfe234ec data/horizons/worldgen/configured_feature/disk_podzol.json
+19730900200d99dfbee7882c72d50726b863f1d2 data/horizons/worldgen/configured_feature/flowering_jacaranda.json
+9836b7fabbeaa98b8232d6957f42d41d5d221ac9 data/horizons/worldgen/configured_feature/flowering_jacaranda_bees_0002.json
+e9e1051d92e604703b59441300db29bb2b798b74 data/horizons/worldgen/configured_feature/flowering_jacaranda_bees_005.json
+42af516df31030a603fa7da1b95e492f485a5198 data/horizons/worldgen/configured_feature/jacaranda.json
+01b9bc18e87f249d08eb3b214601beeec752a931 data/horizons/worldgen/configured_feature/jacaranda_bees_0002.json
+c79f2c12006da15ddded1cefb70513e9ba413cba data/horizons/worldgen/configured_feature/jacaranda_bees_005.json
 bad928946462e187c243eea9909fef50e924e657 data/horizons/worldgen/configured_feature/patch_grass_bayou.json
 0821fee54825cbfe5925730f8fafcc1e1c45f72e data/horizons/worldgen/configured_feature/water_lilies.json
 74c3160651e49da870b56ca922f46339911e4de7 data/horizons/worldgen/placed_feature/algae_bayou.json

@@ -2,6 +2,12 @@
   "values": [
     "horizons:potted_cypress_sapling",
     "horizons:potted_jacaranda_sapling",
-    "horizons:potted_redwood_sapling"
+    "horizons:potted_flowering_jacaranda_sapling",
+    "horizons:potted_redwood_sapling",
+    "horizons:potted_blue_water_lily",
+    "horizons:potted_cyan_water_lily",
+    "horizons:potted_pink_water_lily",
+    "horizons:potted_purple_water_lily",
+    "horizons:potted_white_water_lily"
   ]
 }

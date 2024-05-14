@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "leaf_pile",
+  "ingredients": [
+    {
+      "item": "horizons:flowering_jacaranda_leaves"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "horizons:flowering_jacaranda_leaf_pile"
+  }
+}

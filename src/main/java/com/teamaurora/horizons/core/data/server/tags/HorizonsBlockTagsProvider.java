@@ -39,11 +39,14 @@ public class HorizonsBlockTagsProvider extends BlockTagsProvider {
         this.tag(BlockTags.WALL_HANGING_SIGNS).add(CYPRESS_HANGING_SIGNS.getSecond().get(), JACARANDA_HANGING_SIGNS.getSecond().get(), REDWOOD_HANGING_SIGNS.getSecond().get());
         this.tag(BlockTags.OVERWORLD_NATURAL_LOGS).add(CYPRESS_LOG.get(), JACARANDA_LOG.get(), REDWOOD_LOG.get());
 
-        this.tag(BlockTags.LEAVES).add(CYPRESS_LEAVES.get(), JACARANDA_LEAVES.get(), REDWOOD_LEAVES.get());
-        this.tag(BlockTags.SAPLINGS).add(CYPRESS_SAPLING.get(), JACARANDA_SAPLING.get(), REDWOOD_SAPLING.get());
-        this.tag(BlockTags.FLOWER_POTS).add(POTTED_CYPRESS_SAPLING.get(), POTTED_JACARANDA_SAPLING.get(), POTTED_REDWOOD_SAPLING.get());
+        this.tag(BlockTags.LEAVES).add(CYPRESS_LEAVES.get(), JACARANDA_LEAVES.get(), FLOWERING_JACARANDA_LEAVES.get(), REDWOOD_LEAVES.get());
+        this.tag(BlockTags.SAPLINGS).add(CYPRESS_SAPLING.get(), JACARANDA_SAPLING.get(), FLOWERING_JACARANDA_SAPLING.get(), REDWOOD_SAPLING.get());
+        this.tag(BlockTags.FLOWER_POTS).add(
+                POTTED_CYPRESS_SAPLING.get(), POTTED_JACARANDA_SAPLING.get(), POTTED_FLOWERING_JACARANDA_SAPLING.get(), POTTED_REDWOOD_SAPLING.get(),
+                POTTED_BLUE_WATER_LILY.get(), POTTED_CYAN_WATER_LILY.get(), POTTED_PINK_WATER_LILY.get(), POTTED_PURPLE_WATER_LILY.get(), POTTED_WHITE_WATER_LILY.get()
+        );
 
-        this.tag(BlockTags.MINEABLE_WITH_HOE).add(CYPRESS_LEAVES.get(), HANGING_CYPRESS_LEAVES.get(), JACARANDA_LEAVES.get(), REDWOOD_LEAVES.get());
+        this.tag(BlockTags.MINEABLE_WITH_HOE).add(CYPRESS_LEAVES.get(), HANGING_CYPRESS_LEAVES.get(), JACARANDA_LEAVES.get(), FLOWERING_JACARANDA_LEAVES.get(), REDWOOD_LEAVES.get());
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(CYPRESS_CABINET.get(), JACARANDA_CABINET.get(), REDWOOD_CABINET.get());
 
         this.tag(BlockTags.REPLACEABLE).add(HANGING_CYPRESS_LEAVES.get());
@@ -59,6 +62,6 @@ public class HorizonsBlockTagsProvider extends BlockTagsProvider {
         this.tag(BlueprintBlockTags.WOODEN_LADDERS).add(CYPRESS_LADDER.get(), JACARANDA_LADDER.get(), REDWOOD_LADDER.get());
         this.tag(BlueprintBlockTags.WOODEN_BOOKSHELVES).add(CYPRESS_BOOKSHELF.get(), JACARANDA_BOOKSHELF.get(), REDWOOD_BOOKSHELF.get());
         this.tag(BlueprintBlockTags.WOODEN_CHISELED_BOOKSHELVES).add(CHISELED_CYPRESS_BOOKSHELF.get(), CHISELED_JACARANDA_BOOKSHELF.get(), CHISELED_REDWOOD_BOOKSHELF.get());
-        this.tag(BlueprintBlockTags.LEAF_PILES).add(CYPRESS_LEAF_PILE.get(), JACARANDA_LEAF_PILE.get(), REDWOOD_LEAF_PILE.get());
+        this.tag(BlueprintBlockTags.LEAF_PILES).add(CYPRESS_LEAF_PILE.get(), JACARANDA_LEAF_PILE.get(), FLOWERING_JACARANDA_LEAF_PILE.get(), REDWOOD_LEAF_PILE.get());
     }
 }

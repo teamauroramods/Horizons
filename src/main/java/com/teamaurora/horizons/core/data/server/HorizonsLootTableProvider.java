@@ -129,6 +129,7 @@ public class HorizonsLootTableProvider extends LootTableProvider {
             this.dropSelf(JACARANDA_FENCE_GATE.get());
             this.dropSelf(JACARANDA_BOARDS.get());
             this.add(JACARANDA_LEAF_PILE.get(), this::createLeafPileDrops);
+            this.add(FLOWERING_JACARANDA_LEAF_PILE.get(), this::createLeafPileDrops);
 
             this.dropSelf(JACARANDA_LADDER.get());
             this.add(JACARANDA_SLAB.get(), this::createSlabItemTable);
@@ -170,14 +171,17 @@ public class HorizonsLootTableProvider extends LootTableProvider {
 
             this.dropSelf(CYPRESS_SAPLING.get());
             this.dropSelf(JACARANDA_SAPLING.get());
+            this.dropSelf(FLOWERING_JACARANDA_SAPLING.get());
             this.dropSelf(REDWOOD_SAPLING.get());
 
             this.dropPottedContents(POTTED_CYPRESS_SAPLING.get());
             this.dropPottedContents(POTTED_JACARANDA_SAPLING.get());
+            this.dropPottedContents(POTTED_FLOWERING_JACARANDA_SAPLING.get());
             this.dropPottedContents(POTTED_REDWOOD_SAPLING.get());
 
             this.add(CYPRESS_LEAVES.get(), (block) -> createLeavesDrops(block, CYPRESS_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
             this.add(JACARANDA_LEAVES.get(), (block) -> createLeavesDrops(block, JACARANDA_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+            this.add(FLOWERING_JACARANDA_LEAVES.get(), (block) -> createLeavesDrops(block, FLOWERING_JACARANDA_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
             this.add(REDWOOD_LEAVES.get(), (block) -> createLeavesDrops(block, REDWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         }
 
