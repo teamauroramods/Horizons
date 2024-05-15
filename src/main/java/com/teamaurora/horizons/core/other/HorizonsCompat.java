@@ -29,11 +29,15 @@ public class HorizonsCompat {
         DataUtil.registerCompostable(HorizonsBlocks.PURPLE_WATER_LILY.get(), 0.65f);
         DataUtil.registerCompostable(HorizonsBlocks.WHITE_WATER_LILY.get(), 0.65f);
 
+        DataUtil.registerCompostable(HorizonsBlocks.FLOWERING_OAK_LEAVES.get(), 0.3f);
+        DataUtil.registerCompostable(HorizonsBlocks.FLOWERING_JUNGLE_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.CYPRESS_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.JACARANDA_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.FLOWERING_JACARANDA_LEAVES.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.REDWOOD_LEAVES.get(), 0.3f);
 
+        DataUtil.registerCompostable(HorizonsBlocks.FLOWERING_OAK_SAPLING.get(), 0.3f);
+        DataUtil.registerCompostable(HorizonsBlocks.FLOWERING_JUNGLE_SAPLING.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.CYPRESS_SAPLING.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.JACARANDA_SAPLING.get(), 0.3f);
         DataUtil.registerCompostable(HorizonsBlocks.FLOWERING_JACARANDA_SAPLING.get(), 0.3f);

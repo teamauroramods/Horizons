@@ -56,6 +56,9 @@ public class HorizonsLootTableProvider extends LootTableProvider {
 
         @Override
         public void generate() {
+            this.add(FLOWERING_OAK_LEAF_PILE.get(), this::createLeafPileDrops);
+            this.add(FLOWERING_JUNGLE_LEAF_PILE.get(), this::createLeafPileDrops);
+
             this.dropSelf(ALGAE_THATCH.get());
             this.dropSelf(ALGAE_THATCH_STAIRS.get());
             this.add(ALGAE_THATCH_SLAB.get(), this::createSlabItemTable);
@@ -169,16 +172,22 @@ public class HorizonsLootTableProvider extends LootTableProvider {
             this.add(REDWOOD_CABINET.get(), this::createNameableBlockEntityTable);
 
 
+            this.dropSelf(FLOWERING_OAK_SAPLING.get());
+            this.dropSelf(FLOWERING_JUNGLE_SAPLING.get());
             this.dropSelf(CYPRESS_SAPLING.get());
             this.dropSelf(JACARANDA_SAPLING.get());
             this.dropSelf(FLOWERING_JACARANDA_SAPLING.get());
             this.dropSelf(REDWOOD_SAPLING.get());
 
+            this.dropPottedContents(POTTED_FLOWERING_OAK_SAPLING.get());
+            this.dropPottedContents(POTTED_FLOWERING_JUNGLE_SAPLING.get());
             this.dropPottedContents(POTTED_CYPRESS_SAPLING.get());
             this.dropPottedContents(POTTED_JACARANDA_SAPLING.get());
             this.dropPottedContents(POTTED_FLOWERING_JACARANDA_SAPLING.get());
             this.dropPottedContents(POTTED_REDWOOD_SAPLING.get());
 
+            this.add(FLOWERING_OAK_LEAVES.get(), (block) -> createLeavesDrops(block, FLOWERING_OAK_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+            this.add(FLOWERING_JUNGLE_LEAVES.get(), (block) -> createLeavesDrops(block, FLOWERING_JUNGLE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
             this.add(CYPRESS_LEAVES.get(), (block) -> createLeavesDrops(block, CYPRESS_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
             this.add(JACARANDA_LEAVES.get(), (block) -> createLeavesDrops(block, JACARANDA_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
             this.add(FLOWERING_JACARANDA_LEAVES.get(), (block) -> createLeavesDrops(block, FLOWERING_JACARANDA_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));

@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "horizons:block/flowering_oak_leaves",
+    "layer1": "horizons:block/flowering_oak_leaves_overlay"
+  }
+}

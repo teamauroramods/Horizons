@@ -1,5 +1,6 @@
 package com.teamaurora.horizons.core.registry;
 
+import com.google.common.collect.ImmutableList;
 import com.teamaurora.horizons.common.levelgen.feature.AlgaePatchFeature;
 import com.teamaurora.horizons.common.levelgen.feature.CypressTreeFeature;
 import com.teamaurora.horizons.common.levelgen.feature.JacarandaTreeFeature;
@@ -30,12 +31,17 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaJungleFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.fml.common.Mod;
@@ -44,6 +50,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
+import java.util.OptionalInt;
 
 @Mod.EventBusSubscriber(modid = Horizons.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class HorizonsFeatures {
@@ -67,6 +74,16 @@ public class HorizonsFeatures {
         private static final CypressBranchDecorator CYPRESS_BRANCH = new CypressBranchDecorator(0.02F);
         private static final LeaveVineDecorator LEAVE_VINE_025 = new LeaveVineDecorator(0.25F);
 
+        public static final TreeConfiguration FLOWERING_OAK = createFloweringOak().build();
+        public static final TreeConfiguration FLOWERING_OAK_BEES_0002 = createFloweringOak().decorators(List.of(BEEHIVE_0002)).build();
+        public static final TreeConfiguration FLOWERING_OAK_BEES_005 = createFloweringOak().decorators(List.of(BEEHIVE_005)).build();
+        public static final TreeConfiguration FLOWERING_FANCY_OAK = createFloweringFancyOak().build();
+        public static final TreeConfiguration FLOWERING_FANCY_OAK_BEES_0002 = createFloweringFancyOak().decorators(List.of(BEEHIVE_0002)).build();
+        public static final TreeConfiguration FLOWERING_FANCY_OAK_BEES_005 = createFloweringFancyOak().decorators(List.of(BEEHIVE_005)).build();
+
+        public static final TreeConfiguration FLOWERING_JUNGLE = createFloweringJungle().build();
+        public static final TreeConfiguration FLOWERING_MEGA_JUNGLE = createFloweringMegaJungle().build();
+
         public static final TreeConfiguration CYPRESS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025)).build();
         public static final TreeConfiguration CYPRESS_BEES_0002 = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEEHIVE_0002)).build();
         public static final TreeConfiguration CYPRESS_BEES_005 = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEEHIVE_005)).build();
@@ -75,12 +92,52 @@ public class HorizonsFeatures {
         public static final TreeConfiguration CYPRESS_BEES_005_MOSS = createCypress().decorators(List.of(CYPRESS_BRANCH, HANGING_CYPRESS_LEAVES, LEAVE_VINE_025, BEARD_MOSS, BEEHIVE_005)).build();
         public static final TreeConfiguration CYPRESS_BUSH = createBush(HorizonsBlocks.CYPRESS_LOG.get(), HorizonsBlocks.CYPRESS_LEAVES.get()).build();
 
-        public static final TreeConfiguration JACARANDA = createJacaranda(HorizonsBlocks.JACARANDA_LEAVES.get()).build();
-        public static final TreeConfiguration JACARANDA_BEES_0002 = createJacaranda(HorizonsBlocks.JACARANDA_LEAVES.get()).decorators(List.of(BEEHIVE_0002)).build();
-        public static final TreeConfiguration JACARANDA_BEES_005 = createJacaranda(HorizonsBlocks.JACARANDA_LEAVES.get()).decorators(List.of(BEEHIVE_005)).build();
-        public static final TreeConfiguration FLOWERING_JACARANDA = createJacaranda(HorizonsBlocks.FLOWERING_JACARANDA_LEAVES.get()).build();
-        public static final TreeConfiguration FLOWERING_JACARANDA_BEES_0002 = createJacaranda(HorizonsBlocks.FLOWERING_JACARANDA_LEAVES.get()).decorators(List.of(BEEHIVE_0002)).build();
-        public static final TreeConfiguration FLOWERING_JACARANDA_BEES_005 = createJacaranda(HorizonsBlocks.FLOWERING_JACARANDA_LEAVES.get()).decorators(List.of(BEEHIVE_005)).build();
+        public static final TreeConfiguration JACARANDA = createJacaranda().build();
+        public static final TreeConfiguration JACARANDA_BEES_0002 = createJacaranda().decorators(List.of(BEEHIVE_0002)).build();
+        public static final TreeConfiguration JACARANDA_BEES_005 = createJacaranda().decorators(List.of(BEEHIVE_005)).build();
+        public static final TreeConfiguration FLOWERING_JACARANDA = createFloweringJacaranda().build();
+        public static final TreeConfiguration FLOWERING_JACARANDA_BEES_0002 = createFloweringJacaranda().decorators(List.of(BEEHIVE_0002)).build();
+        public static final TreeConfiguration FLOWERING_JACARANDA_BEES_005 = createFloweringJacaranda().decorators(List.of(BEEHIVE_005)).build();
+
+        private static TreeConfiguration.TreeConfigurationBuilder createFloweringOak() {
+            return new TreeConfiguration.TreeConfigurationBuilder(
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new StraightTrunkPlacer(4, 2, 0),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.OAK_LEAVES.defaultBlockState(), 2).add(HorizonsBlocks.FLOWERING_OAK_LEAVES.get().defaultBlockState(), 6).build()),
+                    new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
+                    new TwoLayersFeatureSize(1, 0, 1)
+            ).ignoreVines();
+        }
+
+        private static TreeConfiguration.TreeConfigurationBuilder createFloweringFancyOak() {
+            return new TreeConfiguration.TreeConfigurationBuilder(
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new FancyTrunkPlacer(3, 11, 0),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.OAK_LEAVES.defaultBlockState(), 2).add(HorizonsBlocks.FLOWERING_OAK_LEAVES.get().defaultBlockState(), 6).build()),
+                    new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4),
+                    new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4))
+            ).ignoreVines();
+        }
+
+        private static TreeConfiguration.TreeConfigurationBuilder createFloweringJungle() {
+            return new TreeConfiguration.TreeConfigurationBuilder(
+                    BlockStateProvider.simple(Blocks.JUNGLE_LOG),
+                    new StraightTrunkPlacer(4, 8, 0),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.JUNGLE_LEAVES.defaultBlockState(), 2).add(HorizonsBlocks.FLOWERING_JUNGLE_LEAVES.get().defaultBlockState(), 6).build()),
+                    new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
+                    new TwoLayersFeatureSize(1, 0, 1)
+            ).ignoreVines();
+        }
+
+        private static TreeConfiguration.TreeConfigurationBuilder createFloweringMegaJungle() {
+            return new TreeConfiguration.TreeConfigurationBuilder(
+                    BlockStateProvider.simple(Blocks.JUNGLE_LOG),
+                    new MegaJungleTrunkPlacer(10, 2, 19),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.JUNGLE_LEAVES.defaultBlockState(), 2).add(HorizonsBlocks.FLOWERING_JUNGLE_LEAVES.get().defaultBlockState(), 6).build()),
+                    new MegaJungleFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 2),
+                    new TwoLayersFeatureSize(1, 1, 2)
+            ).decorators(ImmutableList.of(TrunkVineDecorator.INSTANCE, new LeaveVineDecorator(0.25F)));
+        }
 
         private static TreeConfiguration.TreeConfigurationBuilder createCypress() {
             return new TreeConfiguration.TreeConfigurationBuilder(
@@ -92,11 +149,21 @@ public class HorizonsFeatures {
             ).ignoreVines();
         }
 
-        private static TreeConfiguration.TreeConfigurationBuilder createJacaranda(Block leafBlock) {
+        private static TreeConfiguration.TreeConfigurationBuilder createJacaranda() {
             return new TreeConfiguration.TreeConfigurationBuilder(
                     BlockStateProvider.simple(HorizonsBlocks.JACARANDA_LOG.get()),
                     new StraightTrunkPlacer(4, 3, 0),
-                    BlockStateProvider.simple(leafBlock),
+                    BlockStateProvider.simple(HorizonsBlocks.JACARANDA_LEAVES.get()),
+                    new BlobFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), 0),
+                    new TwoLayersFeatureSize(0, 0, 0)
+            );
+        }
+
+        private static TreeConfiguration.TreeConfigurationBuilder createFloweringJacaranda() {
+            return new TreeConfiguration.TreeConfigurationBuilder(
+                    BlockStateProvider.simple(HorizonsBlocks.JACARANDA_LOG.get()),
+                    new StraightTrunkPlacer(4, 3, 0),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(HorizonsBlocks.JACARANDA_LEAVES.get().defaultBlockState(), 2).add(HorizonsBlocks.FLOWERING_JACARANDA_LEAVES.get().defaultBlockState(), 6).build()),
                     new BlobFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), 0),
                     new TwoLayersFeatureSize(0, 0, 0)
             );
@@ -117,6 +184,16 @@ public class HorizonsFeatures {
 
         // Trees & Bushes //
 
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_OAK = createKey("flowering_oak");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_OAK_BEES_0002 = createKey("flowering_oak_bees_0002");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_OAK_BEES_005 = createKey("flowering_oak_bees_005");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_FANCY_OAK = createKey("flowering_fancy_oak");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_FANCY_OAK_BEES_0002 = createKey("flowering_fancy_oak_bees_0002");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_FANCY_OAK_BEES_005 = createKey("flowering_fancy_oak_bees_005");
+
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_JUNGLE = createKey("flowering_jungle");
+        public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_MEGA_JUNGLE = createKey("flowering_mega_jungle");
+
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS = createKey("cypress");
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BEES_0002 = createKey("cypress_bees_0002");
         public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_BEES_005 = createKey("cypress_bees_005");
@@ -131,6 +208,7 @@ public class HorizonsFeatures {
         public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_JACARANDA = createKey("flowering_jacaranda");
         public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_JACARANDA_BEES_0002 = createKey("flowering_jacaranda_bees_0002");
         public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_JACARANDA_BEES_005 = createKey("flowering_jacaranda_bees_005");
+
 
         // Bayou //
 
@@ -162,6 +240,16 @@ public class HorizonsFeatures {
             ));
 
             // Trees & Bushes //
+            register(context, FLOWERING_OAK, Feature.TREE, Configs.FLOWERING_OAK);
+            register(context, FLOWERING_OAK_BEES_0002, Feature.TREE, Configs.FLOWERING_OAK_BEES_0002);
+            register(context, FLOWERING_OAK_BEES_005, Feature.TREE, Configs.FLOWERING_OAK_BEES_005);
+            register(context, FLOWERING_FANCY_OAK, Feature.TREE, Configs.FLOWERING_FANCY_OAK);
+            register(context, FLOWERING_FANCY_OAK_BEES_0002, Feature.TREE, Configs.FLOWERING_FANCY_OAK_BEES_0002);
+            register(context, FLOWERING_FANCY_OAK_BEES_005, Feature.TREE, Configs.FLOWERING_FANCY_OAK_BEES_005);
+
+            register(context, FLOWERING_JUNGLE, Feature.TREE, Configs.FLOWERING_JUNGLE);
+            register(context, FLOWERING_MEGA_JUNGLE, Feature.TREE, Configs.FLOWERING_MEGA_JUNGLE);
+
             register(context, CYPRESS, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS);
             register(context, CYPRESS_BEES_0002, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS_BEES_0002);
             register(context, CYPRESS_BEES_005, HorizonsFeatures.CYPRESS_TREE.get(), Configs.CYPRESS_BEES_005);

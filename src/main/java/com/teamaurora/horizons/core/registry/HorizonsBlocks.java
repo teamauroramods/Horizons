@@ -22,6 +22,8 @@ import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import com.teamaurora.horizons.common.block.*;
 import com.teamaurora.horizons.common.block.grower.CypressTreeGrower;
+import com.teamaurora.horizons.common.block.grower.FloweringJungleTreeGrower;
+import com.teamaurora.horizons.common.block.grower.FloweringOakTreeGrower;
 import com.teamaurora.horizons.common.block.grower.JacarandaTreeGrower;
 import com.teamaurora.horizons.core.Horizons;
 import com.teamaurora.horizons.core.other.HorizonsConstants;
@@ -49,6 +51,22 @@ import static net.minecraft.world.item.crafting.Ingredient.of;
 @Mod.EventBusSubscriber(modid = Horizons.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class HorizonsBlocks {
     public static final BlockSubRegistryHelper HELPER = Horizons.REGISTRY_HELPER.getBlockSubHelper();
+
+    //
+    // MISC
+    //
+
+    // Flowering Trees //
+    public static final RegistryObject<Block> FLOWERING_OAK_LEAVES = HELPER.createBlock("flowering_oak_leaves", ()->new LeavesBlock(HorizonsProperties.VANILLA_LEAVES.leaves()));
+    public static final RegistryObject<Block> FLOWERING_OAK_SAPLING = HELPER.createBlock("flowering_oak_sapling", ()->new SaplingBlock(new FloweringOakTreeGrower(), HorizonsProperties.VANILLA_LEAVES.sapling()));
+    public static final RegistryObject<Block> POTTED_FLOWERING_OAK_SAPLING = HELPER.createBlockNoItem("potted_flowering_oak_sapling", ()->new FlowerPotBlock(FLOWERING_OAK_SAPLING.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> FLOWERING_OAK_LEAF_PILE = HELPER.createBlock("flowering_oak_leaf_pile", ()->new LeafPileBlock(HorizonsProperties.VANILLA_LEAVES.leafPile()));
+
+    public static final RegistryObject<Block> FLOWERING_JUNGLE_LEAVES = HELPER.createBlock("flowering_jungle_leaves", ()->new LeavesBlock(HorizonsProperties.VANILLA_LEAVES.leaves()));
+    public static final RegistryObject<Block> FLOWERING_JUNGLE_SAPLING = HELPER.createBlock("flowering_jungle_sapling", ()->new SaplingBlock(new FloweringJungleTreeGrower(), HorizonsProperties.VANILLA_LEAVES.sapling()));
+    public static final RegistryObject<Block> POTTED_FLOWERING_JUNGLE_SAPLING = HELPER.createBlockNoItem("potted_flowering_jungle_sapling", ()->new FlowerPotBlock(FLOWERING_JUNGLE_SAPLING.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> FLOWERING_JUNGLE_LEAF_PILE = HELPER.createBlock("flowering_jungle_leaf_pile", ()->new LeafPileBlock(HorizonsProperties.VANILLA_LEAVES.leafPile()));
+
 
     //=============================================================//
     //                            BAYOU                            //
@@ -211,6 +229,12 @@ public class HorizonsBlocks {
                 .addItemsBefore(of(Blocks.AZALEA_LEAVES), REDWOOD_LEAVES)
                 .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, "woodworks"), REDWOOD_LEAF_PILE)
                 .addItemsBefore(of(Blocks.AZALEA), CYPRESS_SAPLING, JACARANDA_SAPLING, FLOWERING_JACARANDA_SAPLING, REDWOOD_SAPLING)
+                .addItemsAfter(modLoaded(Blocks.OAK_LEAVES, "woodworks"), FLOWERING_OAK_LEAF_PILE)
+                .addItemsAfter(of(Blocks.OAK_LEAVES), FLOWERING_OAK_LEAVES)
+                .addItemsAfter(modLoaded(Blocks.JUNGLE_LEAVES, "woodworks"), FLOWERING_JUNGLE_LEAF_PILE)
+                .addItemsAfter(of(Blocks.JUNGLE_LEAVES), FLOWERING_JUNGLE_LEAVES)
+                .addItemsAfter(of(Blocks.OAK_SAPLING), FLOWERING_OAK_SAPLING)
+                .addItemsAfter(of(Blocks.JUNGLE_SAPLING), FLOWERING_JUNGLE_SAPLING)
                 .addItemsBefore(of(Items.GLOW_BERRIES), CYPRESS_BRANCH)
                 .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, "berry_good"), GOOSEBERRY_BASKET)
                 .addItemsAfter(of(Items.VINE), BEARD_MOSS)
@@ -248,6 +272,8 @@ public class HorizonsBlocks {
 
 
     public static class HorizonsProperties {
+        public static final PropertyUtil.WoodSetProperties VANILLA_LEAVES = PropertyUtil.WoodSetProperties.builder(MapColor.PLANT).build();
+
         public static final BlockSetType CYPRESS_BLOCK_SET = BlockSetTypeRegistryHelper.register(new BlockSetType(Horizons.MOD_ID + ":cypress"));
         public static final WoodType CYPRESS_WOOD_TYPE = WoodTypeRegistryHelper.registerWoodType(new WoodType(Horizons.MOD_ID + ":cypress", CYPRESS_BLOCK_SET));
         public static final PropertyUtil.WoodSetProperties CYPRESS = PropertyUtil.WoodSetProperties.builder(MapColor.COLOR_LIGHT_GREEN).build();

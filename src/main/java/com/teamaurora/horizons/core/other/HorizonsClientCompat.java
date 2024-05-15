@@ -25,11 +25,15 @@ public class HorizonsClientCompat {
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.REDWOOD_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.REDWOOD_TRAPDOOR.get(), RenderType.cutout());
 
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.FLOWERING_OAK_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.FLOWERING_JUNGLE_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.CYPRESS_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.JACARANDA_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.FLOWERING_JACARANDA_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.REDWOOD_SAPLING.get(), RenderType.cutout());
 
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_FLOWERING_OAK_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_FLOWERING_JUNGLE_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_CYPRESS_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_JACARANDA_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(HorizonsBlocks.POTTED_FLOWERING_JACARANDA_SAPLING.get(), RenderType.cutout());
@@ -58,6 +62,10 @@ public class HorizonsClientCompat {
         ItemColors itemcolors = Minecraft.getInstance().getItemColors();
 
         blockcolors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                HorizonsBlocks.FLOWERING_OAK_LEAVES.get(),
+                HorizonsBlocks.FLOWERING_OAK_LEAF_PILE.get(),
+                HorizonsBlocks.FLOWERING_JUNGLE_LEAVES.get(),
+                HorizonsBlocks.FLOWERING_JUNGLE_LEAF_PILE.get(),
                 HorizonsBlocks.CYPRESS_LEAVES.get(),
                 HorizonsBlocks.CYPRESS_LEAF_PILE.get(),
                 HorizonsBlocks.HANGING_CYPRESS_LEAVES.get()
@@ -73,6 +81,14 @@ public class HorizonsClientCompat {
         itemcolors.register((stack, tintIndex) -> {
             BlockState blockstate = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
             return blockcolors.getColor(blockstate, null, null, tintIndex);
-        }, HorizonsBlocks.CYPRESS_LEAVES.get(), HorizonsBlocks.CYPRESS_LEAF_PILE.get(), HorizonsBlocks.HANGING_CYPRESS_LEAVES.get());
+        },
+                HorizonsBlocks.FLOWERING_OAK_LEAVES.get(),
+                HorizonsBlocks.FLOWERING_OAK_LEAF_PILE.get(),
+                HorizonsBlocks.FLOWERING_JUNGLE_LEAVES.get(),
+                HorizonsBlocks.FLOWERING_JUNGLE_LEAF_PILE.get(),
+                HorizonsBlocks.CYPRESS_LEAVES.get(),
+                HorizonsBlocks.CYPRESS_LEAF_PILE.get(),
+                HorizonsBlocks.HANGING_CYPRESS_LEAVES.get()
+        );
     }
 }

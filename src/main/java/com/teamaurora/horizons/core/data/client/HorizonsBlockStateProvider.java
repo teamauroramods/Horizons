@@ -44,6 +44,8 @@ public class HorizonsBlockStateProvider extends BlueprintBlockStateProvider {
         this.leavesBlocks(FLOWERING_JACARANDA_LEAVES, FLOWERING_JACARANDA_LEAF_PILE);
         this.leavesBlocks(REDWOOD_LEAVES, REDWOOD_LEAF_PILE);
 
+        this.crossBlockWithPot(FLOWERING_OAK_SAPLING, POTTED_FLOWERING_OAK_SAPLING);
+        this.crossBlockWithPot(FLOWERING_JUNGLE_SAPLING, POTTED_FLOWERING_JUNGLE_SAPLING);
         this.crossBlockWithPot(CYPRESS_SAPLING, POTTED_CYPRESS_SAPLING);
         this.crossBlockWithPot(JACARANDA_SAPLING, POTTED_JACARANDA_SAPLING);
         this.crossBlockWithPot(FLOWERING_JACARANDA_SAPLING, POTTED_FLOWERING_JACARANDA_SAPLING);

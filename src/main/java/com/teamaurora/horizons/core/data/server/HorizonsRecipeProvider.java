@@ -27,6 +27,9 @@ public class HorizonsRecipeProvider extends BlueprintRecipeProvider {
 
     @Override
     public void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        leafPileRecipes(consumer, FLOWERING_OAK_LEAVES.get(), FLOWERING_OAK_LEAF_PILE.get());
+        leafPileRecipes(consumer, FLOWERING_JUNGLE_LEAVES.get(), FLOWERING_JUNGLE_LEAF_PILE.get());
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ALGAE_THATCH.get(), 4).define('#', ALGAE.get()).pattern("##").pattern("##").unlockedBy(getHasName(ALGAE.get()), has(ALGAE.get())).save(consumer);
         generateRecipes(consumer, HorizonsBlockFamilies.ALGAE_THATCH_FAMILY);
 

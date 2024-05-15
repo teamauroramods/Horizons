@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "horizons:block/flowering_jungle_sapling"
+  }
+}

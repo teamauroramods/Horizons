@@ -1,0 +1,7 @@
+{
+  "parent": "horizons:block/leaf_pile_overlay",
+  "textures": {
+    "all": "horizons:block/flowering_oak_leaves",
+    "overlay": "horizons:block/flowering_oak_leaves_overlay"
+  }
+}

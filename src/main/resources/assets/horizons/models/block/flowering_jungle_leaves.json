@@ -1,0 +1,7 @@
+{
+  "parent": "horizons:block/leaves_overlay",
+  "textures": {
+    "all": "horizons:block/flowering_jungle_leaves",
+    "overlay": "horizons:block/flowering_jungle_leaves_overlay"
+  }
+}
