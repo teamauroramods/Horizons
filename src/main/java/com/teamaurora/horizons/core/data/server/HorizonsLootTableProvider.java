@@ -16,6 +16,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -35,6 +37,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.teamaurora.horizons.core.registry.HorizonsBlocks.*;
+import static com.teamaurora.horizons.core.registry.HorizonsBlocks.POTTED_WHITE_MALLOW;
 
 public class HorizonsLootTableProvider extends LootTableProvider {
 
@@ -56,6 +59,45 @@ public class HorizonsLootTableProvider extends LootTableProvider {
 
         @Override
         public void generate() {
+            this.dropSelf(RED_MALLOW.get());
+            this.dropSelf(WHITE_MALLOW.get());
+            this.dropSelf(MALLOW_BUSH.get());
+            this.dropSelf(SUNNY_MARIGOLD.get());
+            this.dropSelf(SHADY_MARIGOLD.get());
+            this.add(MARIGOLD_BUSH.get(), (block)->createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+            this.dropSelf(AMARANTH.get());
+            this.dropSelf(FIDDLENECK.get());
+            this.add(HELICONIA.get(), (block)->createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+            this.dropSelf(FORGET_ME_NOT.get());
+
+            this.dropPottedContents(POTTED_RED_MALLOW.get());
+            this.dropPottedContents(POTTED_WHITE_MALLOW.get());
+            this.dropPottedContents(POTTED_MALLOW_BUSH.get());
+            this.dropPottedContents(POTTED_SUNNY_MARIGOLD.get());
+            this.dropPottedContents(POTTED_SHADY_MARIGOLD.get());
+            this.dropPottedContents(POTTED_MARIGOLD_BUSH.get());
+            this.dropPottedContents(POTTED_AMARANTH.get());
+            this.dropPottedContents(POTTED_FIDDLENECK.get());
+            this.dropPottedContents(POTTED_HELICONIA.get());
+            this.dropPottedContents(POTTED_FORGET_ME_NOT.get());
+
+            this.dropSelf(BLUE_DAISY.get());
+            this.dropSelf(ORANGE_DAISY.get());
+            this.dropSelf(PINK_DAISY.get());
+            this.dropSelf(PURPLE_DAISY.get());
+            this.dropSelf(YELLOW_DAISY.get());
+
+            this.dropPottedContents(POTTED_BLUE_DAISY.get());
+            this.dropPottedContents(POTTED_ORANGE_DAISY.get());
+            this.dropPottedContents(POTTED_PINK_DAISY.get());
+            this.dropPottedContents(POTTED_PURPLE_DAISY.get());
+            this.dropPottedContents(POTTED_YELLOW_DAISY.get());
+
+            this.add(SHORT_TROPICAL_GRASS.get(), BlockLootSubProvider::createShearsOnlyDrop);
+            this.add(TALL_TROPICAL_GRASS.get(), BlockLootSubProvider::createShearsOnlyDrop);
+            this.add(SHORT_SWAMP_GRASS.get(), BlockLootSubProvider::createShearsOnlyDrop);
+            this.add(TALL_SWAMP_GRASS.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f)).when(HAS_SHEARS.and(LootItemBlockStatePropertyCondition.hasBlockStateProperties(TALL_SWAMP_GRASS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)))).add(LootItem.lootTableItem(TALL_SWAMP_GRASS.get()))));
+
             this.add(FLOWERING_OAK_LEAF_PILE.get(), this::createLeafPileDrops);
             this.add(FLOWERING_JUNGLE_LEAF_PILE.get(), this::createLeafPileDrops);
 

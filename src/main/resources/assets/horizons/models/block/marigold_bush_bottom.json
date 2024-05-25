@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "horizons:block/marigold_bush_bottom"
+  }
+}

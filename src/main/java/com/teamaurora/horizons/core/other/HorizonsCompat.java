@@ -12,6 +12,28 @@ public class HorizonsCompat {
     }
 
     public static void registerCompostables() {
+        DataUtil.registerCompostable(HorizonsBlocks.RED_MALLOW.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.WHITE_MALLOW.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.MALLOW_BUSH.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.SUNNY_MARIGOLD.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.SHADY_MARIGOLD.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.MARIGOLD_BUSH.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.AMARANTH.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.FIDDLENECK.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.HELICONIA.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.FORGET_ME_NOT.get(), 0.65f);
+
+        DataUtil.registerCompostable(HorizonsBlocks.BLUE_DAISY.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.ORANGE_DAISY.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.PINK_DAISY.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.PURPLE_DAISY.get(), 0.65f);
+        DataUtil.registerCompostable(HorizonsBlocks.YELLOW_DAISY.get(), 0.65f);
+
+        DataUtil.registerCompostable(HorizonsBlocks.SHORT_TROPICAL_GRASS.get(), 0.3f);
+        DataUtil.registerCompostable(HorizonsBlocks.SHORT_SWAMP_GRASS.get(), 0.3f);
+        DataUtil.registerCompostable(HorizonsBlocks.TALL_TROPICAL_GRASS.get(), 0.5f);
+        DataUtil.registerCompostable(HorizonsBlocks.TALL_SWAMP_GRASS.get(), 0.5f);
+
         DataUtil.registerCompostable(HorizonsBlocks.ALGAE.get(), 0.65f);
 
         DataUtil.registerCompostable(HorizonsBlocks.ALGAE_THATCH.get(), 0.65f);
@@ -45,6 +67,12 @@ public class HorizonsCompat {
     }
 
     public static void registerFlammables() {
+        // Grass
+        DataUtil.registerFlammable(HorizonsBlocks.SHORT_TROPICAL_GRASS.get(), 60, 100);
+        DataUtil.registerFlammable(HorizonsBlocks.TALL_TROPICAL_GRASS.get(), 60, 100);
+        DataUtil.registerFlammable(HorizonsBlocks.SHORT_SWAMP_GRASS.get(), 60, 100);
+        DataUtil.registerFlammable(HorizonsBlocks.TALL_SWAMP_GRASS.get(), 60, 100);
+
         // Thatch
         DataUtil.registerFlammable(HorizonsBlocks.ALGAE_THATCH.get(), 60, 20);
         DataUtil.registerFlammable(HorizonsBlocks.ALGAE_THATCH_SLAB.get(), 60, 20);

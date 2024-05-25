@@ -4,6 +4,7 @@ import com.teamabnormals.blueprint.core.data.client.BlueprintBlockStateProvider;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamaurora.horizons.core.Horizons;
 import com.teamaurora.horizons.core.other.HorizonsBlockFamilies;
+import com.teamaurora.horizons.core.registry.HorizonsBlocks;
 import com.teamaurora.horizons.integration.farmers_delight.HorizonsFDCompat;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -23,6 +24,21 @@ public class HorizonsBlockStateProvider extends BlueprintBlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        this.crossBlockWithPot(RED_MALLOW, POTTED_RED_MALLOW);
+        this.crossBlockWithPot(WHITE_MALLOW, POTTED_WHITE_MALLOW);
+        this.crossBlockWithPot(MALLOW_BUSH, POTTED_MALLOW_BUSH);
+        this.crossBlockWithPot(SUNNY_MARIGOLD, POTTED_SUNNY_MARIGOLD);
+        this.crossBlockWithPot(SHADY_MARIGOLD, POTTED_SHADY_MARIGOLD);
+        this.crossBlockWithPot(AMARANTH, POTTED_AMARANTH);
+        this.crossBlockWithPot(FIDDLENECK, POTTED_FIDDLENECK);
+        this.crossBlockWithPot(FORGET_ME_NOT, POTTED_FORGET_ME_NOT);
+
+        this.crossBlockWithPot(BLUE_DAISY, POTTED_BLUE_DAISY);
+        this.crossBlockWithPot(ORANGE_DAISY, POTTED_ORANGE_DAISY);
+        this.crossBlockWithPot(PINK_DAISY, POTTED_PINK_DAISY);
+        this.crossBlockWithPot(PURPLE_DAISY, POTTED_PURPLE_DAISY);
+        this.crossBlockWithPot(YELLOW_DAISY, POTTED_YELLOW_DAISY);
+
         this.blockFamily(HorizonsBlockFamilies.CYPRESS_PLANKS_FAMILY);
         this.blockFamily(HorizonsBlockFamilies.JACARANDA_PLANKS_FAMILY);
         this.blockFamily(HorizonsBlockFamilies.REDWOOD_PLANKS_FAMILY);

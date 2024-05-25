@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=lower": {"model": "horizons:block/tall_swamp_grass_bottom"},
+    "half=upper": {"model": "horizons:block/tall_swamp_grass_top"}
+  }
+}

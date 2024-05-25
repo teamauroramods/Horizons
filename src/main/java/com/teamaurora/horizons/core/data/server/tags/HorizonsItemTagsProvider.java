@@ -8,6 +8,7 @@ import com.teamaurora.horizons.core.other.tags.HorizonsItemTags;
 import com.teamaurora.horizons.core.registry.HorizonsItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
@@ -26,6 +27,9 @@ public class HorizonsItemTagsProvider extends BlueprintItemTagsProvider {
     @Override
     public void addTags(HolderLookup.Provider provider) {
         this.copyWoodsetTags();
+
+        this.copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
+        this.copy(BlockTags.TALL_FLOWERS, ItemTags.TALL_FLOWERS);
 
         this.copy(Tags.Blocks.FENCE_GATES_WOODEN, Tags.Items.FENCE_GATES_WOODEN);
 

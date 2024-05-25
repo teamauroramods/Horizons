@@ -6,6 +6,7 @@ import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import com.teamaurora.horizons.core.Horizons;
 import com.teamaurora.horizons.core.other.HorizonsBlockFamilies;
 import com.teamaurora.horizons.core.other.tags.HorizonsItemTags;
+import com.teamaurora.horizons.core.registry.HorizonsBlocks;
 import com.teamaurora.horizons.core.registry.HorizonsItems;
 import com.teamaurora.horizons.integration.boatload.HorizonsBoatTypes;
 import net.minecraft.data.PackOutput;
@@ -13,6 +14,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 
 import java.util.function.Consumer;
@@ -27,6 +29,23 @@ public class HorizonsRecipeProvider extends BlueprintRecipeProvider {
 
     @Override
     public void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, MARIGOLD_BUSH.get(), "yellow_dye", 2);
+        oneToOneConversionRecipe(consumer, Items.RED_DYE, HELICONIA.get(), "red_dye", 2);
+        oneToOneConversionRecipe(consumer, Items.RED_DYE, RED_MALLOW.get(), "red_dye");
+        oneToOneConversionRecipe(consumer, Items.WHITE_DYE, WHITE_MALLOW.get(), "white_dye");
+        oneToOneConversionRecipe(consumer, Items.PINK_DYE, MALLOW_BUSH.get(), "pink_dye");
+        oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, SUNNY_MARIGOLD.get(), "yellow_dye");
+        oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, SHADY_MARIGOLD.get(), "yellow_dye");
+        oneToOneConversionRecipe(consumer, Items.RED_DYE, AMARANTH.get(), "red_dye");
+        oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, FIDDLENECK.get(), "yellow_dye");
+        oneToOneConversionRecipe(consumer, Items.CYAN_DYE, FORGET_ME_NOT.get(), "cyan_dye");
+
+        oneToOneConversionRecipe(consumer, Items.BLUE_DYE, BLUE_DAISY.get(), "blue_dye");
+        oneToOneConversionRecipe(consumer, Items.ORANGE_DYE, ORANGE_DAISY.get(), "orange_dye");
+        oneToOneConversionRecipe(consumer, Items.PINK_DYE, PINK_DAISY.get(), "pink_dye");
+        oneToOneConversionRecipe(consumer, Items.PURPLE_DYE, PURPLE_DAISY.get(), "purple_dye");
+        oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, YELLOW_DAISY.get(), "yellow_dye");
+
         leafPileRecipes(consumer, FLOWERING_OAK_LEAVES.get(), FLOWERING_OAK_LEAF_PILE.get());
         leafPileRecipes(consumer, FLOWERING_JUNGLE_LEAVES.get(), FLOWERING_JUNGLE_LEAF_PILE.get());
 

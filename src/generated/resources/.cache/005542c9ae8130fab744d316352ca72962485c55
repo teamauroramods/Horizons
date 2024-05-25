@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-14T17:38:04.777797268	Tags for minecraft:block mod id horizons
+// 1.20.1	2024-05-25T16:05:30.655234433	Tags for minecraft:block mod id horizons
 58c0f51c0524902a34c7cb994a4f2ae1bb001f17 data/blueprint/tags/blocks/wooden_beehives.json
 0d8e22f4c9b34dc06acd22d1fe3f95433ac794bf data/blueprint/tags/blocks/wooden_bookshelves.json
 c5355113b05e18ba33dd828a28271af24fd1334b data/blueprint/tags/blocks/wooden_chests.json
@@ -11,16 +11,20 @@ b5db79133d867e3c9ef74dde19bb9e14aa5d77f7 data/forge/tags/blocks/fence_gates/wood
 1ad0c8e16ee671b988e4671f6357cfa2aa1584be data/horizons/tags/blocks/redwood_logs.json
 89c4e5df8b3f90768c3d2c9d5e99bca14f64ae4d data/minecraft/tags/blocks/ceiling_hanging_signs.json
 b5db79133d867e3c9ef74dde19bb9e14aa5d77f7 data/minecraft/tags/blocks/fence_gates.json
-4ae44a79a59674cd6160e2a2943c9096ecb2c68e data/minecraft/tags/blocks/flower_pots.json
+4e7c20c86af53bd5572983e7ba45a118b71f9209 data/minecraft/tags/blocks/flower_pots.json
 b774a2f1811b19a2b41238af0436c07547cf9970 data/minecraft/tags/blocks/leaves.json
 31b0e68f9a4898e875b72480f43d8ee584975b59 data/minecraft/tags/blocks/logs_that_burn.json
-1270e1d50ab4140860acdb83c3c8f9bb49342c67 data/minecraft/tags/blocks/mineable/axe.json
+44b78544c07769b1894058a0615415eadf7f4f82 data/minecraft/tags/blocks/mineable/axe.json
 f27cdfa09d4947d09783508e149426993a0991c0 data/minecraft/tags/blocks/mineable/hoe.json
 f9657430200915ea8a8840c9365e0f2b54c943ed data/minecraft/tags/blocks/overworld_natural_logs.json
 a05af42393f2985d8b33658bd4b60bc29c5915f5 data/minecraft/tags/blocks/planks.json
-4c673fe4d2e3d39fc8b9f4e6b00653ea67801bae data/minecraft/tags/blocks/replaceable.json
+e46033e7dd1a8bdb93f54dedbdbb397083df460e data/minecraft/tags/blocks/replaceable.json
+7d2558394eafa3258d2969f5f58a2c489dd14aff data/minecraft/tags/blocks/replaceable_by_trees.json
 99925adaf46b4aa938e0a1c85f4d8c85f972fd3e data/minecraft/tags/blocks/saplings.json
+5401b610c53284c9447d1aa3169e00755cf55bf5 data/minecraft/tags/blocks/small_flowers.json
 d066ffa6a831d28d32f0331cc8e76d079bceb55e data/minecraft/tags/blocks/standing_signs.json
+7d2558394eafa3258d2969f5f58a2c489dd14aff data/minecraft/tags/blocks/sword_efficient.json
+7a0ccd5b5e203c103cf317d06e0893e00a72df71 data/minecraft/tags/blocks/tall_flowers.json
 83e3ed4ba5bb735a96ac2f0b93721fb141073bb3 data/minecraft/tags/blocks/wall_hanging_signs.json
 4ffd849120fa7b40df0613062b10757d2d66df35 data/minecraft/tags/blocks/wall_signs.json
 1c00b29702b162464f68d6b87dacfcf1795472ed data/minecraft/tags/blocks/wooden_buttons.json

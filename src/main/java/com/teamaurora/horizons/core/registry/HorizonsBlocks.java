@@ -26,9 +26,11 @@ import com.teamaurora.horizons.common.block.grower.FloweringJungleTreeGrower;
 import com.teamaurora.horizons.common.block.grower.FloweringOakTreeGrower;
 import com.teamaurora.horizons.common.block.grower.JacarandaTreeGrower;
 import com.teamaurora.horizons.core.Horizons;
+import com.teamaurora.horizons.core.HorizonsConfig;
 import com.teamaurora.horizons.core.other.HorizonsConstants;
 import com.teamaurora.horizons.integration.farmers_delight.HorizonsFDCompat;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -39,6 +41,7 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -67,6 +70,47 @@ public class HorizonsBlocks {
     public static final RegistryObject<Block> POTTED_FLOWERING_JUNGLE_SAPLING = HELPER.createBlockNoItem("potted_flowering_jungle_sapling", ()->new FlowerPotBlock(FLOWERING_JUNGLE_SAPLING.get(), PropertyUtil.flowerPot()));
     public static final RegistryObject<Block> FLOWERING_JUNGLE_LEAF_PILE = HELPER.createBlock("flowering_jungle_leaf_pile", ()->new LeafPileBlock(HorizonsProperties.VANILLA_LEAVES.leafPile()));
 
+    // Lots of flowers
+    public static final RegistryObject<Block> RED_MALLOW = HELPER.createBlock("red_mallow", ()->new FlowerBlock(MobEffects.MOVEMENT_SPEED, 16, PropertyUtil.flower()));
+    public static final RegistryObject<Block> WHITE_MALLOW = HELPER.createBlock("white_mallow", ()->new FlowerBlock(MobEffects.MOVEMENT_SPEED, 16, PropertyUtil.flower()));
+    public static final RegistryObject<Block> MALLOW_BUSH = HELPER.createBlock("mallow_bush", ()->new FlowerBlock(MobEffects.MOVEMENT_SPEED, 16, PropertyUtil.flower()));
+    public static final RegistryObject<Block> SUNNY_MARIGOLD = HELPER.createBlock("sunny_marigold", ()->new FlowerBlock(MobEffects.MOVEMENT_SPEED, 16, PropertyUtil.flower()));
+    public static final RegistryObject<Block> SHADY_MARIGOLD = HELPER.createBlock("shady_marigold", ()->new FlowerBlock(MobEffects.MOVEMENT_SPEED, 16, PropertyUtil.flower()));
+    public static final RegistryObject<Block> MARIGOLD_BUSH = HELPER.createBlock("marigold_bush", ()->new TallFlowerBlock(PropertyUtil.flower()));
+    public static final RegistryObject<Block> AMARANTH = HELPER.createBlock("amaranth", ()->new FlowerBlock(MobEffects.MOVEMENT_SPEED, 16, PropertyUtil.flower()));
+    public static final RegistryObject<Block> FIDDLENECK = HELPER.createBlock("fiddleneck", ()->new FlowerBlock(MobEffects.MOVEMENT_SPEED, 16, PropertyUtil.flower()));
+    public static final RegistryObject<Block> HELICONIA = HELPER.createBlock("heliconia", ()->new TallFlowerBlock(PropertyUtil.flower()));
+    public static final RegistryObject<Block> FORGET_ME_NOT = HELPER.createBlock("forget_me_not", ()->new FlowerBlock(MobEffects.MOVEMENT_SPEED, 16, PropertyUtil.flower()));
+
+    public static final RegistryObject<Block> POTTED_RED_MALLOW = HELPER.createBlockNoItem("potted_red_mallow", ()->new FlowerPotBlock(RED_MALLOW.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_WHITE_MALLOW = HELPER.createBlockNoItem("potted_white_mallow", ()->new FlowerPotBlock(WHITE_MALLOW.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_MALLOW_BUSH = HELPER.createBlockNoItem("potted_mallow_bush", ()->new FlowerPotBlock(MALLOW_BUSH.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_SUNNY_MARIGOLD = HELPER.createBlockNoItem("potted_sunny_marigold", ()->new FlowerPotBlock(SUNNY_MARIGOLD.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_SHADY_MARIGOLD = HELPER.createBlockNoItem("potted_shady_marigold", ()->new FlowerPotBlock(SHADY_MARIGOLD.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_MARIGOLD_BUSH = HELPER.createBlockNoItem("potted_marigold_bush", ()->new FlowerPotBlock(MARIGOLD_BUSH.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_AMARANTH = HELPER.createBlockNoItem("potted_amaranth", ()->new FlowerPotBlock(AMARANTH.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_FIDDLENECK = HELPER.createBlockNoItem("potted_fiddleneck", ()->new FlowerPotBlock(FIDDLENECK.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_HELICONIA = HELPER.createBlockNoItem("potted_heliconia", ()->new FlowerPotBlock(HELICONIA.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_FORGET_ME_NOT = HELPER.createBlockNoItem("potted_forget_me_not", ()->new FlowerPotBlock(FORGET_ME_NOT.get(), PropertyUtil.flowerPot()));
+
+    // HI IM DAISY
+    public static final RegistryObject<Block> BLUE_DAISY = HELPER.createBlock("blue_daisy", ()->new FlowerBlock(MobEffects.REGENERATION, 8, PropertyUtil.flower()));
+    public static final RegistryObject<Block> ORANGE_DAISY = HELPER.createBlock("orange_daisy", ()->new FlowerBlock(MobEffects.REGENERATION, 8, PropertyUtil.flower()));
+    public static final RegistryObject<Block> PINK_DAISY = HELPER.createBlock("pink_daisy", ()->new FlowerBlock(MobEffects.REGENERATION, 8, PropertyUtil.flower()));
+    public static final RegistryObject<Block> PURPLE_DAISY = HELPER.createBlock("purple_daisy", ()->new FlowerBlock(MobEffects.REGENERATION, 8, PropertyUtil.flower()));
+    public static final RegistryObject<Block> YELLOW_DAISY = HELPER.createBlock("yellow_daisy", ()->new FlowerBlock(MobEffects.REGENERATION, 8, PropertyUtil.flower()));
+
+    public static final RegistryObject<Block> POTTED_BLUE_DAISY = HELPER.createBlockNoItem("potted_blue_daisy", ()->new FlowerPotBlock(BLUE_DAISY.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_ORANGE_DAISY = HELPER.createBlockNoItem("potted_orange_daisy", ()->new FlowerPotBlock(ORANGE_DAISY.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_PINK_DAISY = HELPER.createBlockNoItem("potted_pink_daisy", ()->new FlowerPotBlock(PINK_DAISY.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_PURPLE_DAISY = HELPER.createBlockNoItem("potted_purple_daisy", ()->new FlowerPotBlock(PURPLE_DAISY.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_YELLOW_DAISY = HELPER.createBlockNoItem("potted_yellow_daisy", ()->new FlowerPotBlock(YELLOW_DAISY.get(), PropertyUtil.flowerPot()));
+
+    // Grass
+    public static final RegistryObject<Block> SHORT_TROPICAL_GRASS = HELPER.createBlock("short_tropical_grass", ()->new TallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)));
+    public static final RegistryObject<Block> TALL_TROPICAL_GRASS = HELPER.createBlock("tall_tropical_grass", ()->new TallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)));
+    public static final RegistryObject<Block> SHORT_SWAMP_GRASS = HELPER.createBlock("short_swamp_grass", ()->new TallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)));
+    public static final RegistryObject<Block> TALL_SWAMP_GRASS = HELPER.createBlock("tall_swamp_grass", ()->new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)));
 
     //=============================================================//
     //                            BAYOU                            //
@@ -217,6 +261,7 @@ public class HorizonsBlocks {
                 .addItemsBefore(modLoaded(Blocks.BAMBOO_BLOCK, "woodworks"), REDWOOD_BOARDS)
                 .addItemsBefore(of(Blocks.BAMBOO_BLOCK), REDWOOD_STAIRS, REDWOOD_SLAB, REDWOOD_FENCE, REDWOOD_FENCE_GATE, REDWOOD_DOOR, REDWOOD_TRAPDOOR, REDWOOD_PRESSURE_PLATE, REDWOOD_BUTTON)
                 .addItemsBefore(of(Blocks.SANDSTONE), ALGAE_THATCH, ALGAE_THATCH_STAIRS, ALGAE_THATCH_SLAB)
+
                 .tab(NATURAL_BLOCKS)
                 .addItemsBefore(of(Blocks.MUSHROOM_STEM), CYPRESS_LOG, JACARANDA_LOG, REDWOOD_LOG)
                 .addItemsBefore(of(Blocks.AZALEA_LEAVES), CYPRESS_LEAVES)
@@ -229,16 +274,26 @@ public class HorizonsBlocks {
                 .addItemsBefore(of(Blocks.AZALEA_LEAVES), REDWOOD_LEAVES)
                 .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, "woodworks"), REDWOOD_LEAF_PILE)
                 .addItemsBefore(of(Blocks.AZALEA), CYPRESS_SAPLING, JACARANDA_SAPLING, FLOWERING_JACARANDA_SAPLING, REDWOOD_SAPLING)
-                .addItemsAfter(modLoaded(Blocks.OAK_LEAVES, "woodworks"), FLOWERING_OAK_LEAF_PILE)
-                .addItemsAfter(of(Blocks.OAK_LEAVES), FLOWERING_OAK_LEAVES)
-                .addItemsAfter(modLoaded(Blocks.JUNGLE_LEAVES, "woodworks"), FLOWERING_JUNGLE_LEAF_PILE)
-                .addItemsAfter(of(Blocks.JUNGLE_LEAVES), FLOWERING_JUNGLE_LEAVES)
-                .addItemsAfter(of(Blocks.OAK_SAPLING), FLOWERING_OAK_SAPLING)
-                .addItemsAfter(of(Blocks.JUNGLE_SAPLING), FLOWERING_JUNGLE_SAPLING)
+                .addItemsAfter(modLoadedWithConfig(Blocks.OAK_LEAVES, HorizonsConfig.COMMON.enableFloweringOak, "woodworks"), FLOWERING_OAK_LEAF_PILE)
+                .addItemsAfter(withConfig(Blocks.OAK_LEAVES, HorizonsConfig.COMMON.enableFloweringOak), FLOWERING_OAK_LEAVES)
+                .addItemsAfter(modLoadedWithConfig(Blocks.JUNGLE_LEAVES, HorizonsConfig.COMMON.enableFloweringJungle, "woodworks"), FLOWERING_JUNGLE_LEAF_PILE)
+                .addItemsAfter(withConfig(Blocks.JUNGLE_LEAVES, HorizonsConfig.COMMON.enableFloweringJungle), FLOWERING_JUNGLE_LEAVES)
+                .addItemsAfter(withConfig(Blocks.OAK_SAPLING, HorizonsConfig.COMMON.enableFloweringOak), FLOWERING_OAK_SAPLING)
+                .addItemsAfter(withConfig(Blocks.JUNGLE_SAPLING, HorizonsConfig.COMMON.enableFloweringJungle), FLOWERING_JUNGLE_SAPLING)
                 .addItemsBefore(of(Items.GLOW_BERRIES), CYPRESS_BRANCH)
                 .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, "berry_good"), GOOSEBERRY_BASKET)
                 .addItemsAfter(of(Items.VINE), BEARD_MOSS)
-                .addItemsAfter(of(Items.LILY_PAD), BLUE_WATER_LILY, CYAN_WATER_LILY, PINK_WATER_LILY, PURPLE_WATER_LILY, WHITE_WATER_LILY)
+                .addItemsAfter(withConfig(Items.LILY_PAD, HorizonsConfig.COMMON.enableWaterlilies), BLUE_WATER_LILY, CYAN_WATER_LILY, PINK_WATER_LILY, PURPLE_WATER_LILY, WHITE_WATER_LILY)
+                .addItemsAfter(withConfig(Items.OXEYE_DAISY, HorizonsConfig.COMMON.enableDaisies), BLUE_DAISY, ORANGE_DAISY, PINK_DAISY, PURPLE_DAISY, YELLOW_DAISY)
+                .addItemsAfter(withConfig(Items.LILY_OF_THE_VALLEY, HorizonsConfig.COMMON.enableForgetMeNots), FORGET_ME_NOT)
+                .addItemsAfter(withConfig(Items.LILY_OF_THE_VALLEY, HorizonsConfig.COMMON.enableFiddlenecks), FIDDLENECK)
+                .addItemsAfter(withConfig(Items.LILY_OF_THE_VALLEY, HorizonsConfig.COMMON.enableAmaranths), AMARANTH)
+                .addItemsAfter(withConfig(Items.LILY_OF_THE_VALLEY, HorizonsConfig.COMMON.enableMarigolds), SUNNY_MARIGOLD, SHADY_MARIGOLD, MARIGOLD_BUSH)
+                .addItemsAfter(withConfig(Items.LILY_OF_THE_VALLEY, HorizonsConfig.COMMON.enableMallows), RED_MALLOW, WHITE_MALLOW, MALLOW_BUSH)
+                .addItemsAfter(withConfig(Items.PEONY, HorizonsConfig.COMMON.enableHeliconias), HELICONIA)
+                .addItemsAfter(withConfig(Items.GRASS, HorizonsConfig.COMMON.enableAlternateGrasses), SHORT_SWAMP_GRASS, SHORT_TROPICAL_GRASS)
+                .addItemsAfter(withConfig(Items.TALL_GRASS, HorizonsConfig.COMMON.enableAlternateGrasses), TALL_SWAMP_GRASS, TALL_TROPICAL_GRASS)
+
                 .tab(FUNCTIONAL_BLOCKS)
                 .addItemsBefore(of(Blocks.BAMBOO_SIGN), CYPRESS_SIGNS.getFirst(), CYPRESS_HANGING_SIGNS.getFirst(), JACARANDA_SIGNS.getFirst(), JACARANDA_HANGING_SIGNS.getFirst(), REDWOOD_SIGNS.getFirst(), REDWOOD_HANGING_SIGNS.getFirst());
 
@@ -258,8 +313,16 @@ public class HorizonsBlocks {
                 .addItemsBefore(ofID(HorizonsConstants.TRAPPED_BAMBOO_CLOSET), TRAPPED_CYPRESS_CHEST, TRAPPED_JACARANDA_CHEST, TRAPPED_REDWOOD_CHEST);
     }
 
+    public static Predicate<ItemStack> withConfig(ItemLike item, ForgeConfigSpec.BooleanValue bool) {
+        return stack -> of(item).test(stack) && bool.get();
+    }
+
     public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {
         return stack -> of(item).test(stack) && BlockSubRegistryHelper.areModsLoaded(modids);
+    }
+
+    public static Predicate<ItemStack> modLoadedWithConfig(ItemLike item, ForgeConfigSpec.BooleanValue bool, String... modids) {
+        return stack -> of(item).test(stack) && bool.get() && BlockSubRegistryHelper.areModsLoaded(modids);
     }
 
     public static Predicate<ItemStack> ofID(ResourceLocation location, ItemLike fallback, String... modids) {

@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-14T17:38:04.776383041	Tags for minecraft:item mod id horizons
+// 1.20.1	2024-05-25T16:05:30.653263558	Tags for minecraft:item mod id horizons
 58c0f51c0524902a34c7cb994a4f2ae1bb001f17 data/blueprint/tags/items/wooden_beehives.json
 0d8e22f4c9b34dc06acd22d1fe3f95433ac794bf data/blueprint/tags/items/wooden_bookshelves.json
 c5355113b05e18ba33dd828a28271af24fd1334b data/blueprint/tags/items/wooden_chests.json
@@ -20,6 +20,8 @@ b774a2f1811b19a2b41238af0436c07547cf9970 data/minecraft/tags/items/leaves.json
 a05af42393f2985d8b33658bd4b60bc29c5915f5 data/minecraft/tags/items/planks.json
 99925adaf46b4aa938e0a1c85f4d8c85f972fd3e data/minecraft/tags/items/saplings.json
 d066ffa6a831d28d32f0331cc8e76d079bceb55e data/minecraft/tags/items/signs.json
+5401b610c53284c9447d1aa3169e00755cf55bf5 data/minecraft/tags/items/small_flowers.json
+7a0ccd5b5e203c103cf317d06e0893e00a72df71 data/minecraft/tags/items/tall_flowers.json
 1c00b29702b162464f68d6b87dacfcf1795472ed data/minecraft/tags/items/wooden_buttons.json
 4cef97e3070bdfee33ee180582fb12a8b7321a36 data/minecraft/tags/items/wooden_doors.json
 8efed0b689392dac35df74c1f522572bbcb1c5c6 data/minecraft/tags/items/wooden_fences.json
